@@ -26,11 +26,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Hacking...
         uses: actions/checkout@v4
-      - name: Setup Pages
+      - name: Mainframe Breached
         uses: actions/configure-pages@v5
-      - name: Build with Jekyll
+      - name: Memory and IDs Transferred successfully
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./
