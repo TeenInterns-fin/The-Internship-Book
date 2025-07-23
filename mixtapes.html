@@ -1345,14 +1345,10 @@
             border-left-color: var(--border-color);
         }
 
-        /* Scroll locked state */
-        body.scroll-locked {
+        /* Scroll locked state - More selective */
+        .player-area.scroll-locked {
             overflow: hidden;
-            height: 100vh;
-        }
-
-        body.scroll-locked .player-area {
-            overflow: hidden;
+            user-select: none;
         }
 
         @keyframes pulse-locked {
@@ -1649,29 +1645,26 @@
                 const body = document.body;
                 
                 if (scrollLocked) {
-                    // Lock scroll
-                    body.classList.add('scroll-locked');
+                    // Lock scroll only in specific areas
                     scrollLockBtn.classList.add('locked');
                     lockIcon.textContent = '🔒';
                     scrollTooltip.textContent = 'Click to unlock scroll';
                     
-                    // Prevent default scroll behavior
-                    document.addEventListener('wheel', preventDefault, { passive: false });
-                    document.addEventListener('touchmove', preventDefault, { passive: false });
+                    // Only prevent wheel events in the player area
+                    document.addEventListener('wheel', preventPlayerScroll, { passive: false });
+                    // Let touchmove events be handled by individual elements
                     document.addEventListener('keydown', preventDefaultForScrollKeys, { passive: false });
                     
                     // Show success message
-                    showScrollMessage('Scroll locked! Drag & drop is now optimized 🎯', 'success');
+                    showScrollMessage('Scroll locked in player area! Drag & drop is now optimized 🎯', 'success');
                 } else {
                     // Unlock scroll
-                    body.classList.remove('scroll-locked');
                     scrollLockBtn.classList.remove('locked');
                     lockIcon.textContent = '🔓';
                     scrollTooltip.textContent = 'Click to lock scroll for better drag & drop';
                     
                     // Remove scroll prevention
-                    document.removeEventListener('wheel', preventDefault);
-                    document.removeEventListener('touchmove', preventDefault);
+                    document.removeEventListener('wheel', preventPlayerScroll);
                     document.removeEventListener('keydown', preventDefaultForScrollKeys);
                     
                     // Show unlock message
@@ -1679,10 +1672,30 @@
                 }
             }
             
-            function preventDefault(e) {
-                // Only prevent if not currently dragging a mixtape disk
-                if (!isTouchDragging || !e.target.closest('.mixtape-disk')) {
+            // Only prevent scroll in player area
+            function preventPlayerScroll(e) {
+                if (e.target.closest('.player-area')) {
                     e.preventDefault();
+                }
+            }
+            
+            function preventDefault(e) {
+                // Only prevent scroll when we're actually dragging, not just when scroll is locked
+                if (isTouchDragging && e.target.closest('.mixtape-disk')) {
+                    e.preventDefault();
+                    return;
+                }
+                
+                // For wheel events, only prevent in the player area when scroll is locked
+                if (e.type === 'wheel' && e.target.closest('.player-area')) {
+                    e.preventDefault();
+                    return;
+                }
+                
+                // For touchmove, only prevent on the mixtape disks themselves
+                if (e.type === 'touchmove' && e.target.closest('.mixtape-disk')) {
+                    e.preventDefault();
+                    return;
                 }
             }
             
