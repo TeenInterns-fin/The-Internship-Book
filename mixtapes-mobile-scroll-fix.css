@@ -1,0 +1,119 @@
+/* Mobile Scrolling Fix for Mixtapes Page */
+
+/* Override touch-action for body to allow scrolling */
+@media (max-width: 768px) {
+    body {
+        touch-action: pan-y !important; /* Allow vertical scrolling on mobile */
+        overflow-y: auto !important; /* Ensure vertical scrolling is enabled */
+    }
+
+    /* Fix the main sections to allow proper scrolling */
+    .hero,
+    .interactive-player-section,
+    .mixtapes-section {
+        touch-action: pan-y !important;
+        overflow: visible !important;
+        height: auto !important; /* Remove fixed heights that prevent scrolling */
+    }
+
+    /* Player area should not prevent page scrolling */
+    .player-area {
+        touch-action: pan-y !important; /* Allow page scrolling through player area */
+        overflow: visible !important;
+        height: auto !important;
+        min-height: 500px; /* Use min-height instead of fixed height */
+    }
+
+    /* Only prevent touch-action on draggable elements themselves */
+    .mixtape-disk {
+        touch-action: none; /* Keep drag functionality for mixtape disks */
+    }
+
+    /* Ensure header and footer don't interfere with scrolling */
+    .site-header,
+    .site-footer {
+        touch-action: pan-y !important;
+    }
+
+    /* Container should allow scrolling */
+    .container {
+        touch-action: pan-y !important;
+        overflow: visible !important;
+    }
+
+    /* Fix scroll lock functionality for mobile */
+    .scroll-lock-container {
+        touch-action: pan-y !important;
+    }
+
+    /* Make sure the drop zone doesn't interfere with scrolling */
+    .drop-zone {
+        pointer-events: none !important; /* Only activate when actually dragging */
+    }
+
+    .drop-zone.drag-over {
+        pointer-events: auto !important;
+    }
+
+    /* Ensure speaker container doesn't block scrolling */
+    .speaker-container {
+        touch-action: pan-y !important;
+        pointer-events: none !important;
+    }
+
+    .speaker-image-container {
+        touch-action: pan-y !important;
+        pointer-events: none !important;
+    }
+
+    /* Hero music showcase should allow scrolling */
+    .hero-music-showcase {
+        touch-action: pan-y !important;
+        overflow: visible !important;
+        height: auto !important;
+    }
+
+    /* Music team showcase should allow scrolling */
+    .music-team-showcase {
+        touch-action: pan-y !important;
+        overflow: visible !important;
+    }
+
+    /* Credits section should allow scrolling */
+    .music-credits-section {
+        touch-action: pan-y !important;
+        overflow: visible !important;
+    }
+}
+
+/* Additional mobile fixes for very small screens */
+@media (max-width: 480px) {
+    /* Reduce player area height further on small screens */
+    .player-area {
+        min-height: 400px !important;
+        padding: 1rem !important;
+    }
+
+    /* Make interactive elements more touch-friendly */
+    .mixtape-disk {
+        width: 80px !important;
+        height: 80px !important;
+    }
+
+    /* Ensure scroll lock button doesn't interfere */
+    .scroll-lock-btn {
+        touch-action: manipulation !important;
+    }
+}
+
+/* Fix for preventing accidental scrolling during drag */
+.dragging-active {
+    touch-action: none !important;
+    overflow: hidden !important;
+}
+
+/* Restore scrolling when not dragging */
+.dragging-inactive {
+    touch-action: pan-y !important;
+    overflow-y: auto !important;
+}
