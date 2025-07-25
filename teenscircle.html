@@ -18,6 +18,73 @@
     
     <style>
             /* Theme Toggle Button Styles */
+       /* CSS Variables for Theme System */
+        :root {
+            --primary-color: #009A94;
+            --secondary-color: #00C4B8;
+            --accent-color: #00E6D6;
+            --highlight-color: #FF6B6B;
+
+            /* Light Theme Colors */
+            --bg-color: #FFFFFF;
+            --bg-secondary: #F8F9FA;
+            --bg-alt-color: #F1F3F4;
+            --text-color: #000000;
+            --text-secondary: #000000;
+            --subtitle-color: #000000;
+            --border-color: #E0E0E0;
+            --card-bg: #FFFFFF;
+            --sidebar-bg: rgba(255, 255, 255, 0.95);
+            --sidebar-text: #000000;
+
+            /* Transition variables */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        /* Dark Theme Colors */
+        [data-theme="dark"] {
+            --bg-color: rgb(26, 26, 26);
+            --bg-secondary: rgb(26, 26, 26);
+            --bg-alt-color: #2A2A2A;
+            --text-color: #FFFFFF;
+            --text-secondary: #E0E0E0;
+            --subtitle-color: #B0B0B0;
+            --border-color: #333333;
+            --card-bg: rgb(26, 26, 26);
+            --sidebar-bg: rgba(26, 26, 26, 0.95);
+            --sidebar-text: #FFFFFF;
+        }
+
+        /* Apply theme colors to body and main elements */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color var(--transition-normal), color var(--transition-normal);
+        }
+
+        /* Force header background and text colors */
+        .site-header {
+            background-color: var(--bg-color) !important;
+            transition: background-color var(--transition-normal);
+        }
+
+        .nav-container {
+            background-color: transparent !important;
+        }
+
+        .nav-link {
+            color: var(--text-color) !important;
+        }
+
+        .mobile-menu {
+            background-color: var(--bg-color) !important;
+        }
+
+        .mobile-link {
+            color: var(--text-color) !important;
+        }
             .theme-toggle {
                 background: none;
                 border: 2px solid var(--primary-color);
