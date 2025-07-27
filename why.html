@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Do Teens Need Internships? | The Internship Book</title>
+    <link rel="icon" type="image/png" href="logos/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="preorder-styles.css">
+    <link rel="stylesheet" href="mobile-fixes.css">
+    <link rel="stylesheet" href="floating-stickers.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
+    <style>
+        /* Page-specific styles */
+        .what-page {
+            padding: 120px 0 60px;
+            min-height: 100vh;
+        }
+
+        .content-section {
+            padding: 4rem 0;
+            background: var(--bg-color);
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .content-placeholder {
+            background: var(--bg-secondary);
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .illustration-placeholder {
+            background: var(--bg-secondary);
+            border: 2px dashed var(--primary-color);
+            border-radius: 12px;
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .spotify-section {
+            background: var(--bg-secondary);
+            padding: 4rem 0;
+            margin-top: 2rem;
+        }
+
+        .spotify-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .spotify-title {
+            text-align: center;
+            color: var(--text-color);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .spotify-embed {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .content-placeholder,
+            .illustration-placeholder {
+                min-height: 200px;
+                padding: 2rem 1rem;
+            }
+
+            .spotify-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+    <style>
+        /* CSS Variables for Theme System */
+        :root {
+            --primary-color: #009A94;
+            --secondary-color: #00C4B8;
+            --accent-color: #00E6D6;
+            --highlight-color: #FF6B6B;
+
+            /* Light Theme Colors */
+            --bg-color: #FFFFFF;
+            --bg-secondary: #F8F9FA;
+            --bg-alt-color: #F1F3F4;
+            --text-color: #000000;
+            --text-secondary: #000000;
+            --subtitle-color: #000000;
+            --border-color: #E0E0E0;
+            --card-bg: #FFFFFF;
+            --sidebar-bg: rgba(255, 255, 255, 0.95);
+            --sidebar-text: #000000;
+
+            /* Transition variables */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        /* Dark Theme Colors */
+        [data-theme="dark"] {
+            --bg-color: rgb(26, 26, 26);
+            --bg-secondary: rgb(26, 26, 26);
+            --bg-alt-color: #2A2A2A;
+            --text-color: #FFFFFF;
+            --text-secondary: #E0E0E0;
+            --subtitle-color: #B0B0B0;
+            --border-color: #333333;
+            --card-bg: rgb(26, 26, 26);
+            --sidebar-bg: rgba(26, 26, 26, 0.95);
+            --sidebar-text: #FFFFFF;
+        }
+
+        /* Apply theme colors to body and main elements */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color var(--transition-normal), color var(--transition-normal);
+        }
+
+        /* Force header background and text colors */
+        .site-header {
+            background-color: var(--bg-color) !important;
+            transition: background-color var(--transition-normal);
+        }
+
+        .nav-container {
+            background-color: transparent !important;
+        }
+
+        .nav-link {
+            color: var(--text-color) !important;
+        }
+
+        .mobile-menu {
+            background-color: var(--bg-color) !important;
+        }
+
+        .mobile-link {
+            color: var(--text-color) !important;
+        }
+
+        /* Ultra aggressive text color overrides for light mode */
+        [data-theme="light"] h1,
+        [data-theme="light"] h2,
+        [data-theme="light"] h3,
+        [data-theme="light"] h4,
+        [data-theme="light"] h5,
+        [data-theme="light"] h6,
+        [data-theme="light"] p,
+        [data-theme="light"] span,
+        [data-theme="light"] div,
+        [data-theme="light"] li,
+        [data-theme="light"] a {
+            color: #000000 !important;
+        }
+
+        /* Force specific elements to black in light mode */
+        [data-theme="light"] .team-intro h1,
+        [data-theme="light"] .team-intro p,
+        [data-theme="light"] .profile-name,
+        [data-theme="light"] .profile-description,
+        [data-theme="light"] .footer-tagline,
+        [data-theme="light"] .footer-group h4,
+        [data-theme="light"] .footer-group a,
+        [data-theme="light"] .copyright,
+        [data-theme="light"] .credit {
+            color: #000000 !important;
+        }
+
+        /* Keep teal colors for branding in light mode */
+        [data-theme="light"] .logo-text,
+        [data-theme="light"] .profile-role,
+        [data-theme="light"] .skill-tag {
+            color: #009A94 !important;
+        }
+
+        /* Enhanced Left Sidebar Navigation */
+        .left-sidebar {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background: var(--sidebar-bg);
+            backdrop-filter: blur(15px);
+            padding: 15px;
+            border-radius: 0 15px 15px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            transition: all var(--transition-normal);
+            max-width: 280px;
+            min-width: 50px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        /* Theme Toggle Button Styles */
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--primary-color);
+            border-radius: 50px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+            margin-left: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle .light-icon,
+        .theme-toggle .dark-icon {
+            transition: opacity var(--transition-fast), transform var(--transition-fast);
+        }
+
+        /* Show/hide icons based on theme */
+        [data-theme="light"] .theme-toggle .light-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        [data-theme="light"] .theme-toggle .dark-icon {
+            opacity: 0;
+            transform: scale(0.8);
+            position: absolute;
+        }
+
+        [data-theme="dark"] .theme-toggle .dark-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        [data-theme="dark"] .theme-toggle .light-icon {
+            opacity: 0;
+            transform: scale(0.8);
+            position: absolute;
+        }
+
+        /* Mobile theme toggle */
+        .mobile-theme-toggle {
+            background: none;
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .mobile-theme-toggle:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .toggle-text {
+            font-size: 0.9rem;
+        }
+
+        /* Custom scrollbar for sidebar */
+        .left-sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .left-sidebar::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+        }
+
+        .left-sidebar::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .left-sidebar::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-color);
+        }
+
+        [data-theme="dark"] .left-sidebar {
+            background: rgba(26, 26, 26, 0.95);
+            border-color: var(--border-color);
+        }
+
+        /* Improved collapsed state */
+        .left-sidebar.collapsed {
+            width: 50px;
+            padding: 10px;
+        }
+
+        .left-sidebar.collapsed .sidebar-nav {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateX(-20px);
+        }
+
+        .left-sidebar.collapsed .sidebar-toggle {
+            margin-bottom: 0;
+        }
+
+        /* Enhanced toggle button */
+        .sidebar-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            color: var(--pure-black);
+            margin-bottom: 15px;
+            transition: all var(--transition-fast);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .sidebar-toggle:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        [data-theme="dark"] .sidebar-toggle {
+            color: var(--pure-white);
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: opacity var(--transition-normal),
+                visibility var(--transition-normal),
+                transform var(--transition-normal);
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        .sidebar-link {
+            display: block;
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s;
+        }
+
+        .sidebar-link:hover::before {
+            left: 100%;
+        }
+
+        .sidebar-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateX(5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 15px rgba(0, 154, 148, 0.3);
+        }
+
+        .sidebar-link.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateX(3px);
+        }
+
+        /* Dark mode sidebar links */
+        [data-theme="dark"] .sidebar-link {
+            color: var(--pure-white);
+        }
+
+        @media (max-width: 768px) {
+            .left-sidebar {
+                display: none;
+            }
+        }
+
+        .team-page-section {
+            padding: 100px 0 60px;
+        }
+
+        .team-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .team-intro h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--pure-black);
+        }
+
+        .team-intro p {
+            font-size: 1.2rem;
+            color: var(--pure-black);
+            line-height: 1.6;
+        }
+
+        /* Dark mode team intro styling */
+        [data-theme="dark"] .team-intro h1,
+        [data-theme="dark"] .team-intro p {
+            color: var(--pure-white) !important;
+        }
+
+        .book-icon {
+            width: 60px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        /* Logo styling - teal color without gradient */
+        .logo-text {
+            color: #009A94 !important;
+            background: none !important;
+            background-clip: initial !important;
+            -webkit-background-clip: initial !important;
+            -webkit-text-fill-color: #009A94 !important;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        /* Ensure all logo variations have solid teal fill */
+        .logo-text,
+        .footer-logo-img,
+        .impact-logo,
+        .cta-brand-text {
+            color: #009A94 !important;
+            fill: #009A94 !important;
+            -webkit-text-fill-color: #009A94 !important;
+            background: none !important;
+            background-image: none !important;
+            -webkit-background-clip: initial !important;
+            background-clip: initial !important;
+        }
+
+        /* 3D Book Cover Styling */
+        .book-cover-3d {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            margin: 0 auto;
+            transform: perspective(1000px) rotateY(-15deg) rotateX(2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .book-cover-3d:hover {
+            transform: perspective(1000px) rotateY(-10deg) rotateX(0deg) translateZ(20px);
+        }
+
+        .book-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #009A94;
+            border-radius: 8px 4px 4px 8px;
+            box-shadow:
+                0 0 0 2px #006B66,
+                0 8px 20px rgba(0, 0, 0, 0.3),
+                0 12px 40px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .book-spine {
+            position: absolute;
+            right: -12px;
+            top: 0;
+            width: 12px;
+            height: 100%;
+            background: #006B66;
+            border-radius: 0 4px 4px 0;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+            transform: rotateY(90deg);
+            transform-origin: left center;
+        }
+
+        .book-pages {
+            position: absolute;
+            right: -8px;
+            top: 2px;
+            width: 8px;
+            height: calc(100% - 4px);
+            background: #f5f5f5;
+            border-radius: 0 2px 2px 0;
+            box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-spiral {
+            position: absolute;
+            left: 15px;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: #006B66;
+            border-radius: 2px;
+        }
+
+        .book-spiral::before {
+            content: '';
+            position: absolute;
+            left: -2px;
+            top: 0;
+            width: 8px;
+            height: 100%;
+            background: rgba(0, 107, 102, 0.3);
+            border-radius: 4px;
+        }
+
+        /* Apply book styling to existing book icons */
+        .book-icon {
+            width: 60px;
+            height: 80px;
+            margin-bottom: 20px;
+            background: #009A94;
+            border-radius: 4px 2px 2px 4px;
+            position: relative;
+            transform: perspective(500px) rotateY(-10deg);
+            box-shadow:
+                0 0 0 1px #006B66,
+                0 4px 12px rgba(0, 0, 0, 0.3),
+                0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .book-icon::before {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: 0;
+            width: 6px;
+            height: 100%;
+            background: #006B66;
+            border-radius: 0 2px 2px 0;
+            transform: rotateY(90deg);
+            transform-origin: left center;
+        }
+
+        .book-icon::after {
+            content: '';
+            position: absolute;
+            right: -4px;
+            top: 1px;
+            width: 4px;
+            height: calc(100% - 2px);
+            background: #f5f5f5;
+            border-radius: 0 1px 1px 0;
+        }
+
+        /* FIXED: Profile image styling for actual images */
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        /* Special styling for JeevRay Rhapsody profile - wider layout */
+        #jeevray .profile-content {
+            max-width: 1400px !important;
+            gap: 120px !important;
+        }
+
+        #jeevray .profile-image {
+            width: 600px !important;
+            height: 400px !important;
+        }
+
+        #jeevray .profile-image img {
+            object-fit: contain !important;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        /* Logo overlay styling for JeevRay profile */
+        #jeevray .profile-image img:nth-child(2) {
+            position: absolute !important;
+            top: 15px !important;
+            right: 15px !important;
+            width: 80px !important;
+            height: 80px !important;
+            border-radius: 50% !important;
+            object-fit: cover !important;
+            border: 4px solid #009A94 !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+            z-index: 10 !important;
+            background: white !important;
+            padding: 2px !important;
+        }
+
+        @media (max-width: 1024px) {
+            #jeevray .profile-content {
+                max-width: 1200px !important;
+                gap: 80px !important;
+            }
+
+            #jeevray .profile-image {
+                width: 500px !important;
+                height: 350px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #jeevray .profile-content {
+                max-width: 100% !important;
+                gap: 30px !important;
+            }
+
+            #jeevray .profile-image {
+                width: 400px !important;
+                height: 280px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #jeevray .profile-image {
+                width: 320px !important;
+                height: 220px !important;
+            }
+        }
+
+        /* Main container for the horizontal scrolling section */
+        .team-profiles {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            position: relative;
+            background: var(--bg-color);
+            margin-bottom: 100px;
+            /* Fixed large margin that was causing scroll issues */
+        }
+
+        .profiles-wrapper {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .profiles-container {
+            display: flex;
+            height: 100vh;
+            width: calc(100vw * 25);
+            /* Explicitly set width for 25 profiles */
+            align-items: center;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+
+        /* Custom scrollbar for the main page */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-color);
+        }
+
+        [data-theme="dark"] ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        /* Scrollbar for Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) var(--bg-color);
+        }
+
+        [data-theme="dark"] * {
+            scrollbar-color: var(--primary-color) var(--bg-secondary);
+        }
+
+        .profile-card {
+            width: 100vw;
+            height: 100vh;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5vw;
+            flex-shrink: 0;
+            position: relative;
+            opacity: 1 !important;
+            visibility: visible !important;
+            box-sizing: border-box;
+        }
+
+        .profile-content {
+            max-width: 1200px;
+            width: 100%;
+            display: grid !important;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        .profile-image-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 400px;
+            height: 400px;
+            background: var(--primary-color);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .profile-card:hover .profile-image::before {
+            transform: translateX(100%);
+        }
+
+        .profile-card:hover .profile-image {
+            transform: scale(1.05);
+        }
+
+        .profile-name {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .profile-role {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .profile-quote {
+            font-size: 2.5rem;
+            font-family: var(--font-accent);
+            color: var(--subtitle-color);
+            font-style: italic;
+            margin-bottom: 40px;
+            line-height: 1.3;
+            position: relative;
+        }
+
+        .profile-quote::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            left: -30px;
+            top: -10px;
+            color: var(--primary-color);
+            opacity: 0.3;
+        }
+
+        .profile-description {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            color: var(--text-color);
+            margin-bottom: 30px;
+        }
+
+        .profile-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .skill-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: transform 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 100px;
+        }
+
+        .profile-stats .stat-item {
+            text-align: center;
+        }
+
+        .profile-stats .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .profile-stats .stat-label {
+            font-size: 0.9rem;
+            color: var(--subtitle-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 5px;
+        }
+
+        /* Progress indicator - conditionally hidden */
+        .profiles-progress {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .profiles-progress.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .progress-dot.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+            transition: opacity 0.3s ease, visibility 0.3s ease, background-color var(--transition-normal), color var(--transition-normal);
+        }
+
+        .scroll-indicator.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* Dark mode scroll indicator */
+        [data-theme="dark"] .scroll-indicator {
+            background: rgba(26, 26, 26, 0.9);
+            color: #FFFFFF;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Slideshow navigation controls - conditionally hidden */
+        .slideshow-controls {
+            position: fixed;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 200;
+            pointer-events: none;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .slideshow-controls.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .slide-nav {
+            background: rgba(0, 154, 148, 0.9);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            pointer-events: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .slide-nav:hover {
+            background: var(--primary-color);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide-nav:active {
+            transform: scale(0.95);
+        }
+
+        [data-theme="dark"] .slide-nav {
+            background: rgba(0, 154, 148, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Profile counter - conditionally hidden */
+        .profile-counter {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            transition: opacity 0.3s ease, visibility 0.3s ease, background-color var(--transition-normal), color var(--transition-normal);
+        }
+
+        .profile-counter.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        [data-theme="dark"] .profile-counter {
+            background: rgba(26, 26, 26, 0.9);
+            color: #FFFFFF;
+        }
+
+        /* Mobile responsive slideshow controls */
+        @media (max-width: 768px) {
+            .slideshow-controls {
+                padding: 0 20px;
+            }
+
+            .slide-nav {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .profile-counter {
+                top: 20px;
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        /* Responsive design */
+        /*
+    @media (max-width: 1024px) {
+        .profile-content {
+            grid-template-columns: 1fr;
+            gap: 50px;
+            text-align: center;
+            padding: 0 20px;
+        }
+    
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            font-size: 6rem;
+        }
+    
+        .profile-name {
+            font-size: 2.5rem;
+        }
+    
+        .profile-quote {
+            font-size: 2rem;
+        }
+    
+        .profile-description {
+            font-size: 1.2rem;
+        }
+    }
+    */
+        @media (max-width: 768px) {
+            .profile-content {
+                gap: 30px;
+                padding: 0 20px;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+                font-size: 5rem;
+            }
+
+            .profile-name {
+                font-size: 2rem;
+            }
+
+            .profile-quote {
+                font-size: 1.5rem;
+            }
+
+
+            .profile-stats {
+                gap: 20px;
+            }
+
+            .profile-stats .stat-number {
+                font-size: 2rem;
+            }
+
+            .skill-tag {
+                font-size: 0.8rem;
+                padding: 6px 15px;
+            }
+
+            .profile-card {
+                width: 100%;
+            }
+
+            .profile-content {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 100vh;
+                text-align: center;
+            }
+
+            .profile-info {
+                width: 100%;
+            }
+
+            .profile-description {
+                font-size: 0.9rem;
+                width: 100%;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+            .profile-image {
+                width: 200px;
+                height: 200px;
+                font-size: 4rem;
+            }
+
+            .profile-name {
+                font-size: 1.8rem;
+            }
+
+            .profile-quote {
+                font-size: 1.3rem;
+            }
+
+            .profile-description {
+                font-size: 1rem;
+            }
+
+            .profile-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .team-page-section {
+                padding: 80px 0 40px;
+            }
+
+            .team-intro h1 {
+                font-size: 2.2rem;
+            }
+
+            .team-intro p {
+                font-size: 1.1rem;
+            }
+
+            .advisory-team {
+                padding: 30px 20px;
+            }
+
+            .advisory-team h2 {
+                font-size: 1.7rem;
+            }
+
+            .advisor-card {
+                width: 150px;
+                padding: 15px;
+            }
+
+            .advisor-image {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+
+            .team-table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .all-members h2 {
+                font-size: 1.7rem;
+            }
+
+            .members-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+
+            .member-card {
+                padding: 20px;
+            }
+
+            .member-image {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="loading" data-theme="dark" id="body">
+
+    <div class="background-elements">
+        <div class="bg-shape shape1"></div>
+        <div class="bg-shape shape2"></div>
+        <div class="bg-shape shape3"></div>
+    </div>
+
+    <!-- Left Sidebar Navigation -->
+    <nav class="left-sidebar" id="leftSidebar">
+        <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+        <div class="sidebar-nav" id="sidebarNav">
+            <a href="index.html" class="sidebar-link">Home</a>
+            <a href="what.html" class="sidebar-link">What</a>
+            <a href="why.html" class="sidebar-link active">Why</a>
+            <a href="how.html" class="sidebar-link">How</a>
+            <a href="team.html" class="sidebar-link">Team</a>
+            <a href="preorder.html" class="sidebar-link">Pre-order Now</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="site-header" id="site-header">
+        <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
+            <nav class="nav-container">
+                <div class="logo">
+                    <a href="index.html" class="logo-link">
+                        <span class="logo-text">The Internship Book</span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="team.html" class="nav-link">Team</a>
+                    <!-- Theme Toggle Button -->
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <span class="light-icon">🌙</span>
+                        <span class="dark-icon">☀️</span>
+                    </button>
+                </div>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-links">
+            <a href="index.html" class="mobile-link">Home</a>
+            <a href="what.html" class="mobile-link">What</a>
+            <a href="why.html" class="mobile-link">Why</a>
+            <a href="how.html" class="mobile-link">How</a>
+            <a href="team.html" class="mobile-link">Team</a>
+            <!-- Mobile Theme Toggle -->
+            <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle theme">
+                <span class="light-icon">🌙</span>
+                <span class="dark-icon">☀️</span>
+                <span class="toggle-text">Dark Mode</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="why-page">
+        <!-- Content Section with Two Divisions -->
+        <section class="content-section">
+            <div class="content-container">
+                <h1
+                    style="text-align: center; color: var(--text-color); font-size: 3rem; margin-bottom: 3rem; font-weight: 800;">
+                    Why Do Teens Need Internships?
+                </h1>
+
+                <div class="content-grid">
+                    <!-- First Division - Empty Placeholder -->
+                    <div class="content-placeholder">
+                    </div>
+
+                    <!-- Second Division - Illustration Placeholder -->
+                    <div class="illustration-placeholder">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spotify Section -->
+        <section class="spotify-section">
+            <div class="spotify-container">
+                <h2 class="spotify-title">Listen: Why Do Teens Need Internships?</h2>
+                <div class="spotify-embed">
+                    <iframe data-testid="embed-iframe" style="border-radius:12px"
+                        src="https://open.spotify.com/embed/episode/78Yr1MRIEOI4NDVhtDDfGG?utm_source=generator&t=0"
+                        width="100%" height="352" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <span class="footer-logo-img large logo-text">The Internship Book</span>
+                    </a>
+                    <p class="footer-tagline">Empowering the next generation through internships</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-group">
+                        <h4>Navigate</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="what.html">What</a></li>
+                            <li><a href="why.html">Why</a></li>
+                            <li><a href="how.html">How</a></li>
+                            <li><a href="team.html">Team</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-group">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="#">Email ID:</a></li>
+                            <li><a href="#">impact@teeninternsthebook.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get the latest news and updates on the book launch</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/teeninterns/" class="social-link"
+                            title="Behind-the-scenes photos and visual content"><img src="images/insta.png"
+                                style="height: 25px;"></a>
+                        <a href="https://open.spotify.com/show/7xBDGJEqNy4kJqeg5Ip2Sz?si=2a0c01a64e694361"
+                            class="social-link" title="Podcast episodes and audio content"><img src="images/spotify.png"
+                                style="height: 25px;"></a>
+                    </div>
+                    <p class="bts-explanation">Behind-the-scenes content: Photos, Podcasts, Social Media, Videos</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2025 Teen Interns. Made with ❤️ by teens, for teens.</p>
+                <p class="credit">This project was created entirely by teenage interns.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="page-transition.js"></script>
+    <script src="preorder-system.js"></script>
+    <script src="theme-toggle.js"></script>
+    <script src="look-inside.js"></script>
+    <script src="floating-stickers.js"></script>
+
+</body>
+
+</html>
