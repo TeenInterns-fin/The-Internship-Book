@@ -1,29 +1,17 @@
-/**
- * Base Styles - The Internship Book
- * 
- * Enhanced with better contrast, larger logo, and dark/light theme support
- */
-
-/* ======================================
-   DESIGN TOKENS / CSS CUSTOM PROPERTIES
-   ====================================== */
-
 :root {
-    /* Updated Color Palette with better contrast */
-    --light-grey: #F7F7F7;          /* Light background */
-    --teal-primary: #009A94;         /* Teal green - main accent */
-    --yellow-primary: #E9BB3F;       /* Yellow - secondary accent */
-    --dark-grey: #262626;            /* Dark grey/black - text */
-    --pure-black: #000000;           /* Pure black for better contrast */
-    --pure-white: #FFFFFF;           /* Pure white */
+    --light-grey: #F7F7F7;
+    --teal-primary: #009A94;
+    --yellow-primary: #E9BB3F;
+    --dark-grey: #262626;
+    --pure-black: #000000;
+    --pure-white: #FFFFFF;
     
-    /* Light Theme Colors (default) */
     --primary-color: var(--teal-primary);
     --secondary-color: var(--yellow-primary);
     --accent-color: var(--yellow-primary);
     --text-color: #000000;
     --text-secondary: #000000;
-    --text-button: #FFFFFF; /*for the teal buttons*/
+    --text-button: #FFFFFF;
     --bg-color: #FFFFFF;
     --bg-secondary: #F8F9FA;
     --bg-alt-color: #F1F3F4;
@@ -34,27 +22,23 @@
     --subtitle-color: #000000;
     --highlight-color: var(--yellow-primary);
     
-    /* Typography */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     --font-accent: 'Caveat', cursive;
     
-    /* Font Sizes - Using rem for accessibility */
-    --font-size-small: 0.875rem;   /* 14px at 16px base */
-    --font-size-base: 1rem;        /* 16px */
-    --font-size-medium: 1.125rem;  /* 18px */
-    --font-size-large: 1.25rem;    /* 20px */
-    --font-size-xl: 1.5rem;        /* 24px */
-    --font-size-xxl: 2.5rem;       /* 40px */
-    --font-size-hero: 3.5rem;      /* 56px */
+    --font-size-small: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-medium: 1.125rem;
+    --font-size-large: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-xxl: 2.5rem;
+    --font-size-hero: 3.5rem;
     
-    /* Spacing - Consistent scale */
-    --spacing-xs: 0.5rem;   /* 8px */
-    --spacing-sm: 1rem;     /* 16px */
-    --spacing-md: 2rem;     /* 32px */
-    --spacing-lg: 3rem;     /* 48px */
-    --spacing-xl: 5rem;     /* 80px */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 5rem;
     
-    /* Border Radius and Shadows */
     --border-radius-sm: 4px;
     --border-radius-md: 8px;
     --border-radius-lg: 12px;
@@ -62,22 +46,18 @@
     --box-shadow: 0 4px 20px var(--shadow-color);
     --box-shadow-hover: 0 8px 30px var(--shadow-color-hover);
     
-    /* Transitions - Consistent timing */
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease;
     --transition-slow: 0.5s ease;
     
-    /* Layout */
-    --container-width: 1400px; /* Increased from 1200px to make divisions wider */
+    --container-width: 1400px;
     --container-padding: var(--spacing-md);
     
-    /* Logo sizes - Increased for better visibility */
-    --logo-size-header: 120px;     /* Increased from 80px */
-    --logo-size-footer: 160px;     /* Increased from 120px */
-    --logo-size-hero: 200px;       /* Increased from 150px */
+    --logo-size-header: 120px;
+    --logo-size-footer: 160px;
+    --logo-size-hero: 200px;
 }
 
-/* Keep data-theme selector for backward compatibility but it's the same as root */
 [data-theme="dark"] {
     --text-color: #FFFFFF;
     --text-secondary: #FFFFFF;
@@ -90,7 +70,6 @@
     --subtitle-color: #FFFFFF;
 }
 
-/* Light theme override */
 [data-theme="light"] {
     --text-color: #000000;
     --text-secondary: #000000;
@@ -100,258 +79,102 @@
     --border-color: #E0E0E0;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --shadow-color-hover: rgba(0, 0, 0, 0.2);
-    --subtitle-color: #000000;
+    --subtitle-color: #666666;
 }
 
-/* Automatic Dark Mode based on system preference */
-/* @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-        --text-color: var(--pure-white);
-        --text-secondary: #e5e7eb;
-        --bg-color: #1a1a1a;
-        --bg-secondary: #262626;
-        --bg-alt-color: #333333;
-        --border-color: #444444;
-        --shadow-color: rgba(0, 0, 0, 0.3);
-        --shadow-color-hover: rgba(0, 0, 0, 0.4);
-        --subtitle-color: #d1d5db;
-    }
-} */
-
-/* ======================================
-   THEME TOGGLE COMPONENT REMOVED
-   ====================================== */
-
-/* All theme toggle styles have been removed as the site now only supports dark mode */
-
-/* ======================================
-   ENHANCED LOGO STYLES
-   ====================================== */
-
-.logo-img {
-    height: var(--logo-size-header);
-    width: auto;
-    transition: all var(--transition-fast);
-    filter: brightness(1);
-}
-
-.logo-img:hover {
-    transform: scale(1.05);
-}
-
-.logo-img.large {
-    height: calc(var(--logo-size-hero) * 1.2);  /* Even larger when .large class is applied */
-}
-
-.footer-logo-img {
-    height: var(--logo-size-footer);
-    width: auto;
-}
-
-.footer-logo-img.large {
-    height: calc(var(--logo-size-footer) * 1.3);  /* Increased multiplier */
-}
-
-.hero-logo.large {
-    height: var(--logo-size-hero);
-    width: auto;
-}
-
-.impact-logo.large {
-    height: calc(var(--logo-size-hero) * 0.9);   /* Slightly smaller but still larger than before */
-    width: auto;
-}
-
-.cta-logo.large {
-    height: calc(var(--logo-size-hero) * 0.8);   /* Proportionally larger */
-    width: auto;
-}
-
-/* Text Logo Styles */
-.logo-text {
-    font-family: var(--font-primary);
-    font-weight: 800;
-    color: var(--text-color);
-    text-decoration: none;
-    transition: all var(--transition-fast);
-    display: inline-block;
-}
-
-/* Header logo text */
-.logo-link .logo-text {
-    font-size: 1.8rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.logo-link:hover .logo-text {
-    transform: scale(1.05);
-    filter: brightness(1.1);
-}
-
-/* Footer logo text */
-.footer-logo-img.logo-text {
-    font-size: 2rem;
-    color: var(--text-color);
-    font-weight: 700;
-}
-
-/* Impact section logo text */
-.impact-logo.logo-text {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    font-weight: 800;
-    text-align: center;
-    display: block;
-}
-
-/* CTA section logo text */
-.cta-logo.logo-text {
-    font-size: 2rem;
-    color: var(--primary-color);
-    font-weight: 700;
-    text-align: center;
-    display: block;
-    margin-bottom: 1rem;
-}
-
-/* Large logo text */
-.logo-text.large {
-    font-size: 2.5rem;
-}
-
-/* Responsive logo text adjustments */
-@media (max-width: 768px) {
-    .logo-link .logo-text {
-        font-size: 1.5rem;
-    }
-    
-    .footer-logo-img.logo-text {
-        font-size: 1.7rem;
-    }
-    
-    .impact-logo.logo-text {
-        font-size: 2rem;
-    }
-    
-    .cta-logo.logo-text {
-        font-size: 1.7rem;
-    }
-    
-    .logo-text.large {
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo-link .logo-text {
-        font-size: 1.3rem;
-    }
-    
-    .footer-logo-img.logo-text {
-        font-size: 1.5rem;
-    }
-    
-    .impact-logo.logo-text {
-        font-size: 1.8rem;
-    }
-    
-    .cta-logo.logo-text {
-        font-size: 1.5rem;
-    }
-    
-    .logo-text.large {
-        font-size: 1.8rem;
-    }
-}
-
-/* Logo adjustments for dark theme */
-/* [data-theme="dark"] .logo-img,
-[data-theme="dark"] .footer-logo-img,
-[data-theme="dark"] .hero-logo,
-[data-theme="dark"] .impact-logo,
-[data-theme="dark"] .cta-logo {
-    filter: brightness(1.1) contrast(1.1);
-} */
-
-/* ======================================
-   RESET AND BASE STYLES
-   ====================================== */
-
-/* Modern CSS Reset */
-*,
-*::before,
-*::after {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Improve media defaults */
-img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-}
-
-/* Remove built-in form typography styles */
-input, button, textarea, select {
-    font: inherit;
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 html {
     font-size: 16px;
     scroll-behavior: smooth;
-}
-
-/* Add smooth scrolling only if user doesn't prefer reduced motion */
-@media (prefers-reduced-motion: no-preference) {
-    html {
-        scroll-behavior: smooth;
-    }
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 }
 
 body {
     font-family: var(--font-primary);
-    font-weight: 400;
+    font-size: var(--font-size-base);
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
     overflow-x: hidden;
-    position: relative;
     min-height: 100vh;
-    text-rendering: optimizeSpeed;
-    transition: color var(--transition-normal), background-color var(--transition-normal);
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* State classes */
-body.loading,
-body.mobile-menu-open {
-    overflow: hidden;
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    width: 100%;
 }
 
-/* ======================================
-   ENHANCED CONTRAST TEXT STYLES
-   ====================================== */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+}
 
-/* Ensure all text has proper contrast */
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-primary);
-    line-height: 1.2;
     font-weight: 700;
-    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+    margin-bottom: 1rem;
     color: var(--text-color);
+}
+
+h1 {
+    font-size: var(--font-size-hero);
+}
+
+h2 {
+    font-size: var(--font-size-xxl);
+}
+
+h3 {
+    font-size: var(--font-size-xl);
+}
+
+h4 {
+    font-size: var(--font-size-large);
+}
+
+h5 {
+    font-size: var(--font-size-medium);
+}
+
+h6 {
+    font-size: var(--font-size-base);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
 }
 
 p {
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 1rem;
     color: var(--text-color);
-}
-
-/* Remove margin from last paragraph in a container */
-p:last-child {
-    margin-bottom: 0;
 }
 
 a {
@@ -360,201 +183,143 @@ a {
     transition: color var(--transition-fast);
 }
 
-a:hover, 
-a:focus {
-    color: var(--accent-color);
+a:hover {
+    color: var(--secondary-color);
 }
 
-/* Focus styles for accessibility */
-a:focus-visible {
-    outline: 2px solid var(--accent-color);
+a:focus {
+    outline: 2px solid var(--primary-color);
     outline-offset: 2px;
 }
 
-/* Improved contrast for secondary text */
-.text-secondary {
-    color: var(--text-secondary);
+ul, ol {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
 }
 
-.text-muted {
-    color: var(--subtitle-color);
+li {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
 }
 
-/* Text color overrides - responsive to theme changes */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-span,
-div,
-.hero-title,
-.hero-subtitle,
-.hero-description,
-.section-title,
-.section-subtitle,
-.contact-address,
-.contact-phone,
-.service-item h3,
-.award-item h4 {
-    color: var(--text-color) !important;
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-.text-secondary,
-.text-muted {
-    color: var(--text-secondary) !important;
+button {
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
 }
 
-/* Keep the data-theme selector for backward compatibility */
-[data-theme="dark"] h1,
-[data-theme="dark"] h2,
-[data-theme="dark"] h3,
-[data-theme="dark"] h4,
-[data-theme="dark"] h5,
-[data-theme="dark"] h6,
-[data-theme="dark"] p,
-[data-theme="dark"] span,
-[data-theme="dark"] div,
-[data-theme="dark"] .hero-title,
-[data-theme="dark"] .hero-subtitle,
-[data-theme="dark"] .hero-description,
-[data-theme="dark"] .section-title,
-[data-theme="dark"] .section-subtitle,
-[data-theme="dark"] .contact-address,
-[data-theme="dark"] .contact-phone,
-[data-theme="dark"] .service-item h3,
-[data-theme="dark"] .award-item h4 {
-    color: #FFFFFF !important;
+button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
-[data-theme="dark"] .text-secondary,
-[data-theme="dark"] .text-muted {
-    color: #FFFFFF !important;
+input, textarea, select {
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    padding: 0.75rem;
+    transition: border-color var(--transition-fast);
 }
 
-/* Auto dark mode text overrides */
-/*@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) h1,
-    :root:not([data-theme="light"]) h2,
-    :root:not([data-theme="light"]) h3,
-    :root:not([data-theme="light"]) h4,
-    :root:not([data-theme="light"]) h5,
-    :root:not([data-theme="light"]) h6,
-    :root:not([data-theme="light"]) p,
-    :root:not([data-theme="light"]) span,
-    :root:not([data-theme="light"]) div,
-    :root:not([data-theme="light"]) .hero-title,
-    :root:not([data-theme="light"]) .hero-subtitle,
-    :root:not([data-theme="light"]) .hero-description,
-    :root:not([data-theme="light"]) .section-title,
-    :root:not([data-theme="light"]) .section-subtitle,
-    :root:not([data-theme="light"]) .contact-address,
-    :root:not([data-theme="light"]) .contact-phone,
-    :root:not([data-theme="light"]) .service-item h3,
-    :root:not([data-theme="light"]) .award-item h4 {
-        color: var(--pure-white) !important;
-    }
-    
-    :root:not([data-theme="light"]) .text-secondary,
-    :root:not([data-theme="light"]) .text-muted {
-        color: #e5e7eb !important;
-    }
-}*/
-
-/* ======================================
-   LAYOUT UTILITIES
-   ====================================== */
-
-.container {
-    width: 100%;
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 var(--container-padding);
-    padding-top: 60px;
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
 }
 
-/* Responsive container adjustments */
-@media (max-width: 768px) {
-    :root {
-        --container-padding: var(--spacing-sm);
-        --logo-size-header: 100px;     /* Increased from 70px */
-        --logo-size-footer: 140px;     /* Increased from 100px */
-        --logo-size-hero: 160px;       /* Increased from 120px */
-    }
-    
-    .container {
-        max-width: 100%;
-    }
-}
-
-/* ======================================
-   SECTION STYLES
-   ====================================== */
-
-section {
-    /* padding: var(--spacing-xl) 0; */
-    padding-top: 0px;
-    padding-bottom: 80px;
-    position: relative;
-}
-
-/* Responsive section padding */
-@media (max-width: 768px) {
-    section {
-        padding: var(--spacing-lg) 0;
-    }
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: var(--spacing-lg);
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 .section-title {
     font-size: var(--font-size-xxl);
-    font-weight: 700;
-    margin-bottom: var(--spacing-xs);
-    position: relative;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 1rem;
     color: var(--text-color);
-    display: inline-block;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: var(--primary-color);
-    border-radius: 2px;
 }
 
 .section-subtitle {
-    font-size: var(--font-size-large);
-    color: var(--text-secondary);
-    max-width: 600px;
-    margin: var(--spacing-sm) auto 0;
+    font-size: var(--font-size-medium);
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--subtitle-color);
     font-weight: 400;
 }
 
-/* Responsive typography */
-@media (max-width: 768px) {
-    .section-title {
-        font-size: calc(var(--font-size-xxl) * 0.8);
-    }
-    
-    .section-subtitle {
-        font-size: var(--font-size-medium);
-    }
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
 }
 
-/* ======================================
-   BACKGROUND ELEMENTS
-   ====================================== */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-size: var(--font-size-medium);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    border: 2px solid transparent;
+    min-width: 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.cta-button.primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-button);
+    box-shadow: var(--box-shadow);
+}
+
+.cta-button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.cta-button.secondary:hover {
+    background: var(--bg-secondary);
+    border-color: var(--primary-color);
+}
+
+.emoji-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
+}
 
 .background-elements {
     position: fixed;
@@ -569,83 +334,49 @@ section {
 
 .bg-shape {
     position: absolute;
+    background: linear-gradient(135deg, rgba(0, 154, 148, 0.1), rgba(233, 187, 63, 0.1));
     border-radius: 50%;
-    opacity: 0.03;
-    will-change: transform;
+    filter: blur(1px);
+    opacity: 0.6;
 }
 
 .shape1 {
-    top: 10%;
-    left: -10%;
-    width: 400px;
-    height: 400px;
-    background: var(--teal-primary);
-    animation: float 30s ease-in-out infinite;
+    width: 200px;
+    height: 200px;
+    top: 20%;
+    left: 10%;
+    animation: float 20s ease-in-out infinite;
 }
 
 .shape2 {
-    bottom: -5%;
-    right: -10%;
-    width: 300px;
-    height: 300px;
-    background: var(--yellow-primary);
+    width: 150px;
+    height: 150px;
+    top: 60%;
+    right: 15%;
     animation: float 25s ease-in-out infinite reverse;
 }
 
 .shape3 {
-    top: 50%;
-    right: 30%;
-    width: 200px;
-    height: 200px;
-    background: var(--teal-primary);
-    animation: float 35s ease-in-out infinite 10s;
+    width: 100px;
+    height: 100px;
+    top: 80%;
+    left: 50%;
+    animation: float 15s ease-in-out infinite;
 }
 
-/* Optimize animations with hardware acceleration */
 @keyframes float {
     0%, 100% {
-        transform: translate3d(0, 0, 0) rotate(0deg);
+        transform: translateY(0px) rotate(0deg);
     }
-    33% {
-        transform: translate3d(20px, -30px, 0) rotate(2deg);
-    }
-    66% {
-        transform: translate3d(-20px, 20px, 0) rotate(-2deg);
+    50% {
+        transform: translateY(-20px) rotate(180deg);
     }
 }
-
-/* Respect user's motion preferences */
-@media (prefers-reduced-motion: reduce) {
-    .bg-shape {
-        animation: none;
-    }
-    
-    .animate-fade-up,
-    .animate-fade-right,
-    .animate-fade-left,
-    .animate-pop {
-        transition: none !important;
-        animation: none !important;
-    }
-    
-    .theme-toggle {
-        transition: none !important;
-    }
-    
-    .theme-toggle:hover {
-        transform: none !important;
-    }
-}
-
-/* ======================================
-   ANIMATION UTILITIES
-   ====================================== */
 
 .animate-fade-up {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity var(--transition-normal), transform var(--transition-normal);
-    will-change: opacity, transform;
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .animate-fade-up.in-view {
@@ -653,23 +384,10 @@ section {
     transform: translateY(0);
 }
 
-.animate-fade-right {
-    opacity: 0;
-    transform: translateX(-30px);
-    transition: opacity var(--transition-normal), transform var(--transition-normal);
-    will-change: opacity, transform;
-}
-
-.animate-fade-right.in-view {
-    opacity: 1;
-    transform: translateX(0);
-}
-
 .animate-fade-left {
     opacity: 0;
-    transform: translateX(30px);
-    transition: opacity var(--transition-normal), transform var(--transition-normal);
-    will-change: opacity, transform;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .animate-fade-left.in-view {
@@ -677,12 +395,22 @@ section {
     transform: translateX(0);
 }
 
+.animate-fade-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-fade-right.in-view {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 .animate-pop {
     opacity: 0;
-    transform: scale(0.95);
-    transition: opacity var(--transition-normal), transform var(--transition-normal);
+    transform: scale(0.8);
+    transition: opacity 0.4s ease, transform 0.4s ease;
     transition-delay: var(--delay, 0s);
-    will-change: opacity, transform;
 }
 
 .animate-pop.in-view {
@@ -690,94 +418,36 @@ section {
     transform: scale(1);
 }
 
-/* ======================================
-   PRINT STYLES
-   ====================================== */
+body.loading {
+    overflow: hidden;
+}
 
-@media print {
-    body {
-        background: white;
-        color: black;
-    }
-    
-    .background-elements,
-    .animate-fade-up,
-    .animate-fade-right,
-    .animate-fade-left,
-    .animate-pop,
-    .theme-toggle {
-        display: none !important;
-    }
-    
-    a {
-        color: black;
-        text-decoration: underline;
-    }
-    
-    .container {
-        max-width: 100%;
-        padding: 0;
-    }
-    
-    section {
-        padding: 1rem 0;
+.loading .animate-fade-up,
+.loading .animate-fade-left,
+.loading .animate-fade-right,
+.loading .animate-pop {
+    opacity: 0;
+    transform: initial;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
 
-/* ======================================
-   ACCESSIBILITY IMPROVEMENTS
-   ====================================== */
-
-/* High contrast mode support */
-/* @media (prefers-contrast: high) {
+@media (max-width: 480px) {
     :root {
-        --text-color: var(--pure-black);
-        --text-secondary: var(--pure-black);
-        --border-color: var(--pure-black);
-    }
-    
-    [data-theme="dark"] {
-        --text-color: var(--pure-white);
-        --text-secondary: var(--pure-white);
-        --border-color: var(--pure-white);
-    }
-} */
-
-/* Focus management for theme toggle */
-.theme-toggle:focus-visible {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
-}
-
-/* ======================================
-   FALLBACKS FOR OLDER BROWSERS
-   ====================================== */
-
-/* Fallback for browsers that don't support CSS variables */
-@supports not (--test: 0) {
-    body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        color: #000000;
-        background-color: #f7f7f7;
-    }
-    
-    a {
-        color: #009A94;
-    }
-    
-    a:hover {
-        color: #E9BB3F;
-    }
-    
-    .section-title::after {
-        background: #009A94;
-    }
-    
-    .logo-img {
-        height: 80px;
-    }
-    
-    .theme-toggle {
-        display: none;
+        --font-size-hero: 2rem;
+        --font-size-xxl: 1.75rem;
+        --font-size-xl: 1.25rem;
+        --spacing-md: 1rem;
+        --spacing-lg: 2rem;
+        --spacing-xl: 3rem;
     }
 }

@@ -1,5 +1,3 @@
-
-
 class PageTransitionManager {
     constructor() {
         this.currentPage = window.location.pathname;
@@ -10,14 +8,12 @@ class PageTransitionManager {
     }
 
     initTransitionElement() {
-        
         if (!document.querySelector('.page-transition')) {
             const transitionEl = document.createElement('div');
             transitionEl.className = 'page-transition';
             
             const loader = document.createElement('div');
             loader.className = 'loader';
-            
             
             for (let i = 0; i < 3; i++) {
                 const circle = document.createElement('div');
@@ -40,11 +36,9 @@ class PageTransitionManager {
     }
 
     setupEventListeners() {
-        
         window.addEventListener('load', () => {
             this.hideTransition();
         });
-        
         
         document.addEventListener('click', (e) => {
             const link = e.target.closest('a');
@@ -61,12 +55,9 @@ class PageTransitionManager {
     }
 
     navigateTo(url) {
-        
         if (url === window.location.href) return;
         
-        
         this.showTransition();
-        
         
         setTimeout(() => {
             window.location.href = url;
@@ -79,16 +70,13 @@ class PageTransitionManager {
     }
 
     hideTransition() {
-        
         this.transitionElement.classList.add('fade-out');
-        
         
         setTimeout(() => {
             document.body.classList.remove('loading');
         }, 600); 
     }
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
     window.transitionManager = new PageTransitionManager();

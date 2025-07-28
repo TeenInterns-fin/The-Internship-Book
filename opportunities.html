@@ -174,6 +174,7 @@
                 50% {
                     transform: scale(1.05);
                 }
+            }
             /* Loading state */
             .loading-spinner {
                 display: inline-block;
@@ -195,6 +196,518 @@
                 }
             }
     </style>
+        <style>
+            /* CSS Variables for Theme System */
+            :root {
+                :root {
+                    --primary-color: #009A94;
+                    --secondary-color: #00C4B8;
+                    --accent-color: #00E6D6;
+                    --highlight-color: #FF6B6B;
+    
+                    /* Light Theme Colors */
+                    --bg-color: #FFFFFF;
+                    --bg-secondary: #F8F9FA;
+                    --bg-alt-color: #F1F3F4;
+                    --text-color: #000000;
+                    --text-secondary: #000000;
+                    --subtitle-color: #000000;
+                    --border-color: #E0E0E0;
+                    --card-bg: #FFFFFF;
+                    --sidebar-bg: rgba(255, 255, 255, 0.95);
+                    --sidebar-text: #000000;
+    
+                    /* Transition variables */
+                    --transition-fast: 0.2s ease;
+                    --transition-normal: 0.3s ease;
+                    --transition-slow: 0.5s ease;
+                }
+            }
+                /* Dark Theme Colors */
+                [data-theme="dark"] {
+                    --bg-color: rgb(26, 26, 26);
+                    --bg-secondary: rgb(26, 26, 26);
+                    --bg-alt-color: #2A2A2A;
+                    --text-color: #FFFFFF;
+                    --text-secondary: #E0E0E0;
+                    --subtitle-color: #B0B0B0;
+                    --border-color: #333333;
+                    --card-bg: rgb(26, 26, 26);
+                    --sidebar-bg: rgba(26, 26, 26, 0.95);
+                    --sidebar-text: #FFFFFF;
+                }
+    
+                /* Apply theme colors to body and main elements */
+                body {
+                    background-color: var(--bg-color);
+                    color: var(--text-color);
+                    transition: background-color var(--transition-normal), color var(--transition-normal);
+                }
+    
+                /* Global text color overrides */
+                h1,
+                h2,
+                h3,
+                h4,
+                h5,
+                h6 {
+                    color: var(--text-color) !important;
+                }
+    
+                p {
+                    color: var(--text-color) !important;
+                }
+    
+                .section-title {
+                    color: var(--text-color) !important;
+                }
+    
+                .section-subtitle {
+                    color: var(--subtitle-color) !important;
+                }
+    
+                .hero-title {
+                    color: var(--text-color) !important;
+                }
+    
+                .hero-subtitle {
+                    color: var(--text-color) !important;
+                }
+    
+                .hero-description {
+                    color: var(--text-secondary) !important;
+                }
+    
+                .lead-text {
+                    color: var(--text-color) !important;
+                }
+    
+                .impact-description {
+                    color: var(--text-color) !important;
+                }
+    
+                /* Background sections */
+                section {
+                    background-color: var(--bg-color);
+                }
+    
+                .container {
+                    color: var(--text-color);
+                }
+    
+                /* Header styling - Theme Adaptive */
+                .site-header {
+                    background-color: var(--bg-color) !important;
+                    transition: background-color var(--transition-normal);
+                }
+    
+                /* Navigation styling */
+                .nav-container {
+                    background-color: transparent;
+                }
+    
+                .nav-link {
+                    color: var(--text-color) !important;
+                }
+    
+                /* Mobile menu */
+                .mobile-menu {
+                    background-color: var(--bg-color) !important;
+                }
+    
+                .mobile-link {
+                    color: var(--text-color) !important;
+                }
+    
+                /* Additional text overrides */
+                .question-text h3,
+                .question-text p,
+                .question-text li {
+                    color: var(--text-color) !important;
+                }
+    
+                .quotes-container blockquote,
+                .quotes-container cite {
+                    color: var(--text-color) !important;
+                }
+    
+                .feature-card h4,
+                .feature-card p {
+                    color: var(--text-color) !important;
+                }
+    
+                .award-item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    gap: 10px;
+                    animation: animate-pop 0.15s ease-in-out;
+                }
+    
+                .award-item h4 {
+                    color: var(--text-color) !important;
+                    margin: 0;
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+    
+                .footer-tagline,
+                .footer-group h4,
+                .footer-group ul li a,
+                .newsletter-form input,
+                .copyright,
+                .credit {
+                    color: var(--text-color) !important;
+                }
+    
+                /* Override any remaining white text */
+                [style*="color: white"],
+                [style*="color: #FFFFFF"],
+                [style*="color: #ffffff"] {
+                    color: var(--text-color) !important;
+                }
+    
+                /* Force theme colors on all text elements */
+                * {
+                    transition: color var(--transition-normal), background-color var(--transition-normal), border-color var(--transition-normal);
+                }
+    
+                /* Make sure all text inherits theme colors */
+                .hero *,
+                .preview *,
+                .about *,
+                .what-why-how *,
+                .teams *,
+                .impact *,
+                .features-section *,
+                .quotes *,
+                .friends-section *,
+                .site-footer * {
+                    color: inherit;
+                }
+    
+                /* Specific overrides for elements that commonly have hardcoded colors */
+                .hero-title,
+                .hero-subtitle,
+                .hero-description,
+                .section-title,
+                .section-subtitle,
+                .lead-text,
+                .about-content p {
+                    color: var(--text-color) !important;
+                }
+    
+                /* Hero section text overrides */
+                .hero .title-line,
+                .hero .title-highlight {
+                    color: var(--text-color) !important;
+                }
+    
+                /* Tab buttons and content */
+                .tab-btn,
+                .tab-content h3,
+                .tab-content p {
+                    color: var(--text-color) !important;
+                }
+    
+                /* Question navigation and content */
+                .question-nav-btn .nav-title,
+                .question-text h3,
+                .question-text p,
+                .question-features li {
+                    color: var(--text-color) !important;
+                }
+    
+                /* Impact section */
+                .impact h3,
+                .impact-description,
+                .impact-label {
+                    color: var(--text-color) !important;
+                }
+    
+                /* Footer elements */
+                .site-footer,
+                .site-footer * {
+                    color: var(--text-color) !important;
+                }
+    
+                .footer-brand,
+                .footer-tagline,
+                .footer-group h4,
+                .footer-group ul li,
+                .footer-group ul li a,
+                .copyright,
+                .credit {
+                    color: var(--text-color) !important;
+                }
+    
+                /* Newsletter form */
+                .newsletter-form input {
+                    color: var(--text-color) !important;
+                    background: var(--bg-color) !important;
+                    border: 1px solid var(--border-color) !important;
+                }
+    
+                /* Email input placeholder */
+                .newsletter-form input::placeholder {
+                    color: var(--subtitle-color) !important;
+                }
+    
+                /* Force override any external CSS with hardcoded white text */
+                .hero-title .title-line,
+                .hero-title .title-highlight,
+                .title-line,
+                .title-highlight {
+                    color: var(--text-color) !important;
+                }
+    
+                /* Target specific text elements that remain white */
+                [data-theme="light"] .hero-title,
+                [data-theme="light"] .hero-subtitle,
+                [data-theme="light"] .section-title,
+                [data-theme="light"] .section-subtitle,
+                [data-theme="light"] .question-text h3,
+                [data-theme="light"] .question-text p,
+                [data-theme="light"] .impact h3,
+                [data-theme="light"] .footer-tagline,
+                [data-theme="light"] .footer-group h4,
+                [data-theme="light"] .footer-group a,
+                [data-theme="light"] .copyright,
+                [data-theme="light"] .credit {
+                    color: #000000 !important;
+                }
+    
+                /* Ultra aggressive pure black text override for light mode - REMOVED */
+                /* The following overrides were preventing theme switching */
+    
+                /* Working light mode text overrides from teams.html */
+                [data-theme="light"] h1,
+                [data-theme="light"] h2,
+                [data-theme="light"] h3,
+                [data-theme="light"] h4,
+                [data-theme="light"] h5,
+                [data-theme="light"] h6,
+                [data-theme="light"] p,
+                [data-theme="light"] span,
+                [data-theme="light"] div,
+                [data-theme="light"] li,
+                [data-theme="light"] a {
+                    color: #000000 !important;
+                }
+    
+                /* Force specific elements to black in light mode */
+                [data-theme="light"] .hero-title,
+                [data-theme="light"] .hero-subtitle,
+                [data-theme="light"] .hero-description,
+                [data-theme="light"] .section-title,
+                [data-theme="light"] .section-subtitle,
+                [data-theme="light"] .lead-text,
+                [data-theme="light"] .impact-description,
+                [data-theme="light"] .question-text h3,
+                [data-theme="light"] .question-text p,
+                [data-theme="light"] .tab-content h3,
+                [data-theme="light"] .tab-content p,
+                [data-theme="light"] .content-feature,
+                [data-theme="light"] .media-feature,
+                [data-theme="light"] .footer-tagline,
+                [data-theme="light"] .footer-group h4,
+                [data-theme="light"] .footer-group a,
+                [data-theme="light"] .copyright,
+                [data-theme="light"] .credit {
+                    color: #000000 !important;
+                }
+    
+                /* Keep teal colors for specific branded elements */
+                [data-theme="light"] .logo-text,
+                [data-theme="light"] .impact-logo,
+                [data-theme="light"] .content-text strong,
+                [data-theme="light"] .media-content strong,
+                [data-theme="light"] .impact-number,
+                [data-theme="light"] .content-icon,
+                [data-theme="light"] .media-icon {
+                    color: #009A94 !important;
+                }
+    
+                /* FIXED Left Sidebar Navigation - Theme Adaptive */
+                .left-sidebar {
+                    position: fixed;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    z-index: 1000;
+                    background: var(--sidebar-bg);
+                    backdrop-filter: blur(15px);
+                    padding: 15px;
+                    border-radius: 0 15px 15px 0;
+                    border: 1px solid var(--border-color);
+                    transition: all var(--transition-normal);
+                    max-width: 250px;
+                    min-width: 50px;
+                }
+    
+              .section-title{
+                padding-top: 150px
+              }
+    
+    
+                /* Enhanced toggle button - Theme Adaptive */
+                .sidebar-toggle {
+                    background: none;
+                    border: none;
+                    font-size: 1.2rem;
+                    cursor: pointer;
+                    padding: 8px;
+                    border-radius: 4px;
+                    color: var(--sidebar-text);
+                    margin-bottom: 10px;
+                    transition: all var(--transition-fast);
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                }
+    
+                
+    
+                .logo-text {
+                    color: #009A94 !important;
+                    background: none !important;
+                    -webkit-background-clip: initial !important;
+                    -webkit-text-fill-color: #009A94 !important;
+                    background-clip: initial !important;
+                    font-weight: 700;
+                    font-size: 1.5rem;
+                }
+    
+                /* Ensure all logo variations have solid teal fill */
+                .logo-text,
+                .footer-logo-img,
+                .impact-logo,
+                .cta-brand-text {
+                    color: #009A94 !important;
+                    fill: #009A94 !important;
+                    -webkit-text-fill-color: #009A94 !important;
+                    background: none !important;
+                    background-image: none !important;
+                    -webkit-background-clip: initial !important;
+                    background-clip: initial !important;
+                }
+    
+                /* Theme Toggle Button Styles */
+                .theme-toggle {
+                    background: none;
+                    border: 2px solid var(--primary-color);
+                    border-radius: 50px;
+                    padding: 8px 12px;
+                    cursor: pointer;
+                    font-size: 1.2rem;
+                    transition: all var(--transition-fast);
+                    position: relative;
+                    overflow: hidden;
+                    margin-left: 15px;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                }
+    
+                .theme-toggle:hover {
+                    background: var(--primary-color);
+                    transform: scale(1.05);
+                }
+    
+                .theme-toggle .light-icon,
+                .theme-toggle .dark-icon {
+                    transition: opacity var(--transition-fast), transform var(--transition-fast);
+                }
+    
+                /* Show/hide icons based on theme */
+                [data-theme="light"] .theme-toggle .light-icon {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+    
+                [data-theme="light"] .theme-toggle .dark-icon {
+                    opacity: 0;
+                    transform: scale(0.8);
+                    position: absolute;
+                }
+    
+                [data-theme="dark"] .theme-toggle .dark-icon {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+    
+                [data-theme="dark"] .theme-toggle .light-icon {
+                    opacity: 0;
+                    transform: scale(0.8);
+                    position: absolute;
+                }
+    
+                /* Mobile theme toggle */
+                .mobile-theme-toggle {
+                    background: none;
+                    border: 2px solid var(--primary-color);
+                    border-radius: 8px;
+                    padding: 10px 15px;
+                    cursor: pointer;
+                    font-size: 1rem;
+                    transition: all var(--transition-fast);
+                    color: var(--text-color);
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    margin-top: 10px;
+                }
+    
+                .mobile-theme-toggle:hover {
+                    background: var(--primary-color);
+                    color: white;
+                }
+    
+                .toggle-text {
+                    font-size: 0.9rem;
+                }
+    
+               
+    
+    
+                @keyframes pulse {
+    
+                    0%,
+                    100% {
+                        transform: scale(1);
+                    }
+    
+                    50% {
+                        transform: scale(1.05);
+                    }
+                }
+                /* Loading state */
+                .loading-spinner {
+                    display: inline-block;
+                    width: 40px;
+                    height: 40px;
+                    border: 4px solid #f3f3f3;
+                    border-top: 4px solid #009A94;
+                    border-radius: 50%;
+                    animation: spin 1s linear infinite;
+                }
+    
+                @keyframes spin {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+    
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+    
+            
+    
+        </style>
   </head>
   <body>
       <header class="site-header" id="site-header">

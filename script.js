@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     gsap.registerPlugin(ScrollTrigger);
     
-    // Initialize all functionality
     initNavigation();
     initRightHoverMenu();
     initInteractiveQuestions();
@@ -10,18 +9,15 @@ document.addEventListener('DOMContentLoaded', function() {
     initTabs();
     setupIntersectionObserver();
     
-    // Initialize animations after DOM is fully loaded
     setTimeout(() => {
         initializeAnimations();
     }, 100);
     
-    // QR page specific initialization
     if (document.querySelector('.qr-page')) {
         initQrPage();
     }
 });
 
-// Centralized animation initialization
 function initializeAnimations() {
     animateHero();
     initScrollAnimations();
@@ -36,24 +32,20 @@ function initNavigation() {
     const mobileLinks = document.querySelectorAll('.mobile-link');
     const siteHeader = document.querySelector('.site-header');
     
-    // Enhanced Sidebar toggle functionality
     const sidebarToggle = document.querySelector('#sidebarToggle');
     const leftSidebar = document.querySelector('#leftSidebar');
     const sidebarNav = document.querySelector('#sidebarNav');
     const sidebarLinks = document.querySelectorAll('.sidebar-link');
     
     if (sidebarToggle && leftSidebar) {
-        // Toggle sidebar on button click
         sidebarToggle.addEventListener('click', function(e) {
             e.stopPropagation();
             leftSidebar.classList.toggle('collapsed');
             
-            // Update aria-expanded for accessibility
             const isExpanded = !leftSidebar.classList.contains('collapsed');
             sidebarToggle.setAttribute('aria-expanded', isExpanded);
         });
         
-        // Close sidebar when clicking outside
         document.addEventListener('click', function(e) {
             if (!leftSidebar.contains(e.target) && !leftSidebar.classList.contains('collapsed')) {
                 leftSidebar.classList.add('collapsed');
@@ -61,14 +53,12 @@ function initNavigation() {
             }
         });
         
-        // Prevent sidebar from closing when clicking inside navigation
         if (sidebarNav) {
             sidebarNav.addEventListener('click', function(e) {
                 e.stopPropagation();
             });
         }
         
-        // Handle keyboard navigation
         sidebarToggle.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
@@ -76,7 +66,6 @@ function initNavigation() {
             }
         });
         
-        // Active link highlighting based on scroll position
         function updateActiveLink() {
             const sections = document.querySelectorAll('section[id]');
             let currentSection = '';
@@ -86,13 +75,11 @@ function initNavigation() {
                 const sectionTop = rect.top;
                 const sectionHeight = rect.height;
                 
-                // Check if section is in viewport
                 if (sectionTop <= 100 && sectionTop + sectionHeight > 100) {
                     currentSection = section.id;
                 }
             });
             
-            // Update active link
             sidebarLinks.forEach(link => {
                 link.classList.remove('active');
                 const href = link.getAttribute('href');
@@ -102,7 +89,6 @@ function initNavigation() {
             });
         }
         
-        // Throttled scroll listener for better performance
         let scrollTimeout;
         window.addEventListener('scroll', function() {
             if (scrollTimeout) {
@@ -111,21 +97,17 @@ function initNavigation() {
             scrollTimeout = setTimeout(updateActiveLink, 10);
         });
         
-        // Initialize active link
         updateActiveLink();
         
-        // Set initial aria-expanded state
         sidebarToggle.setAttribute('aria-expanded', 'false');
         sidebarToggle.setAttribute('aria-label', 'Toggle navigation sidebar');
     }
     
-    // Mobile menu toggle with GSAP animations
     if (mobileMenuToggle && mobileMenu) {
         mobileMenuToggle.addEventListener('click', function() {
             document.body.classList.toggle('mobile-menu-open');
             mobileMenu.classList.toggle('active');
             
-            // Animate hamburger menu with GSAP
             const spans = mobileMenuToggle.querySelectorAll('span');
             if (document.body.classList.contains('mobile-menu-open')) {
                 gsap.to(spans[0], {rotation: 45, y: 7, duration: 0.3});
@@ -139,7 +121,6 @@ function initNavigation() {
         });
     }
     
-    // Close mobile menu when clicking on links
     mobileLinks.forEach(link => {
         link.addEventListener('click', function() {
             document.body.classList.remove('mobile-menu-open');
@@ -147,7 +128,6 @@ function initNavigation() {
                 mobileMenu.classList.remove('active');
             }
             
-            // Reset hamburger menu with GSAP
             const spans = mobileMenuToggle?.querySelectorAll('span');
             if (spans) {
                 gsap.to(spans[0], {rotation: 0, y: 0, duration: 0.3});
@@ -157,13 +137,11 @@ function initNavigation() {
         });
     });
     
-    // Enhanced header scroll behavior with GSAP
     let lastScrollTop = 0;
     
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-        // Smooth background transition - keep dark theme
         if (scrollTop > 50) {
             gsap.to(siteHeader, {backgroundColor: 'rgba(26, 26, 26, 0.98)', duration: 0.3});
             siteHeader?.classList.add('scrolled');
@@ -172,7 +150,6 @@ function initNavigation() {
             siteHeader?.classList.remove('scrolled');
         }
         
-        // Hide/show header with smooth GSAP animation
         if (scrollTop > lastScrollTop && scrollTop > 200) {
             gsap.to(siteHeader, {y: '-100%', duration: 0.3, ease: 'power2.out'});
         } else {
@@ -182,7 +159,6 @@ function initNavigation() {
         lastScrollTop = scrollTop;
     });
     
-    // Enhanced smooth scroll for anchor links with GSAP
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -194,7 +170,6 @@ function initNavigation() {
             if (targetElement) {
                 const headerHeight = siteHeader?.offsetHeight || 80;
                 
-                // Collapse sidebar on mobile after navigation
                 if (window.innerWidth <= 768 && leftSidebar) {
                     leftSidebar.classList.add('collapsed');
                 }
@@ -212,7 +187,6 @@ function initNavigation() {
     });
 }
 
-// Right Hover Menu Functionality
 function initRightHoverMenu() {
     const rightMenu = document.getElementById('rightHoverMenu');
     if (!rightMenu) return;
@@ -221,7 +195,6 @@ function initRightHoverMenu() {
     const menuContent = rightMenu.querySelector('.menu-content');
     const menuItems = rightMenu.querySelectorAll('.menu-item');
     
-    // Add click functionality for menu items
     menuItems.forEach(item => {
         item.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -245,7 +218,6 @@ function initRightHoverMenu() {
         });
     });
     
-    // Hide menu on scroll
     let lastScrollTop = 0;
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -260,12 +232,6 @@ function initRightHoverMenu() {
     });
 }
 
-//Interactive scroll about us section
-
-
-
-
-// Interactive What/Why/How Section
 function initInteractiveQuestions() {
     const navBtns = document.querySelectorAll('.question-nav-btn');
     const panels = document.querySelectorAll('.question-panel');
@@ -276,31 +242,25 @@ function initInteractiveQuestions() {
         btn.addEventListener('click', function() {
             const targetQuestion = this.getAttribute('data-question');
             
-            // Remove active class from all buttons
             navBtns.forEach(b => b.classList.remove('active'));
             
-            // Add active class to clicked button
             this.classList.add('active');
             
-            // Hide all panels first
             panels.forEach(p => {
                 p.classList.remove('active');
                 gsap.set(p, {opacity: 0, display: 'none'});
             });
             
-            // Find and show corresponding panel with GSAP animation
             const targetPanel = document.querySelector(`.question-panel[data-question="${targetQuestion}"]`);
             if (targetPanel) {
                 targetPanel.classList.add('active');
                 gsap.set(targetPanel, {display: 'grid'});
                 
-                // Animate in new panel
                 gsap.fromTo(targetPanel, 
                     {opacity: 0, y: 20},
                     {opacity: 1, y: 0, duration: 0.5, ease: 'power2.out'}
                 );
                 
-                // Animate the image with a slight delay
                 const questionImage = targetPanel.querySelector('.question-image');
                 if (questionImage) {
                     gsap.fromTo(questionImage, 
@@ -309,7 +269,6 @@ function initInteractiveQuestions() {
                     );
                 }
                 
-                // Animate the text elements
                 const textElements = targetPanel.querySelectorAll('.question-text h3, .question-text p, .question-features li');
                 if (textElements.length) {
                     gsap.fromTo(textElements,
@@ -321,7 +280,6 @@ function initInteractiveQuestions() {
         });
     });
     
-    // Auto-cycle through questions every 8 seconds
     let currentIndex = 0;
     setInterval(() => {
         if (navBtns.length > 0) {
@@ -331,9 +289,7 @@ function initInteractiveQuestions() {
     }, 8000);
 }
 
-// Advanced GSAP Animations
 function initAdvancedAnimations() {
-    // Service items hover effects
     const serviceItems = document.querySelectorAll('.service-item');
     serviceItems.forEach(item => {
         const icon = item.querySelector('.service-icon');
@@ -377,7 +333,6 @@ function initAdvancedAnimations() {
         });
     });
     
-    // Award items staggered animation - only run if elements exist
     const awardItems = document.querySelectorAll('.award-item');
     const awardsGrid = document.querySelector('.awards-grid');
     if (awardItems.length > 0 && awardsGrid) {
@@ -399,7 +354,6 @@ function initAdvancedAnimations() {
         );
     }
     
-    // Friend logos animation - only run if elements exist
     const friendLogos = document.querySelectorAll('.friend-logo');
     const friendsGrid = document.querySelector('.friends-grid');
     if (friendLogos.length > 0 && friendsGrid) {
@@ -422,9 +376,7 @@ function initAdvancedAnimations() {
     }
 }
 
-// Advanced scroll effects
 function initAdvancedScrollEffects() {
-    // Parallax background shapes
     gsap.to('.shape1', {
         y: -100,
         rotation: 360,
@@ -462,7 +414,6 @@ function initAdvancedScrollEffects() {
     });
 }
 
-// Parallax effects for images
 function initParallaxEffects() {
     const parallaxImages = document.querySelectorAll(' .question-image');
     
@@ -489,7 +440,6 @@ function animateHero() {
     
     const tl = gsap.timeline({delay: 0.5});
     
-    // Animate title lines with enhanced effects
     if (heroTitle) {
         const titleLines = document.querySelectorAll('.title-line');
         if (titleLines.length > 0) {
@@ -507,7 +457,6 @@ function animateHero() {
         }
     }
     
-    // Animate subtitle
     if (heroSubtitle) {
         tl.fromTo(heroSubtitle, 
             {y: 50, opacity: 0},
@@ -516,7 +465,6 @@ function animateHero() {
         );
     }
     
-    // Animate description
     if (heroDescription) {
         tl.fromTo(heroDescription, 
             {y: 30, opacity: 0},
@@ -525,7 +473,6 @@ function animateHero() {
         );
     }
     
-    // Animate services with special effects
     if (heroServices) {
         tl.fromTo(heroServices.children, 
             {y: 50, opacity: 0, scale: 0.5, rotation: 10},
@@ -542,7 +489,6 @@ function animateHero() {
         );
     }
     
-    // Animate CTA buttons with bounce
     if (heroCta.length) {
         tl.fromTo(heroCta, 
             {y: 30, opacity: 0, scale: 0.8},
@@ -560,7 +506,6 @@ function animateHero() {
 }
 
 function initScrollAnimations() {
-    // Enhanced section animations
     gsap.utils.toArray('section').forEach(section => {
         const sectionHeader = section.querySelector('.section-header');
         if (sectionHeader) {
@@ -613,7 +558,6 @@ function initCounters() {
                     }
                 });
                 
-                // Add a pulse effect
                 gsap.fromTo(counter, 
                     {scale: 1},
                     {scale: 1.1, duration: 0.1, yoyo: true, repeat: 1, ease: 'power2.inOut'}
@@ -632,17 +576,14 @@ function initTabs() {
         btn.addEventListener('click', function() {
             const tab = this.getAttribute('data-tab');
             
-            // Remove active classes
             tabBtns.forEach(b => b.classList.remove('active'));
             tabPanels.forEach(p => p.classList.remove('active'));
             
-            // Add active classes
             this.classList.add('active');
             const targetPanel = document.querySelector(`.tab-panel[data-tab="${tab}"]`);
             if (targetPanel) {
                 targetPanel.classList.add('active');
                 
-                // Animate in new panel
                 gsap.fromTo(targetPanel, 
                     {opacity: 0, y: 20},
                     {opacity: 1, y: 0, duration: 0.5, ease: 'power2.out'}
@@ -681,7 +622,6 @@ function initQrPage() {
     }
 }
 
-// Horizontal Scrolling Team Profiles (for team.html) - Smooth continuous scroll
 function initHorizontalProfiles() {
     const profilesSection = document.querySelector('.team-profiles');
     const profilesContainer = document.querySelector('.profiles-container');
@@ -691,11 +631,9 @@ function initHorizontalProfiles() {
         return;
     }
     
-    // Calculate the total scroll distance needed
     const totalWidth = profileCards.length * window.innerWidth;
-    const sectionHeight = totalWidth; // Make scroll distance proportional to content
+    const sectionHeight = totalWidth;
     
-    // Set up the smooth horizontal scroll with GSAP ScrollTrigger
     const horizontalScroll = gsap.to(profilesContainer, {
         x: () => -(totalWidth - window.innerWidth),
         ease: 'none',
@@ -703,14 +641,13 @@ function initHorizontalProfiles() {
             trigger: profilesSection,
             start: 'top top',
             end: () => `+=${sectionHeight}`,
-            scrub: 0.5, // Smooth scrubbing with slight lag for better feel
+            scrub: 0.5,
             pin: true,
             anticipatePin: 1,
             invalidateOnRefresh: true
         }
     });
     
-    // Add entrance animations for profile cards
     profileCards.forEach((card, index) => {
         const profileImage = card.querySelector('.profile-image');
         const profileInfo = card.querySelector('.profile-info');
@@ -754,7 +691,6 @@ function initHorizontalProfiles() {
         }
     });
     
-    // Update progress indicators based on scroll progress
     ScrollTrigger.create({
         trigger: profilesSection,
         start: 'top top',
@@ -764,13 +700,11 @@ function initHorizontalProfiles() {
             const currentIndex = Math.floor(progress * profileCards.length);
             const clampedIndex = Math.min(currentIndex, profileCards.length - 1);
             
-            // Update progress dots
             const progressDots = document.querySelectorAll('.progress-dot');
             progressDots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === clampedIndex);
             });
             
-            // Update sidebar active state
             const sidebarLinks = document.querySelectorAll('.sidebar-link');
             sidebarLinks.forEach((link, index) => {
                 link.classList.toggle('active', index === clampedIndex);
@@ -778,13 +712,11 @@ function initHorizontalProfiles() {
         }
     });
     
-    // Refresh on window resize
     window.addEventListener('resize', () => {
         ScrollTrigger.refresh();
     });
 }
 
-// Enhanced loading effects
 window.addEventListener('load', function() {
     document.body.classList.remove('loading');
     
@@ -794,7 +726,6 @@ window.addEventListener('load', function() {
     );
 });
 
-// Advanced page interactions
 document.addEventListener('mousemove', (e) => {
     const shapes = document.querySelectorAll('.bg-shape');
     const mouseX = e.clientX / window.innerWidth;
@@ -814,7 +745,6 @@ document.addEventListener('mousemove', (e) => {
     });
 });
 
-// Magnetic effect for buttons
 setTimeout(() => {
     const magneticElements = document.querySelectorAll('.cta-button, .order-btn, .nav-cta');
 

@@ -1,7 +1,3 @@
-// School Logos Integration System
-// Displays school partnerships and contributor affiliations
-
-// School data mapping from team member spreadsheet
 const schoolsData = {
     'pathways_school': {
         name: 'Pathways School',
@@ -104,7 +100,6 @@ const schoolsData = {
     }
 };
 
-// Team members data with school associations
 const teamMembersWithSchools = [
     { name: 'Mannat Gupta', role: 'Project Manager + Book Design', grade: '9th Grade', school: 'pathways_school', gender: 'F', city: 'Gurgaon' },
     { name: 'Lakshi Mehta', role: 'Writers/interviewers', grade: '9th Grade', school: 'dps', gender: 'F', city: 'Bangalore' },
@@ -129,7 +124,6 @@ const teamMembersWithSchools = [
     { name: 'Shreyas Kartik', role: 'Finance & Sponsorship Managers', grade: '11th Grade', school: 'legacy_school', gender: 'M', city: 'Bangalore' }
 ];
 
-// Initialize school logos system
 function initSchoolLogosSystem() {
     createSchoolPartnershipsSection();
     createSchoolStatsSection();
@@ -138,7 +132,6 @@ function initSchoolLogosSystem() {
     initSchoolFiltering();
 }
 
-// Create main school partnerships section
 function createSchoolPartnershipsSection() {
     const partnershipsHTML = `
     <section class="school-partnerships" id="school-partnerships">
@@ -174,44 +167,14 @@ function createSchoolPartnershipsSection() {
             <div class="schools-grid" id="schoolsGrid">
                 ${generateSchoolCards()}
             </div>
-            
-            <div class="partnership-info">
-                <div class="info-content">
-                    <h3>Why Schools Partner With Us</h3>
-                    <div class="benefits-grid">
-                        <div class="benefit-item">
-                            <div class="benefit-icon">🎓</div>
-                            <h4>Real-World Learning</h4>
-                            <p>Students gain practical experience through meaningful project work</p>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon">🤝</div>
-                            <h4>Industry Connections</h4>
-                            <p>Direct access to professionals and career mentorship opportunities</p>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon">📚</div>
-                            <h4>Skill Development</h4>
-                            <p>Enhancement of communication, leadership, and project management skills</p>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon">🌟</div>
-                            <h4>Recognition</h4>
-                            <p>Students receive certificates and recommendations for their contributions</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     `;
     
-    // Insert after the friends section
     const friendsSection = document.getElementById('friends');
     if (friendsSection) {
         friendsSection.insertAdjacentHTML('afterend', partnershipsHTML);
     } else {
-        // Insert before about section if friends section doesn't exist
         const aboutSection = document.getElementById('about');
         if (aboutSection) {
             aboutSection.insertAdjacentHTML('beforebegin', partnershipsHTML);
@@ -219,7 +182,6 @@ function createSchoolPartnershipsSection() {
     }
 }
 
-// Generate school cards HTML
 function generateSchoolCards() {
     return Object.entries(schoolsData).map(([key, school]) => {
         const studentCount = school.students.length;
@@ -268,7 +230,6 @@ function generateSchoolCards() {
     }).join('');
 }
 
-// Create school statistics section
 function createSchoolStatsSection() {
     const statsHTML = `
     <div class="school-statistics">
@@ -310,14 +271,12 @@ function createSchoolStatsSection() {
     </div>
     `;
     
-    // Insert into school partnerships section
     const partnershipsSection = document.querySelector('.school-partnerships .container');
     if (partnershipsSection) {
         partnershipsSection.insertAdjacentHTML('beforeend', statsHTML);
     }
 }
 
-// Generate school type legend
 function generateSchoolTypeLegend() {
     const types = {};
     Object.values(schoolsData).forEach(school => {
@@ -334,7 +293,6 @@ function generateSchoolTypeLegend() {
     `).join('');
 }
 
-// Generate city legend
 function generateCityLegend() {
     const cities = {};
     teamMembersWithSchools.forEach(member => {
@@ -351,7 +309,6 @@ function generateCityLegend() {
     `).join('');
 }
 
-// Generate role distribution
 function generateRoleDistribution() {
     const roles = {};
     teamMembersWithSchools.forEach(member => {
@@ -377,7 +334,6 @@ function generateRoleDistribution() {
     }).join('');
 }
 
-// Update about page with school representation
 function updateAboutPageSchools() {
     const aboutSection = document.getElementById('about');
     if (!aboutSection) return;
@@ -403,9 +359,7 @@ function updateAboutPageSchools() {
     }
 }
 
-// Initialize school tooltips
 function initSchoolTooltips() {
-    // Add tooltip functionality for school logos
     document.addEventListener('mouseover', function(e) {
         if (e.target.classList.contains('school-logo') || e.target.closest('.logo-item')) {
             const tooltip = createTooltip(e.target);
@@ -424,7 +378,6 @@ function initSchoolTooltips() {
     });
 }
 
-// Create tooltip for school information
 function createTooltip(element) {
     const schoolCard = element.closest('.school-card');
     const logoItem = element.closest('.logo-item');
@@ -463,7 +416,6 @@ function createTooltip(element) {
     return tooltip;
 }
 
-// Position tooltip
 function positionTooltip(tooltip, event) {
     const rect = tooltip.getBoundingClientRect();
     const viewportWidth = window.innerWidth;
@@ -472,7 +424,6 @@ function positionTooltip(tooltip, event) {
     let left = event.clientX + 10;
     let top = event.clientY - rect.height - 10;
     
-    // Adjust if tooltip goes off screen
     if (left + rect.width > viewportWidth) {
         left = event.clientX - rect.width - 10;
     }
@@ -485,23 +436,19 @@ function positionTooltip(tooltip, event) {
     tooltip.style.top = top + 'px';
 }
 
-// Initialize school filtering
 function initSchoolFiltering() {
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('filter-btn')) {
             const filter = e.target.dataset.filter;
             
-            // Update active filter button
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             e.target.classList.add('active');
             
-            // Filter school cards
             filterSchoolCards(filter);
         }
     });
 }
 
-// Filter school cards based on type
 function filterSchoolCards(filter) {
     const schoolCards = document.querySelectorAll('.school-card');
     
@@ -517,7 +464,6 @@ function filterSchoolCards(filter) {
     });
 }
 
-// Show school contributors modal
 function showSchoolContributors(schoolKey) {
     const school = schoolsData[schoolKey];
     if (!school) return;
@@ -568,7 +514,6 @@ function showSchoolContributors(schoolKey) {
     
     document.body.appendChild(modal);
     
-    // Animate modal appearance
     if (window.gsap) {
         gsap.fromTo(modal.querySelector('.modal-content'), 
             {scale: 0.5, opacity: 0, y: 50},
@@ -577,9 +522,7 @@ function showSchoolContributors(schoolKey) {
     }
 }
 
-// Create charts for statistics
 function createSchoolCharts() {
-    // School type distribution chart
     const schoolCtx = document.getElementById('schoolDistributionChart');
     if (schoolCtx) {
         const types = {};
@@ -587,11 +530,9 @@ function createSchoolCharts() {
             types[school.type] = (types[school.type] || 0) + 1;
         });
         
-        // Simple pie chart implementation
         drawPieChart(schoolCtx, types, ['#F45D01', '#EE6C4D', '#F5C125', '#EEB902', '#D45113']);
     }
     
-    // City distribution chart
     const cityCtx = document.getElementById('cityDistributionChart');
     if (cityCtx) {
         const cities = {};
@@ -603,7 +544,6 @@ function createSchoolCharts() {
     }
 }
 
-// Simple pie chart drawing function
 function drawPieChart(canvas, data, colors) {
     const ctx = canvas.getContext('2d');
     const centerX = canvas.width / 2;
@@ -616,7 +556,6 @@ function drawPieChart(canvas, data, colors) {
     Object.entries(data).forEach(([label, value], index) => {
         const sliceAngle = (value / total) * 2 * Math.PI;
         
-        // Draw slice
         ctx.beginPath();
         ctx.moveTo(centerX, centerY);
         ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + sliceAngle);
@@ -624,7 +563,6 @@ function drawPieChart(canvas, data, colors) {
         ctx.fillStyle = colors[index % colors.length];
         ctx.fill();
         
-        // Draw border
         ctx.strokeStyle = '#fff';
         ctx.lineWidth = 2;
         ctx.stroke();
@@ -633,16 +571,13 @@ function drawPieChart(canvas, data, colors) {
     });
 }
 
-// Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-    // Add school logos system to existing initialization
     setTimeout(() => {
         initSchoolLogosSystem();
         createSchoolCharts();
     }, 1000);
 });
 
-// Export for global access
 window.SchoolLogosSystem = {
     initSchoolLogosSystem,
     showSchoolContributors,

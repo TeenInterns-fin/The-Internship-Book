@@ -1,30 +1,22 @@
-/**
- * Cinematic Book Viewer - The Ultimate Book Opening Experience
- * Creates a theatrical, immersive book preview with 3D animations and sound
- */
-
 class CinematicBookViewer {
     constructor(options = {}) {
         this.pages = options.pages || [];
         this.bookCoverSrc = options.bookCover || 'images/trials/trial3.png';
         
-        // Animation settings
         this.settings = {
-            pageFlipInterval: 1000, // 1 second between flips
+            pageFlipInterval: 1000,
             autoFlipCount: 5,
             zoomDuration: 800,
             bookOpenDuration: 1800,
             pageFlipDuration: 800
         };
         
-        // State
         this.isActive = false;
         this.isAnimating = false;
         this.isPaused = false;
         this.currentPageIndex = 0;
         this.animationTimeout = null;
         
-        // Audio
         this.sounds = {};
         this.audioEnabled = true;
         this.masterVolume = 0.7;
@@ -47,7 +39,6 @@ class CinematicBookViewer {
         this.pagesContainer = document.getElementById('cinematicPages');
         this.particles = document.getElementById('bookParticles');
         
-        // Control elements
         this.closeBtn = document.getElementById('cinematicClose');
         this.playPauseBtn = document.getElementById('playPauseBtn');
         this.restartBtn = document.getElementById('restartBtn');
@@ -56,7 +47,6 @@ class CinematicBookViewer {
     }
     
     setupAudio() {
-        // Create audio context for programmatic sound generation
         this.audioContext = null;
         
         try {
@@ -78,27 +68,22 @@ class CinematicBookViewer {
     }
     
     setupEventListeners() {
-        // Close button
         this.closeBtn.addEventListener('click', () => this.close());
         
-        // Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && this.isActive) {
                 this.close();
             }
         });
         
-        // Control buttons
         this.playPauseBtn.addEventListener('click', () => this.togglePlayPause());
         this.restartBtn.addEventListener('click', () => this.restart());
         this.soundToggle.addEventListener('click', () => this.toggleSound());
         
-        // Volume control
         this.volumeSlider.addEventListener('input', (e) => {
             this.setVolume(e.target.value / 100);
         });
         
-        // Click outside to close
         this.overlay.addEventListener('click', (e) => {
             if (e.target === this.overlay) {
                 this.close();
@@ -126,12 +111,10 @@ class CinematicBookViewer {
     }
     
     createParticles() {
-        // Create floating dust particles for atmosphere
         for (let i = 0; i < 20; i++) {
             const particle = document.createElement('div');
             particle.className = 'particle';
             
-            // Random positioning and animation delay
             particle.style.left = Math.random() * 100 + '%';
             particle.style.animationDelay = Math.random() * 8 + 's';
             particle.style.animationDuration = (6 + Math.random() * 4) + 's';
@@ -147,22 +130,15 @@ class CinematicBookViewer {
         this.isAnimating = true;
         this.currentPageIndex = 0;
         
-        // Set book cover
         this.cover.src = this.bookCoverSrc;
-        
-        // Reset all animations
         this.resetAnimations();
         
-        // Show overlay with fade in
         this.overlay.classList.add('active');
         document.body.style.overflow = 'hidden';
         
-        // Play whoosh sound for zoom
         this.playSound('whoosh');
         
-        // Start the cinematic sequence
-        await this.delay(600); // Wait for overlay transition
-        
+        await this.delay(600);
         await this.animateZoomIn();
         await this.animateBookOpening();
         await this.startAutoPageFlipping();
@@ -172,7 +148,6 @@ class CinematicBookViewer {
     }
     
     async animateZoomIn() {
-        // Animate book scaling up dramatically
         return new Promise(resolve => {
             gsap.fromTo(this.book, 
                 { 
@@ -193,13 +168,9 @@ class CinematicBookViewer {
     }
     
     async animateBookOpening() {
-        // Play book opening sound
         this.playSound('bookOpen');
-        
-        // Start ambient sound
         this.playSound('ambient');
         
-        // Open the book cover
         return new Promise(resolve => {
             this.book.classList.add('book-opening');
             setTimeout(resolve, this.settings.bookOpenDuration);
@@ -212,12 +183,10 @@ class CinematicBookViewer {
         for (let i = 0; i < totalPages; i++) {
             if (!this.isActive || this.isPaused) break;
             
-            // Wait for the interval (1 second)
             await this.delay(this.settings.pageFlipInterval);
             
             if (!this.isActive || this.isPaused) break;
             
-            // Flip the page
             await this.flipPage(i);
             this.currentPageIndex = i + 1;
         }
@@ -227,10 +196,8 @@ class CinematicBookViewer {
         const page = this.pagesContainer.querySelector(`[data-page="${pageIndex}"]`);
         if (!page) return;
         
-        // Play page flip sound with slight variation
         this.playPageFlipSound();
         
-        // Animate page flip
         return new Promise(resolve => {
             page.classList.add('page-flipping');
             setTimeout(resolve, this.settings.pageFlipDuration);
@@ -239,7 +206,6 @@ class CinematicBookViewer {
     
     playPageFlipSound() {
         if (this.sounds.pageFlip && this.audioEnabled) {
-            // Add slight pitch variation for realism
             const rate = 0.8 + (Math.random() * 0.4);
             this.sounds.pageFlip.rate(rate);
             this.sounds.pageFlip.play();
@@ -249,7 +215,6 @@ class CinematicBookViewer {
     playSound(soundName) {
         if (this.sounds[soundName] && this.audioEnabled && this.audioContext) {
             try {
-                // Resume audio context if suspended (required by browser policies)
                 if (this.audioContext.state === 'suspended') {
                     this.audioContext.resume();
                 }
@@ -301,7 +266,6 @@ class CinematicBookViewer {
     generateBookOpenSound() {
         const duration = 0.6;
         
-        // Create creak sound
         const oscillator = this.audioContext.createOscillator();
         const gainNode = this.audioContext.createGain();
         const filter = this.audioContext.createBiquadFilter();
@@ -329,12 +293,10 @@ class CinematicBookViewer {
     generatePageFlipSound() {
         const duration = 0.3;
         
-        // Create paper flip sound using noise
         const bufferSize = this.audioContext.sampleRate * duration;
         const buffer = this.audioContext.createBuffer(1, bufferSize, this.audioContext.sampleRate);
         const data = buffer.getChannelData(0);
         
-        // Generate filtered noise for paper sound
         for (let i = 0; i < bufferSize; i++) {
             data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.3));
         }
@@ -360,9 +322,8 @@ class CinematicBookViewer {
     }
     
     generateAmbientSound() {
-        if (this.ambientGain) return; // Already playing
+        if (this.ambientGain) return;
         
-        // Create a subtle ambient drone
         const oscillator1 = this.audioContext.createOscillator();
         const oscillator2 = this.audioContext.createOscillator();
         const gainNode = this.audioContext.createGain();
@@ -397,10 +358,8 @@ class CinematicBookViewer {
         this.updatePlayPauseButton();
         
         if (this.isPaused) {
-            // Pause ambient sound
             this.stopSound('ambient');
         } else {
-            // Resume ambient sound
             this.playSound('ambient');
         }
     }
@@ -417,7 +376,6 @@ class CinematicBookViewer {
         this.isPaused = false;
         this.currentPageIndex = 0;
         
-        // Restart the sequence
         setTimeout(() => {
             this.animateBookOpening();
             this.startAutoPageFlipping();
@@ -430,7 +388,6 @@ class CinematicBookViewer {
         this.soundToggle.classList.toggle('active', this.audioEnabled);
         
         if (!this.audioEnabled) {
-            // Stop ambient sound
             this.stopSound('ambient');
         }
     }
@@ -438,20 +395,17 @@ class CinematicBookViewer {
     setVolume(volume) {
         this.masterVolume = Math.max(0, Math.min(1, volume));
         
-        // Update ambient volume if playing
         if (this.ambientGain) {
             this.ambientGain.gain.setValueAtTime(this.masterVolume * 0.1, this.audioContext.currentTime);
         }
     }
     
     resetAnimations() {
-        // Remove all animation classes
         this.book.classList.remove('book-opening');
         
         const pages = this.pagesContainer.querySelectorAll('.page-3d');
         pages.forEach(page => page.classList.remove('page-flipping'));
         
-        // Reset GSAP animations
         gsap.set(this.book, {
             scale: 1,
             rotationY: 0,
@@ -465,19 +419,15 @@ class CinematicBookViewer {
         this.isActive = false;
         this.isPaused = false;
         
-        // Stop all sounds
         this.stopSound('ambient');
         
-        // Clear any pending animations
         if (this.animationTimeout) {
             clearTimeout(this.animationTimeout);
         }
         
-        // Hide overlay
         this.overlay.classList.remove('active');
         document.body.style.overflow = '';
         
-        // Reset after transition
         await this.delay(600);
         this.resetAnimations();
     }
@@ -486,7 +436,6 @@ class CinematicBookViewer {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
     
-    // Public API
     trigger() {
         this.open();
     }
@@ -496,23 +445,20 @@ class CinematicBookViewer {
             this.overlay.parentNode.removeChild(this.overlay);
         }
         
-        // Clean up audio context
         if (this.audioContext) {
             this.audioContext.close();
         }
         
-        // Clean up ambient sounds
         if (this.ambientOscillators) {
             this.ambientOscillators.forEach(osc => {
                 try {
                     osc.stop();
                 } catch (e) {
-                    // Oscillator may already be stopped
+                    
                 }
             });
         }
     }
 }
 
-// Export for global use
 window.CinematicBookViewer = CinematicBookViewer;

@@ -1,7 +1,3 @@
-// Static Pre-order System for GitHub Pages
-// Email-based pre-order collection without payment processing
-
-// Package configurations
 const packages = {
     digital: {
         name: 'Digital Edition',
@@ -48,7 +44,6 @@ const packages = {
 
 let selectedPackage = null;
 
-// Initialize pre-order system
 function initPreorderSystem() {
     try {
         console.log('Initializing preorder system...');
@@ -62,23 +57,19 @@ function initPreorderSystem() {
     }
 }
 
-// Setup pre-order buttons
 function setupPreorderButtons() {
     document.querySelectorAll('.order-btn:not(.bundle-btn)').forEach((btn, index) => {
         btn.addEventListener('click', function() {
-            // Determine package type based on button position
-            const packageTypes = ['digital', 'premium']; // Removed 'bundle' as it now goes directly to payment
+            const packageTypes = ['digital', 'premium'];
             const packageType = packageTypes[index] || 'digital';
             openPreorderModal(packageType);
         });
     });
 }
 
-// Open pre-order modal
 function openPreorderModal(packageType) {
     selectedPackage = packages[packageType];
     
-    // Create modal if it doesn't exist
     if (!document.getElementById('preorderModal')) {
         createPreorderModal();
     }
@@ -87,11 +78,9 @@ function openPreorderModal(packageType) {
     showModal();
 }
 
-// Update modal content
 function updateModalContent() {
     if (!selectedPackage) return;
 
-    // Update modal title and package info
     document.getElementById('modalTitle').textContent = `Pre-order ${selectedPackage.name}`;
     
     document.getElementById('selectedPackage').innerHTML = `
@@ -104,22 +93,18 @@ function updateModalContent() {
         </div>
     `;
     
-    // Update features
     document.getElementById('packageFeatures').innerHTML = 
         selectedPackage.features.map(feature => `<li>${feature}</li>`).join('');
     
-    // Update pricing
     document.getElementById('packageName').textContent = selectedPackage.name;
     document.getElementById('packagePrice').textContent = `$${selectedPackage.price}`;
     document.getElementById('totalPrice').textContent = `$${selectedPackage.price + selectedPackage.shipping}`;
     
-    // Update button amount
     const btnAmount = document.querySelector('.btn-amount');
     if (btnAmount) {
         btnAmount.textContent = `$${selectedPackage.price}`;
     }
     
-    // Show/hide shipping section
     const shippingSection = document.getElementById('shippingSection');
     if (selectedPackage.requiresShipping) {
         shippingSection.style.display = 'block';
@@ -130,7 +115,6 @@ function updateModalContent() {
     }
 }
 
-// Create pre-order modal dynamically
 function createPreorderModal() {
     const modalHTML = `
     <div class="preorder-modal" id="preorderModal">
@@ -277,7 +261,6 @@ function createPreorderModal() {
     setupFormHandlers();
 }
 
-// Set shipping fields required status
 function setShippingFieldsRequired(required) {
     const fields = ['country', 'city'];
     fields.forEach(field => {
@@ -288,9 +271,7 @@ function setShippingFieldsRequired(required) {
     });
 }
 
-// Setup form validation
 function setupFormValidation() {
-    // Real-time validation
     document.addEventListener('input', function(e) {
         if (e.target.matches('#email')) {
             validateField(e.target);
@@ -302,17 +283,14 @@ function setupFormValidation() {
     });
 }
 
-// Validate individual field
 function validateField(field) {
     const errorElement = field.parentElement.querySelector('.error-message');
     let isValid = true;
     let errorMessage = '';
 
-    // Remove existing error styling
     field.classList.remove('error');
     if (errorElement) errorElement.textContent = '';
 
-    // Validate based on field type
     if (field.required && !field.value.trim()) {
         isValid = false;
         errorMessage = 'This field is required';
@@ -332,30 +310,25 @@ function validateField(field) {
     return isValid;
 }
 
-// Setup form handlers
 function setupFormHandlers() {
     const form = document.getElementById('preorderForm');
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Validate form
             if (!validateForm()) {
                 showNotification('Please fix the errors in the form', 'error');
                 return;
             }
             
-            // Collect form data
             const formData = new FormData(this);
             const orderData = collectOrderData(formData);
             
-            // Process the pre-order (email-based)
             processStaticPreorder(orderData);
         });
     }
 }
 
-// Validate entire form
 function validateForm() {
     const form = document.getElementById('preorderForm');
     const requiredFields = form.querySelectorAll('[required]');
@@ -370,7 +343,6 @@ function validateForm() {
     return isValid;
 }
 
-// Collect order data from form
 function collectOrderData(formData) {
     return {
         package: selectedPackage,
@@ -393,35 +365,26 @@ function collectOrderData(formData) {
     };
 }
 
-// Process static pre-order (no payment, just email collection)
 function processStaticPreorder(orderData) {
-    // Show loading state
     const submitBtn = document.querySelector('.btn-primary');
     const originalText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<span class="loading-spinner"></span> Processing...';
     submitBtn.disabled = true;
 
-    // Simulate processing delay
     setTimeout(() => {
-        // Save to localStorage for tracking
         saveOrderLocally(orderData);
         
-        // Create mailto link for manual processing
         createEmailNotification(orderData);
         
-        // Show success message
         showSuccessMessage(orderData);
         
-        // Close modal
         closePreorderModal();
         
-        // Reset button
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
     }, 2000);
 }
 
-// Create email notification
 function createEmailNotification(orderData) {
     const subject = `Pre-order Interest: ${orderData.package.name} - ${orderData.customer.firstName} ${orderData.customer.lastName}`;
     const body = `
@@ -448,17 +411,12 @@ Date: ${new Date(orderData.orderDate).toLocaleString()}
 Please follow up with this customer when the book launches!
     `;
 
-    // Create mailto link (you can change this email)
     const mailtoLink = `mailto:support@teeninterns.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Silently trigger email (comment out the window.open if you don't want automatic email)
-    // window.open(mailtoLink);
     
     console.log('Pre-order data:', orderData);
     console.log('Email link:', mailtoLink);
 }
 
-// Save order locally for tracking
 function saveOrderLocally(orderData) {
     const orders = JSON.parse(localStorage.getItem('preorders') || '[]');
     orders.push({
@@ -469,12 +427,10 @@ function saveOrderLocally(orderData) {
     localStorage.setItem('preorders', JSON.stringify(orders));
 }
 
-// Generate unique order ID
 function generateOrderId() {
     return 'TIB_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9).toUpperCase();
 }
 
-// Show/hide modal functions
 function showModal() {
     const modal = document.getElementById('preorderModal');
     modal.classList.add('active');
@@ -510,7 +466,6 @@ function closePreorderModal() {
     }
 }
 
-// Show success message
 function showSuccessMessage(orderData) {
     const successModal = document.createElement('div');
     successModal.className = 'success-modal active';
@@ -549,7 +504,6 @@ function showSuccessMessage(orderData) {
     
     document.body.appendChild(successModal);
     
-    // Auto-remove after 10 seconds
     setTimeout(() => {
         if (successModal.parentElement) {
             successModal.remove();
@@ -557,7 +511,6 @@ function showSuccessMessage(orderData) {
     }, 10000);
 }
 
-// Countdown timer
 function updateCountdown() {
     try {
         const launchDate = new Date('2025-08-09T16:00:00').getTime();
@@ -582,7 +535,6 @@ function updateCountdown() {
 
 function updateCountdownDisplay(days, hours, minutes, seconds) {
     try {
-        // Find countdown elements by their labels instead of data-count values
         const timerUnits = document.querySelectorAll('.timer-unit');
         
         if (timerUnits.length === 0) {
@@ -614,7 +566,6 @@ function updateCountdownDisplay(days, hours, minutes, seconds) {
 }
 
 function handleLaunchComplete() {
-    // Update UI for post-launch
     document.querySelectorAll('.order-btn').forEach(btn => {
         btn.textContent = btn.textContent.replace('Pre-order', 'Order Now');
     });
@@ -625,7 +576,6 @@ function handleLaunchComplete() {
     }
 }
 
-// Notification system
 function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
@@ -641,7 +591,6 @@ function showNotification(message, type = 'info') {
     
     document.body.appendChild(notification);
     
-    // Auto-remove after 5 seconds
     setTimeout(() => {
         if (notification.parentElement) {
             notification.remove();
@@ -649,31 +598,23 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
-// Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-    // Only initialize if we're on a page with countdown timer
     if (document.querySelector('.countdown-timer')) {
         initPreorderSystem();
         initLocationDetection();
     }
 });
 
-// Location Detection for India-only features
 function initLocationDetection() {
     try {
-        // Check if user is in India using IP geolocation
         detectUserLocation();
     } catch (error) {
         console.log('Location detection failed, showing all content by default');
-        // Show all content if detection fails
         showAllContent();
     }
 }
 
 function detectUserLocation() {
-    // Try multiple methods to detect location
-    
-    // Method 1: Check timezone (rough estimation)
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const isIndianTimezone = timezone.includes('Asia/Kolkata') || timezone.includes('Asia/Calcutta');
     
@@ -682,7 +623,6 @@ function detectUserLocation() {
         return;
     }
     
-    // Method 2: Use a free IP geolocation service
     fetch('https://ipapi.co/json/')
         .then(response => response.json())
         .then(data => {
@@ -693,7 +633,6 @@ function detectUserLocation() {
             }
         })
         .catch(() => {
-            // Fallback: Try another service
             fetch('https://ipinfo.io/json')
                 .then(response => response.json())
                 .then(data => {
@@ -704,7 +643,6 @@ function detectUserLocation() {
                     }
                 })
                 .catch(() => {
-                    // Final fallback: Show all content
                     console.log('All geolocation services failed, showing all content');
                     showAllContent();
                 });
@@ -714,32 +652,26 @@ function detectUserLocation() {
 function handleIndianUser() {
     console.log('Indian user detected - showing India-specific content');
     
-    // Show India badge
     const indiaBadges = document.querySelectorAll('.india-badge');
     indiaBadges.forEach(badge => {
         badge.style.display = 'flex';
     });
     
-    // Update features for Indian users
     updateContentForIndia();
     
-    // Show special message
     showLocationNotification('🇮🇳 Great! You\'re in India. Enjoy free shipping and exclusive Indian content!', 'success');
 }
 
 function handleNonIndianUser(country) {
     console.log(`Non-Indian user detected from ${country} - adjusting content`);
     
-    // Hide India-only features
     const indiaBadges = document.querySelectorAll('.india-badge');
     indiaBadges.forEach(badge => {
         badge.style.display = 'none';
     });
     
-    // Update pricing and features for international users
     updateContentForInternational(country);
     
-    // Show location-aware message
     showLocationNotification(
         `🌍 We see you're in ${country}. Digital access is available worldwide! Physical books available with international shipping.`, 
         'info'
@@ -747,10 +679,8 @@ function handleNonIndianUser(country) {
 }
 
 function updateContentForIndia() {
-    // Update features list for Indian users
     const featuresLists = document.querySelectorAll('.features-list');
     featuresLists.forEach(list => {
-        // Find shipping related items and update them
         const listItems = list.querySelectorAll('li');
         listItems.forEach(item => {
             if (item.textContent.includes('shipping')) {
@@ -762,7 +692,6 @@ function updateContentForIndia() {
         });
     });
     
-    // Add special Indian features if not already present
     featuresLists.forEach(list => {
         const hasIndianContent = Array.from(list.children).some(li => 
             li.textContent.includes('India-exclusive')
@@ -777,7 +706,6 @@ function updateContentForIndia() {
 }
 
 function updateContentForInternational(country) {
-    // Update pricing to show international shipping costs
     const priceNotes = document.querySelectorAll('.price-note');
     priceNotes.forEach(note => {
         if (note.textContent.includes('early bird')) {
@@ -785,7 +713,6 @@ function updateContentForInternational(country) {
         }
     });
     
-    // Update features for international users
     const featuresLists = document.querySelectorAll('.features-list');
     featuresLists.forEach(list => {
         const listItems = list.querySelectorAll('li');
@@ -802,7 +729,6 @@ function updateContentForInternational(country) {
         });
     });
     
-    // Add digital-first messaging
     const cardHeaders = document.querySelectorAll('.card-header');
     cardHeaders.forEach(header => {
         const subtitle = header.querySelector('.price-note');
@@ -816,7 +742,6 @@ function updateContentForInternational(country) {
 }
 
 function showAllContent() {
-    // Default: show all content for users where location detection failed
     const indiaBadges = document.querySelectorAll('.india-badge');
     indiaBadges.forEach(badge => {
         badge.style.display = 'flex';
@@ -824,7 +749,6 @@ function showAllContent() {
 }
 
 function showLocationNotification(message, type = 'info') {
-    // Only show notification if we haven't shown one already
     if (document.querySelector('.location-notification')) {
         return;
     }
@@ -840,7 +764,6 @@ function showLocationNotification(message, type = 'info') {
     
     document.body.appendChild(notification);
     
-    // Auto-remove after 8 seconds
     setTimeout(() => {
         if (notification.parentElement) {
             notification.remove();
@@ -848,7 +771,6 @@ function showLocationNotification(message, type = 'info') {
     }, 8000);
 }
 
-// Export for global access
 window.PreorderSystem = {
     openPreorderModal,
     closePreorderModal,
