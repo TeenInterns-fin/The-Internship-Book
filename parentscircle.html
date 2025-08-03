@@ -62,6 +62,7 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             transition: background-color var(--transition-normal), color var(--transition-normal);
+            padding: 5rem;
         }
 
         /* Force header background and text colors */
@@ -160,6 +161,7 @@
             }
             .title{
               padding-top: 150px;
+              text-align: center;
             }
       
 
@@ -169,6 +171,18 @@
               align-items: center;
               gap: 2rem; 
               padding: 2rem;
+           }
+           .letter{
+              display: grid;
+              grid-template-columns: 1fr 2fr;                     
+              align-items: center;
+              gap: 2rem; 
+              padding: 2rem;
+
+           }
+           .illustration img{
+             width:30vw;
+             height: auto;
            }
       
       .quotes {
@@ -262,17 +276,20 @@
       flex-direction: row;
       justify-content: space-around;
       align-items: center;
-      padding: 2rem;
+      padding: 1rem;
     }
 
     .resource-item{
-      padding: 1.5rem;
+      padding: 0.5rem;
     }
 
     .resource-item button{
       height: 200px;
       width: 300px;
       margin: 1rem;
+    }
+    .resources{
+      text-align: center;
     }
         
 
@@ -355,12 +372,61 @@
 
     <section class="content">
         <div class="intro-text">
-          <p>example text</p>
+          <p>Dear Parents,
+            Your teen is not just growing up,  they’re growing into who they’re meant to be.
+            The Internship Book is a small but mighty attempt to help them start somewhere - to explore, try, fail, learn, and begin understanding the world of work early. We are sure as working professionals and having gone through this journey yourself you know that - Internships aren’t just about resumes or certificates. They’re about building character, discovering direction, and gaining real-world confidence, long before college or careers.
+            As a parent, you play a powerful role. Not by choosing for them, but by cheering them on as they try new things, take risks, and figure out what fits. Some days, they'll come home beaming. Other days, they'll come home frustrated. Both are wins,  because they’re learning.
+            This section is for you! 
+            Parenting a GenZ and Gen Alpha was not something any of us came prepared with. We are navigating this together and here to support you in ways we can 🙂
+            </p>
         </div>
   
         <div class="illustration">
-           <img src="parent_circle_illustration" alt="Parent circle illustration">
+           <img src="images/parents2.png" alt="Illustration of parents">
         </div>
+    </section>
+
+    <section class="letter">
+      <div class="illustration">
+        <img src="images/parent3.png" alt="Illustration of confused parents">
+        <img src="images/parents.png" alt="Illustration of supportive parents">
+      </div>
+      <div class="parent-text">
+        <h2> To Every Parent of a Gen Z or Gen Alpha Teen…</h2>
+        
+        <p>
+We see you.
+You’re parenting in a world that’s changing faster than anyone imagined. Your child is growing up with AI, anxiety, activism, and access to everything - all at once. They’re bolder, more sensitive, more expressive, and more aware. And yes - they question everything.
+It’s not easy.
+But it’s not hopeless either.
+Because behind every “stubborn” teen is a searching soul - craving truth, belonging, and purpose.
+They may not listen the first time.
+ They may roll their eyes, argue back, or retreat into their screen.
+ But they’re watching.
+ They’re learning how to handle life by how you handle them.
+So don’t underestimate what your love, patience, and presence can do:
+Every time you pause instead of react - you’re building trust.
+
+
+Every time you listen instead of lecture - you’re planting courage.
+
+
+Every time you apologize, admit, or grow alongside them - you’re teaching emotional maturity.
+
+
+You’re not raising mini-versions of yourself.
+You’re raising originals,  who will navigate a world you’ve never known.
+They don’t need perfect parents.
+They need anchored ones.
+Ones who stay steady even when storms rise. Ones who guide, not control.
+Ones who hold the boundary and the hug.
+So breathe.
+You’re doing better than you think.
+Keep showing up. Keep learning. Keep loving.
+Your teen may not say it, but they’ll remember it - deeply, and for life.
+
+        </p>
+      </div>
     </section>
 
   <section class="quotes">
@@ -371,26 +437,56 @@
       
       <div class="quotes-container">
         <div class="quote-item active">
-          <img src="parent 1" alt="Parent 1" class="profile-img" />
           <div class="quote-text">
-            <p>""</p>
-            <p class="author">– name/p>
+            <p>"Internships gave my daughter real-world exposure, something textbooks can’t teach. It built her confidence and helped her understand what she enjoys.”</p>
+           <!-- <p class="author">– name/p>-->
           </div>
         </div>
 
         <div class="quote-item">
-          <img src="parent2" alt="Parent 2" class="profile-img" />
+          <!--<img src="parent2" alt="Parent 2" class="profile-img" />-->
           <div class="quote-text">
-            <p>""</p>
-            <p class="author">– name</p>
+            <p>“My child matured a lot during the internship. Understanding work culture and responsibilities early on was of great value."</p>
+            <!--<p class="author">– name</p>-->
           </div>
         </div>
 
         <div class="quote-item">
-          <img src="parent3 alt="Parent 3" class="profile-img" />
+
+          <!--<img src="parent3 alt="Parent 3" class="profile-img" />-->
           <div class="quote-text">
-            <p>""</p>
-            <p class="author">– name</p>
+            <p>“The experience shaped my sons future goals. It helped him realize her strengths and gave him clarity about what he wants to pursue.”           <!-- <p class="author">– name</p>-->
+         </p>
+          </div>
+        </div>
+      </div>
+
+       <div class="quote-item">
+
+          <!--<img src="parent3 alt="Parent 3" class="profile-img" />-->
+          <div class="quote-text">
+            <p>“Interning helped my teen bridge the gap between academics and actual work. He came back more focused and career aware.” </p>
+           <!-- <p class="author">– name</p>-->
+          </div>
+        </div>
+      </div>
+
+       <div class="quote-item">
+
+          <!--<img src="parent3 alt="Parent 3" class="profile-img" />-->
+          <div class="quote-text">
+            <p>“It was an eye-opening experience for my daughter. She learned to communicate professionally, manage time better, and take ownership of her work.” </p>
+           <!-- <p class="author">– name</p>-->
+          </div>
+        </div>
+      </div>
+
+       <div class="quote-item">
+
+          <!--<img src="parent3 alt="Parent 3" class="profile-img" />-->
+          <div class="quote-text">
+            <p> "It was rewarding to see my daughter step out of her comfort zone and grow.” </p>
+           <!-- <p class="author">– name</p>-->
           </div>
         </div>
       </div>
@@ -404,20 +500,13 @@
     <h2>Resources</h2>
     <div class="resources-container">
       <div class="resource-item">
-        <buttton> Download </buttton>
+        <buttton> The Internship Roadmap Assessment – A tool to understand where your teen stands and what kind of internship is right for them.
       </div>
       <div class="resource-item">
-        <buttton> Download </buttton>
+        <buttton> Mindful Moments for Raising Teens: This isn’t a rulebook. It’s a rest stop. A reminder that you don’t have to have it all together to be a powerful parent.
+Download here
       </div>
-      <div class="resource-item">
-        <buttton> Download </buttton>
-      </div>
-      <div class="resource-item">
-        <buttton> Download </buttton>
-      </div>
-      <div class="resource-item">
-        <buttton> Download </buttton>
-      </div>
+  
     </div>
   </section>
 
