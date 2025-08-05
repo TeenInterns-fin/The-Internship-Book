@@ -1990,79 +1990,173 @@
                 }
             }
 
-            /* Updated Quote Section Styles */
-            .quotes-container {
-                position: relative;
-                padding-left: 4px;
-               /* border-left: 4px solid var(--primary-color);*/
-                /* Teal bar */
-                margin-top: 2rem;
+            /* Experts Speak Section Styles */
+            .experts-speak-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 4rem 2rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
-            .quote-content {
+            .experts-title {
+                margin-bottom: 3rem;
+                text-align: center;
+            }
+
+            .experts-title-img {
+                max-width: 400px;
+                height: auto;
+            }
+
+            .expert-quote-wrapper {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                max-width: 900px;
+            }
+
+            .quote-border-container {
+                position: relative;
+                margin-bottom: 2rem;
+            }
+
+            .quote-border-img {
+                width: 100%;
+                max-width: 700px;
+                height: auto;
+            }
+
+            .quote-content-overlay {
+                position: absolute;
+                top: 20%;
+                left: 12%;
+                right: 12%;
+                bottom: 30%;
                 display: flex;
                 align-items: flex-start;
-                gap: 1.5rem;
-                padding-left: 1rem;
+                justify-content: flex-start;
+                padding: 2rem 2rem 1rem 2rem;
             }
 
-            .quote-author-image {
+            .expert-quote {
+                font-size: 1rem;
+                line-height: 1.4;
+                color: #fff;
+                margin: 0;
+                text-align: left;
+                font-style: normal;
+                font-weight: 400;
+            }
+
+            .quote-arrow {
+                position: relative;
+                margin-bottom: 1rem;
+            }
+
+            .arrow-img {
+                width: 60px;
+                height: auto;
+            }
+
+            .author-section {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .author-info {
+                text-align: center;
+            }
+
+            .author-name {
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: #00C4B8;
+                margin-bottom: 0.5rem;
+                letter-spacing: 0.5px;
+            }
+
+            .author-title {
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: var(--text-color);
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .author-photo-container {
                 flex-shrink: 0;
             }
 
-            .author-photo {
-                width: auto;
-                height: 100%;
-                max-height: 280px;
-                /* Adjust as needed */
-                aspect-ratio: 1 / 1;
-                border-radius: 50%;
-                object-fit: cover;
-                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            .ronnie-photo {
+                height: 300px;
+                object-position: center;
             }
 
-            .quote-text-section {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-            }
-
-            .quote {
-                font-size: 1.1rem;
-                line-height: 1.6;
-                font-style: italic;
-                margin: 0;
-                color: var(--text-color);
-            }
-
-            cite {
-                margin-top: 1rem;
-                font-size: 1rem;
-                font-weight: 600;
-                color: var(--primary-color);
-            }
-
-
-            /* Responsive adjustments for quotes */
+            /* Responsive adjustments for Experts Speak */
             @media (max-width: 768px) {
-                .quote-content {
+                .experts-speak-container {
+                    padding: 2rem 1rem;
+                }
+
+                .experts-title-img {
+                    max-width: 300px;
+                }
+
+                .quote-content-overlay {
+                    top: 18%;
+                    left: 10%;
+                    right: 10%;
+                    bottom: 25%;
+                    padding: 1.5rem 1rem 0.5rem 1rem;
+                }
+
+                .expert-quote {
+                    font-size: 0.9rem;
+                    line-height: 1.3;
+                }
+
+                .author-section {
                     flex-direction: column;
                     gap: 1rem;
-                    text-align: left;
+                    text-align: center;
                 }
 
-                .quote-author-image {
-                    align-self: flex-start;
+                .ronnie-photo {
+                    width: 120px;
+                    height: 120px;
                 }
 
-                .author-photo {
+                .author-name {
+                    font-size: 1.1rem;
+                }
+
+                .author-title {
+                    font-size: 0.8rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .quote-content-overlay {
+                    top: 10%;
+                    left: 4%;
+                    right: 4%;
+                    bottom: 15%;
+                    padding: 0.8rem;
+                }
+
+                .expert-quote {
+                    font-size: 0.85rem;
+                    line-height: 1.3;
+                }
+
+                .ronnie-photo {
                     width: 80px;
                     height: 80px;
-                    border-radius: 50%;
-                }
-
-                .quote-text-section {
-                    min-height: auto;
                 }
             }
     </style>
@@ -2153,7 +2247,23 @@
                 <div class="book-cover">
                     <img src="images/trials/trial4.png" alt="book-cover">
                 </div>
+            
+            <!-- Arrow -->
+            <div class="quote-arrow">
+                <img src="images/arrow.png" alt="Arrow" class="arrow-img">
             </div>
+            
+            <!-- Author Info and Photo -->
+            <div class="author-section">
+                <div class="author-info">
+                    <div class="author-name">RONNIE SCREWVALA</div>
+                    <div class="author-title">CO-FOUNDER UPGRAD & SWADES FOUNDATION</div>
+                </div>
+                <div class="author-photo-container">
+                    <img src="images/ronnie.png" alt="Ronnie Screwvala" class="ronnie-photo">
+                </div>
+            </div>
+        </div>
         </div>
     </section>
 
@@ -2514,27 +2624,42 @@
 
     <!-- Quotes -->
     <section class="quotes" id="quotes">
-        <div class="section-header animate-fade-up">
-            <h2 class="section-title">What they say?</h2>
-        </div>
-        <div class="quotes-container">
-            <div class="quote-content">
-                <div class="quote-author-image">
-                    <img src="person.jpg" alt="Picture of person" class="author-photo" />
-                </div>
-                <div class="quote-text-section">
-                    <blockquote class="quote">
-                        "Side hustles. Build your own product. Passion projects. It’s really your time. India is no
-                        longer just the back office of the world – we’re a creator economy, and our biggest strength is
-                        our talent. From metros to rural India, there’s a rising hunger to build, innovate, and take
-                        charge – as entrepreneurs or micro-entrepreneurs. Today’s teens / youth are stepping into a
-                        world where holding two careers – one for passion, one for profession, could become the norm.
-                        And that’s your edge. You have the brightest runway ahead to lead the new Bharat wave."
+        <div class="experts-speak-container">
+            <!-- Experts Speak Title -->
+            <div class="experts-title">
+                <img src="images/expert_speak_text.png" alt="Experts Speak" class="experts-title-img">
+            </div>
+            
+            <!-- Quote Border Test -->
+            <div class="quote-border-container">
+                <img src="images/quote_border.png" alt="Quote Border" class="quote-border-img" style="max-width: 700px; width: 100%; height: auto;">
+                <div class="quote-content-overlay">
+                    <blockquote class="expert-quote">
+                        Side hustles. Build your own product. Passion projects. It's
+                        really your time. India is no longer just the back office of the
+                        world – we're a creator economy, and our biggest strength
+                        is our talent. From metros to rural India, there's a rising
+                        hunger to build, innovate, and take charge – as
+                        entrepreneurs or micro-entrepreneurs. Today's teens /
+                        youth are stepping into a world where holding two careers –
+                        one for passion, one for profession, could become the
+                        norm. And that's your edge. You have the brightest runway
+                        ahead to lead the new Bharat wave.
                     </blockquote>
-                    <cite>- Ronnie Screwvala, Co-founder upGrad & Swades Foundation</cite>
                 </div>
             </div>
-        </div>
+            
+            <!-- Author Info and Photo -->
+            <div class="author-section">
+                <div class="author-info">
+                    <div class="author-name">RONNIE SCREWVALA</div>
+                    <div class="author-title">CO-FOUNDER UPGRAD & SWADES FOUNDATION</div>
+                </div>
+                <div class="author-photo-container">
+                    <img src="images/ronnie.png" alt="Ronnie Screwvala" class="ronnie-photo">
+                </div>
+            </div>
+            </div>
     </section>
 
 
@@ -2639,7 +2764,7 @@
 
                 <div class="footer-newsletter">
                     <h4>Stay Updated</h4>
-                    <p>Get the latest news and updates o the book launch</p>
+                    <p>Get the latest news and updates on the book launch</p>
                     <div class="social-links">
                         <a href="https://www.instagram.com/teeninterns/" class="social-link"
                             title="Behind-the-scenes photos and visual content"><img src="images/insta.png"
