@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews | The Internship Book</title>
+    <link rel="icon" type="image/png" href="logos/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reviews Page Specific Styles */
+        .reviews-hero {
+            background: linear-gradient(135deg, #009A94 0%, #00C4B8 100%);
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .reviews-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: white !important;
+        }
+
+        .reviews-hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            color: white !important;
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Total Reviews Section */
+        .total-reviews-section {
+            background: var(--card-bg, white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 4rem;
+            border: 2px solid #f0f0f0;
+        }
+
+        .average-rating {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .rating-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #009A94;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 5px;
+        }
+
+        .star {
+            color: #FFD700;
+            font-size: 2rem;
+        }
+
+        .total-count {
+            font-size: 1.2rem;
+            color: #666;
+            margin-top: 1rem;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            margin-bottom: 4rem;
+        }
+
+        .reviews-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color, #333);
+        }
+
+        .rating-filter {
+            display: flex;
+            gap: 1rem;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #009A94;
+            color: white;
+            border-color: #009A94;
+            transform: translateY(-2px);
+        }
+
+        .filter-star {
+            color: #FFD700;
+        }
+
+        /* Reviews Grid */
+        .reviews-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .review-card {
+            background: var(--card-bg, white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #009A94;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #009A94, #00C4B8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .reviewer-details h4 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color, #333);
+        }
+
+        .reviewer-details p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .review-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .review-star {
+            color: #FFD700;
+            font-size: 1rem;
+        }
+
+        .review-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-color, #555);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .review-date {
+            font-size: 0.8rem;
+            color: #999;
+            text-align: right;
+        }
+
+        /* Write Review Section */
+        .write-review-section {
+            background: var(--card-bg, white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 4rem;
+            border: 2px solid #f0f0f0;
+        }
+
+        .write-review-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-color, #333);
+        }
+
+        .review-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-color, #333);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: var(--bg-color, white);
+            color: var(--text-color, #333);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #009A94;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .reviewer-type-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .type-option {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .type-option input[type="radio"] {
+            display: none;
+        }
+
+        .type-option label {
+            display: block;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--bg-color, white);
+        }
+
+        .type-option input[type="radio"]:checked + label {
+            background: #009A94;
+            color: white;
+            border-color: #009A94;
+        }
+
+        .rating-input {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .rating-input input[type="radio"] {
+            display: none;
+        }
+
+        .rating-input label {
+            font-size: 2rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .rating-input input[type="radio"]:checked ~ label,
+        .rating-input label:hover {
+            color: #FFD700;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #009A94, #00C4B8);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 154, 148, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .reviews-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .reviews-hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .rating-filter {
+                justify-content: center;
+            }
+
+            .review-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .reviewer-type-group {
+                justify-content: center;
+            }
+
+            .average-rating {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .rating-number {
+                font-size: 3rem;
+            }
+        }
+
+        /* Theme support */
+        :root {
+            --primary-color: #009A94;
+            --secondary-color: #00C4B8;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --bg-color: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --card-bg: #2a2a2a;
+            --text-color: #ffffff;
+            --bg-color: #1a1a1a;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .total-reviews-section,
+        .review-card,
+        .write-review-section {
+            background: var(--card-bg);
+        }
+
+        .section-title,
+        .write-review-title,
+        .reviewer-details h4 {
+            color: var(--text-color) !important;
+        }
+    </style>
+</head>
+
+<body data-theme="dark">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
+            <nav class="nav-container">
+                <div class="logo">
+                    <a href="index.html" class="logo-link">
+                        <span class="logo-text">The Internship Book</span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="team.html" class="nav-link">Team</a>
+                    <a href="reviews.html" class="nav-link active">Reviews</a>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <span class="light-icon">🌙</span>
+                        <span class="dark-icon">☀️</span>
+                    </button>
+                </div>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-links">
+            <a href="index.html" class="mobile-link">Home</a>
+            <a href="team.html" class="mobile-link">Team</a>
+            <a href="reviews.html" class="mobile-link active">Reviews</a>
+            <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle theme">
+                <span class="light-icon">🌙</span>
+                <span class="dark-icon">☀️</span>
+                <span class="toggle-text">Dark Mode</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="reviews-hero">
+        <div class="container">
+            <h1>What Readers Are Saying</h1>
+            <p>Real reviews from teens, parents, and educators who love The Internship Book</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="reviews-container">
+        <!-- Total Reviews & Average Rating Section -->
+        <div class="total-reviews-section">
+            <div class="average-rating">
+                <div class="rating-number">4.8</div>
+                <div>
+                    <div class="rating-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <div class="total-count">Based on 247 reviews</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="reviews-section">
+            <div class="reviews-header">
+                <h2 class="section-title">Reviews</h2>
+                <div class="rating-filter">
+                    <button class="filter-btn active" data-rating="all">All Reviews</button>
+                    <button class="filter-btn" data-rating="5">
+                        <span class="filter-star">★</span> 5 Stars
+                    </button>
+                    <button class="filter-btn" data-rating="4">
+                        <span class="filter-star">★</span> 4 Stars
+                    </button>
+                    <button class="filter-btn" data-rating="3">
+                        <span class="filter-star">★</span> 3 Stars
+                    </button>
+                    <button class="filter-btn" data-rating="2">
+                        <span class="filter-star">★</span> 2 Stars
+                    </button>
+                    <button class="filter-btn" data-rating="1">
+                        <span class="filter-star">★</span> 1 Star
+                    </button>
+                </div>
+            </div>
+
+            <div class="reviews-grid" id="reviewsGrid">
+                <!-- Reviews will appear here when submitted -->
+            </div>
+        </div>
+
+        <!-- Write a Review Section -->
+        <div class="write-review-section">
+            <h2 class="write-review-title">Write a Review</h2>
+            <form class="review-form" id="reviewForm">
+                <div class="form-group">
+                    <label>I am a:</label>
+                    <div class="reviewer-type-group">
+                        <div class="type-option">
+                            <input type="radio" id="teen" name="reviewerType" value="teen" required>
+                            <label for="teen">Teen</label>
+                        </div>
+                        <div class="type-option">
+                            <input type="radio" id="parent" name="reviewerType" value="parent" required>
+                            <label for="parent">Parent</label>
+                        </div>
+                        <div class="type-option">
+                            <input type="radio" id="school" name="reviewerType" value="school" required>
+                            <label for="school">School</label>
+                        </div>
+                        <div class="type-option">
+                            <input type="radio" id="company" name="reviewerType" value="company" required>
+                            <label for="company">Company</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email (Worry not! It's a secret!) *</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="rating">Rating *</label>
+                    <div class="rating-input">
+                        <input type="radio" id="star5" name="rating" value="5" required>
+                        <label for="star5">★</label>
+                        <input type="radio" id="star4" name="rating" value="4" required>
+                        <label for="star4">★</label>
+                        <input type="radio" id="star3" name="rating" value="3" required>
+                        <label for="star3">★</label>
+                        <input type="radio" id="star2" name="rating" value="2" required>
+                        <label for="star2">★</label>
+                        <input type="radio" id="star1" name="rating" value="1" required>
+                        <label for="star1">★</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Review *</label>
+                    <textarea id="message" name="message" class="form-control" rows="5" 
+                        placeholder="Share your experience with The Internship Book..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Review</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <span class="footer-logo-img large logo-text">The Internship Book</span>
+                    </a>
+                    <p class="footer-tagline">Empowering the next generation through internships</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-group">
+                        <h4>Navigate</h4>
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="team.html">Team</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-group">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="#">Email ID:</a></li>
+                            <li><a href="#">impact@teeninternsthebook.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get the latest news and updates on the book launch</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/teeninterns/" class="social-link"
+                            title="Behind-the-scenes photos and visual content"><img src="images/insta.png"
+                                style="height: 25px;"></a>
+                        <a href="https://open.spotify.com/show/7xBDGJEqNy4kJqeg5Ip2Sz?si=2a0c01a64e694361"
+                            class="social-link" title="Podcast episodes and audio content"><img src="images/spotify.png"
+                                style="height: 25px;"></a>
+                    </div>
+                    <p class="bts-explanation">Behind-the-scenes content: Photos, Podcasts, Social Media, Videos</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2025 Teen Interns. Made with ❤️ by teens, for teens.</p>
+                <p class="credit">This project was created entirely by teenage interns.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="theme-toggle.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Rating filter functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const reviewCards = document.querySelectorAll('.review-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const rating = this.getAttribute('data-rating');
+                    reviewCards.forEach(card => {
+                        if (rating === 'all' || card.getAttribute('data-rating') === rating) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Review form submission
+            const reviewForm = document.getElementById('reviewForm');
+            reviewForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(reviewForm);
+                const reviewData = Object.fromEntries(formData);
+                
+                if (!reviewData.reviewerType || !reviewData.name || !reviewData.email || !reviewData.rating || !reviewData.message) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+
+                alert('Thank you for your review! It will be reviewed and published soon.');
+                reviewForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
