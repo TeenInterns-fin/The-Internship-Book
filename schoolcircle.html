@@ -19,74 +19,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 
     <style>
-        /* Page-specific styles */
-        .school-page {
-            padding: 120px 0 60px;
-            min-height: 100vh;
-        }
-
-        .content-section {
-            padding: 4rem 0;
-            background: var(--bg-color);
-        }
-
-        .content-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 4rem;
-        }
-
-        .content-placeholder {
-            background: var(--bg-secondary);
-            border: 2px dashed var(--border-color);
-            border-radius: 12px;
-            padding: 4rem 2rem;
-            text-align: center;
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-
-        .illustration-placeholder {
-            background: var(--bg-secondary);
-            border: 2px dashed var(--primary-color);
-            border-radius: 12px;
-            padding: 4rem 2rem;
-            text-align: center;
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-color);
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .content-placeholder,
-            .illustration-placeholder {
-                min-height: 200px;
-                padding: 2rem 1rem;
-            }
-        }
-    </style>
-    <style>
         /* CSS Variables for Theme System */
         :root {
             --primary-color: #009A94;
@@ -229,6 +161,211 @@
         .toggle-text {
             font-size: 0.9rem;
         }
+
+        /* Page-specific styles */
+        .school-page {
+            padding: 120px 0 60px;
+            min-height: 100vh;
+        }
+
+        .content-section {
+            padding: 4rem 0;
+            background: var(--bg-color);
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .content-placeholder {
+            background: var(--bg-secondary);
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .illustration-placeholder {
+            background: var(--bg-secondary);
+            border: 2px dashed var(--primary-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Quotes Section */
+        .quotes-section {
+            background: var(--bg-secondary);
+            padding: 4rem 0;
+            margin-top: 2rem;
+        }
+
+        .quotes-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .quotes-title {
+            text-align: center;
+            color: var(--text-color);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .quotes-carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .arrow {
+            background-color: var(--primary-color);
+            border: none;
+            font-size: 1.8rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            color: white;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .arrow:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .quotes-content {
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        .quote-item {
+            display: none;
+            padding: 2rem;
+            border-radius: 1rem;
+            background: var(--card-bg);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .quote-item.active {
+            display: block;
+        }
+
+        .quote-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            font-style: italic;
+            position: relative;
+        }
+
+        /* Resources Section */
+        .resources-section {
+            padding: 4rem 0;
+            background: var(--bg-color);
+        }
+
+        .resources-title {
+            text-align: center;
+            color: var(--text-color);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .resources-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .resource-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .resource-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+        }
+
+        .resource-item h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-item p {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .content-placeholder,
+            .illustration-placeholder {
+                min-height: 200px;
+                padding: 2rem 1rem;
+            }
+
+            .quotes-carousel {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .resources-container {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -240,7 +377,6 @@
         <div class="bg-shape shape3"></div>
     </div>
 
-    
     <header class="site-header" id="site-header">
         <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
             <nav class="nav-container">
@@ -252,7 +388,7 @@
                 <div class="nav-links">
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="team.html" class="nav-link">Team</a>
-                    
+
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                         <span class="light-icon">🌙</span>
                         <span class="dark-icon">☀️</span>
@@ -267,12 +403,11 @@
         </div>
     </header>
 
-    
     <div class="mobile-menu">
         <div class="mobile-menu-links">
             <a href="index.html" class="mobile-link">Home</a>
             <a href="team.html" class="mobile-link">Team</a>
-            
+
             <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle theme">
                 <span class="light-icon">🌙</span>
                 <span class="dark-icon">☀️</span>
@@ -281,9 +416,7 @@
         </div>
     </div>
 
-    
     <main class="school-page">
-        
         <section class="content-section">
             <div class="content-container">
                 <h1
@@ -292,17 +425,78 @@
                 </h1>
 
                 <div class="content-grid">
-                <div class="content-placeholder">
+                    <div class="content-placeholder">
+                        Content will be added later...
+                    </div>
+
+                    <div class="illustration-placeholder">
+                        Illustration placeholder
+                    </div>
                 </div>
-                
-                <div class="illustration-placeholder">
+
+                <div class="content-grid">
+                    <div class="illustration-placeholder">
+                        Illustration placeholder
+                    </div>
+
+                    <div class="content-placeholder">
+                        Content will be added later...
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Quotes Section -->
+        <section class="quotes-section">
+            <div class="quotes-container">
+                <h2 class="quotes-title">Hear from the Schools!</h2>
+
+                <div class="quotes-carousel">
+                    <button class="arrow left" id="prevQuote">&#8592;</button>
+
+                    <div class="quotes-content">
+                        <div class="quote-item active">
+                            <div class="quote-text">
+                                <p>Quote 1 will be added later...</p>
+                            </div>
+                        </div>
+
+                        <div class="quote-item">
+                            <div class="quote-text">
+                                <p>Quote 2 will be added later...</p>
+                            </div>
+                        </div>
+
+                        <div class="quote-item">
+                            <div class="quote-text">
+                                <p>Quote 3 will be added later...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="arrow right" id="nextQuote">&#8594;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="resources-section">
+            <div class="content-container">
+                <h2 class="resources-title">Resources</h2>
+                <div class="resources-container">
+                    <div class="resource-item" onclick="window.open('#', '_blank')">
+                        <h3>Resource 1</h3>
+                        <p>Resource description will be added later...</p>
+                    </div>
+                    <div class="resource-item" onclick="window.open('#', '_blank')">
+                        <h3>Resource 2</h3>
+                        <p>Resource description will be added later...</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
@@ -359,6 +553,32 @@
     <script src="theme-toggle.js"></script>
     <script src="look-inside.js"></script>
     <script src="floating-stickers.js"></script>
+
+    <script>
+        // Quotes carousel functionality
+        const quotes = document.querySelectorAll(".quote-item");
+        const prevBtn = document.getElementById("prevQuote");
+        const nextBtn = document.getElementById("nextQuote");
+        let currentQuote = 0;
+
+        function showQuote(index) {
+            quotes.forEach(q => q.classList.remove("active"));
+            quotes[index].classList.add("active");
+        }
+
+        prevBtn.addEventListener("click", () => {
+            currentQuote = (currentQuote - 1 + quotes.length) % quotes.length;
+            showQuote(currentQuote);
+        });
+
+        nextBtn.addEventListener("click", () => {
+            currentQuote = (currentQuote + 1) % quotes.length;
+            showQuote(currentQuote);
+        });
+
+        // Initialize
+        showQuote(currentQuote);
+    </script>
 
 </body>
 

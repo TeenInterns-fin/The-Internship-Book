@@ -55,6 +55,7 @@
             --border-color: #333333;
             --card-bg: rgb(26, 26, 26);
             --sidebar-bg: rgba(26, 26, 26, 0.95);
+
             --sidebar-text: #FFFFFF;
         }
 
@@ -63,11 +64,17 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             transition: background-color var(--transition-normal), color var(--transition-normal);
-            /* touch-action: none; */ /* Removed - prevents mobile scrolling */
+            /* touch-action: none; */
+            /* Removed - prevents mobile scrolling */
         }
 
         /* Global text color overrides */
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             color: var(--text-color) !important;
         }
 
@@ -366,8 +373,15 @@
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
         }
 
         /* Genre colors */
@@ -488,7 +502,9 @@
 
         /* Responsive design for hero music showcase */
         @media (max-width: 1200px) {
-            .hero-logo, .hero-photo {
+
+            .hero-logo,
+            .hero-photo {
                 max-width: 380px;
                 max-height: 380px;
             }
@@ -520,7 +536,8 @@
                 transform: rotate(3deg) scale(1.05);
             }
 
-            .hero-logo, .hero-photo {
+            .hero-logo,
+            .hero-photo {
                 max-width: 350px;
                 max-height: 350px;
             }
@@ -557,7 +574,8 @@
                 transform: rotate(2deg) scale(1.05);
             }
 
-            .hero-logo, .hero-photo {
+            .hero-logo,
+            .hero-photo {
                 max-width: 280px;
                 max-height: 280px;
             }
@@ -577,7 +595,8 @@
                 gap: 2rem;
             }
 
-            .hero-logo, .hero-photo {
+            .hero-logo,
+            .hero-photo {
                 max-width: 220px;
                 max-height: 220px;
             }
@@ -608,7 +627,8 @@
             background: linear-gradient(135deg, var(--bg-secondary), var(--bg-alt-color));
             border: 2px solid var(--border-color);
             box-shadow: 0 15px 40px rgba(0, 154, 148, 0.1);
-            touch-action: none; /* Enable custom touch handling */
+            touch-action: none;
+            /* Enable custom touch handling */
         }
 
         .player-title {
@@ -830,7 +850,8 @@
             z-index: 10;
             user-select: none;
             -webkit-user-drag: element;
-            touch-action: none; /* Enable custom touch handling */
+            touch-action: none;
+            /* Enable custom touch handling */
             -webkit-touch-callout: none;
             -webkit-user-select: none;
             -khtml-user-select: none;
@@ -893,7 +914,7 @@
             .mobile-instructions {
                 display: block;
             }
-            
+
             .player-subtitle {
                 display: none;
             }
@@ -966,6 +987,7 @@
                 height: 180px;
             }
         }
+
         .music-team-showcase {
             display: grid;
             grid-template-columns: auto 1fr auto;
@@ -1060,7 +1082,8 @@
                 margin: 2rem auto;
             }
 
-            .team-logo, .team-photo {
+            .team-logo,
+            .team-photo {
                 width: 100px;
                 height: 100px;
             }
@@ -1080,7 +1103,8 @@
                 margin: 1.5rem auto;
             }
 
-            .team-logo, .team-photo {
+            .team-logo,
+            .team-photo {
                 width: 80px;
                 height: 80px;
             }
@@ -1225,7 +1249,8 @@
                 justify-content: space-between;
             }
 
-            .credits-logo, .credits-photo {
+            .credits-logo,
+            .credits-photo {
                 width: 50px;
                 height: 50px;
             }
@@ -1353,11 +1378,14 @@
         }
 
         @keyframes pulse-locked {
-            0%, 100% { 
-                box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3); 
+
+            0%,
+            100% {
+                box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
             }
-            50% { 
-                box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6); 
+
+            50% {
+                box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6);
             }
         }
 
@@ -1366,13 +1394,13 @@
             .scroll-lock-container {
                 right: 15px;
             }
-            
+
             .scroll-lock-btn {
                 width: 50px;
                 height: 50px;
                 font-size: 1.2rem;
             }
-            
+
             .scroll-lock-tooltip {
                 font-size: 0.8rem;
                 padding: 6px 10px;
@@ -1384,15 +1412,16 @@
             .scroll-lock-container {
                 right: 10px;
             }
-            
+
             .scroll-lock-btn {
                 width: 45px;
                 height: 45px;
                 font-size: 1.1rem;
             }
-            
+
             .scroll-lock-tooltip {
-                display: none; /* Hide tooltip on very small screens */
+                display: none;
+                /* Hide tooltip on very small screens */
             }
         }
     </style>
@@ -1406,7 +1435,7 @@
         <div class="bg-shape shape3"></div>
     </div>
 
-    
+
     <header class="site-header" id="site-header">
         <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
             <nav class="nav-container">
@@ -1418,7 +1447,7 @@
                 <div class="nav-links">
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="team.html" class="nav-link">Team</a>
-                    
+
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                         <span class="light-icon">🌙</span>
                         <span class="dark-icon">☀️</span>
@@ -1433,12 +1462,12 @@
         </div>
     </header>
 
-    
+
     <div class="mobile-menu">
         <div class="mobile-menu-links">
             <a href="index.html" class="mobile-link">Home</a>
             <a href="team.html" class="mobile-link">Team</a>
-            
+
             <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle theme">
                 <span class="light-icon">🌙</span>
                 <span class="dark-icon">☀️</span>
@@ -1447,11 +1476,11 @@
         </div>
     </div>
 
-    
+
     <section class="hero" id="hero">
         <div class="container">
             <div class="section-header animate-fade-up">
-                
+
                 <div class="hero-music-showcase">
                     <div class="hero-logo-container">
                         <img src="images/JeevRay Rhapsody Logo.jpeg.jpg" alt="JeevRay Rhapsody Logo" class="hero-logo">
@@ -1468,7 +1497,7 @@
         </div>
     </section>
 
-    
+
     <div class="scroll-lock-container">
         <button class="scroll-lock-btn" id="scrollLockBtn" aria-label="Toggle scroll lock">
             <span class="lock-icon" id="lockIcon">🔓</span>
@@ -1476,17 +1505,18 @@
         </button>
     </div>
 
-    
+
     <section class="interactive-player-section" id="interactive-player">
         <div class="container">
             <div class="player-area">
                 <h2 class="player-title">🎵 Drag & Drop Music Player</h2>
-                <p class="player-subtitle">Drag a mixtape to the speaker to start playing! You can also drop them anywhere to rearrange.</p>
+                <p class="player-subtitle">Drag a mixtape to the speaker to start playing! You can also drop them
+                    anywhere to rearrange.</p>
                 <div class="mobile-instructions">
                     📱 Touch and drag a mixtape to the speaker to play! Hold and move around the screen to rearrange.
                 </div>
-                
-                
+
+
                 <div class="speaker-container" id="speakerContainer">
                     <div class="speaker-main">
                         <div class="speaker-grill">
@@ -1517,39 +1547,46 @@
                     </div>
                 </div>
 
-                
+
                 <div class="speaker-image-container">
                     <img src="images/mixtapes/speaker.png" alt="Speaker" class="speaker-image" id="speakerImage">
                 </div>
 
-                
-                <div class="mixtape-disk" data-track="Breakthrough" data-audio="mixtapes/rock-breakthrough.mp3" style="top: 15%; left: 10%;" draggable="true">
+
+                <div class="mixtape-disk" data-track="Breakthrough" data-audio="mixtapes/rock-breakthrough.mp3"
+                    style="top: 15%; left: 10%;" draggable="true">
                     <img src="images/mixtapes/breakthrough.png" alt="Breakthrough Mixtape" class="mixtape-image">
                 </div>
 
-                <div class="mixtape-disk" data-track="Digital Dreams" data-audio="mixtapes/electronic-focus.mp3" style="top: 25%; right: 15%;" draggable="true">
+                <div class="mixtape-disk" data-track="Digital Dreams" data-audio="mixtapes/electronic-focus.mp3"
+                    style="top: 25%; right: 15%;" draggable="true">
                     <img src="images/mixtapes/digital_dreams.png" alt="Digital Dreams Mixtape" class="mixtape-image">
                 </div>
 
-                <div class="mixtape-disk" data-track="Future Path" data-audio="mixtapes/indie-inspiration.mp3" style="bottom: 30%; left: 8%;" draggable="true">
+                <div class="mixtape-disk" data-track="Future Path" data-audio="mixtapes/indie-inspiration.mp3"
+                    style="bottom: 30%; left: 8%;" draggable="true">
                     <img src="images/mixtapes/future_path.png" alt="Future Path Mixtape" class="mixtape-image">
                 </div>
 
-                <div class="mixtape-disk" data-track="Independent Boost" data-audio="mixtapes/pop-confidence.mp3" style="bottom: 20%; right: 20%;" draggable="true">
-                    <img src="images/mixtapes/independent_boost.png" alt="Independent Boost Mixtape" class="mixtape-image">
+                <div class="mixtape-disk" data-track="Independent Boost" data-audio="mixtapes/pop-confidence.mp3"
+                    style="bottom: 20%; right: 20%;" draggable="true">
+                    <img src="images/mixtapes/independent_boost.png" alt="Independent Boost Mixtape"
+                        class="mixtape-image">
                 </div>
 
-                <div class="mixtape-disk" data-track="Professional Presence" data-audio="mixtapes/classical-calm.mp3" style="top: 60%; left: 25%;" draggable="true">
-                    <img src="images/mixtapes/pro_prescence.png" alt="Professional Presence Mixtape" class="mixtape-image">
+                <div class="mixtape-disk" data-track="Professional Presence" data-audio="mixtapes/classical-calm.mp3"
+                    style="top: 60%; left: 25%;" draggable="true">
+                    <img src="images/mixtapes/pro_prescence.png" alt="Professional Presence Mixtape"
+                        class="mixtape-image">
                 </div>
 
-                
+
                 <audio id="audioPlayer" preload="metadata"></audio>
             </div>
         </div>
     </section>
 
-    
+
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
@@ -1614,7 +1651,7 @@
         let scrollLocked = false;
 
         // Initialize drag and drop functionality
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const mixtapeDisks = document.querySelectorAll('.mixtape-disk');
             const dropZone = document.getElementById('dropZone');
             const speakerImage = document.getElementById('speakerImage');
@@ -1625,28 +1662,28 @@
             const progressBar = document.getElementById('progressBar');
             const timeDisplay = document.getElementById('timeDisplay');
             const playerArea = document.querySelector('.player-area');
-            
+
             // Scroll lock elements
             const scrollLockBtn = document.getElementById('scrollLockBtn');
             const lockIcon = document.getElementById('lockIcon');
             const scrollTooltip = document.getElementById('scrollTooltip');
-            
+
             // Scroll lock functionality
             function toggleScrollLock() {
                 scrollLocked = !scrollLocked;
                 const body = document.body;
-                
+
                 if (scrollLocked) {
                     // Lock scroll only in specific areas
                     scrollLockBtn.classList.add('locked');
                     lockIcon.textContent = '🔒';
                     scrollTooltip.textContent = 'Click to unlock scroll';
-                    
+
                     // Only prevent wheel events in the player area
                     document.addEventListener('wheel', preventPlayerScroll, { passive: false });
                     // Let touchmove events be handled by individual elements
                     document.addEventListener('keydown', preventDefaultForScrollKeys, { passive: false });
-                    
+
                     // Show success message
                     showScrollMessage('Scroll locked in player area! Drag & drop is now optimized 🎯', 'success');
                 } else {
@@ -1654,43 +1691,43 @@
                     scrollLockBtn.classList.remove('locked');
                     lockIcon.textContent = '🔓';
                     scrollTooltip.textContent = 'Click to lock scroll for better drag & drop';
-                    
+
                     // Remove scroll prevention
                     document.removeEventListener('wheel', preventPlayerScroll);
                     document.removeEventListener('keydown', preventDefaultForScrollKeys);
-                    
+
                     // Show unlock message
                     showScrollMessage('Scroll unlocked! You can now scroll normally 📜', 'info');
                 }
             }
-            
+
             // Only prevent scroll in player area
             function preventPlayerScroll(e) {
                 if (e.target.closest('.player-area')) {
                     e.preventDefault();
                 }
             }
-            
+
             function preventDefault(e) {
                 // Only prevent scroll when we're actually dragging, not just when scroll is locked
                 if (isTouchDragging && e.target.closest('.mixtape-disk')) {
                     e.preventDefault();
                     return;
                 }
-                
+
                 // For wheel events, only prevent in the player area when scroll is locked
                 if (e.type === 'wheel' && e.target.closest('.player-area')) {
                     e.preventDefault();
                     return;
                 }
-                
+
                 // For touchmove, only prevent on the mixtape disks themselves
                 if (e.type === 'touchmove' && e.target.closest('.mixtape-disk')) {
                     e.preventDefault();
                     return;
                 }
             }
-            
+
             function preventDefaultForScrollKeys(e) {
                 const scrollKeys = [32, 33, 34, 35, 36, 37, 38, 39, 40];
                 if (scrollKeys.includes(e.keyCode)) {
@@ -1698,7 +1735,7 @@
                     return false;
                 }
             }
-            
+
             function showScrollMessage(message, type) {
                 const messageEl = document.createElement('div');
                 messageEl.textContent = message;
@@ -1716,7 +1753,7 @@
                     box-shadow: 0 8px 25px rgba(0, 154, 148, 0.3);
                     animation: slideDown 3s ease forwards;
                 `;
-                
+
                 document.body.appendChild(messageEl);
                 setTimeout(() => {
                     if (messageEl.parentNode) {
@@ -1724,14 +1761,14 @@
                     }
                 }, 3000);
             }
-            
+
             // Add scroll lock button event listener
             scrollLockBtn.addEventListener('click', toggleScrollLock);
 
             // Make mixtape disks draggable
             mixtapeDisks.forEach(disk => {
                 disk.draggable = true;
-                
+
                 // Desktop drag events
                 disk.addEventListener('dragstart', (e) => {
                     isDragging = true;
@@ -1753,14 +1790,14 @@
                     e.preventDefault();
                     isTouchDragging = true;
                     touchDragElement = disk;
-                    
+
                     const touch = e.touches[0];
                     const rect = disk.getBoundingClientRect();
                     touchOffset.x = touch.clientX - rect.left;
                     touchOffset.y = touch.clientY - rect.top;
-                    
+
                     disk.classList.add('touch-dragging');
-                    
+
                     // If scroll is not locked, suggest to user
                     if (!scrollLocked) {
                         setTimeout(() => {
@@ -1776,35 +1813,35 @@
                         // Always prevent default during drag to avoid scroll
                         e.preventDefault();
                         e.stopPropagation();
-                        
+
                         const touch = e.touches[0];
                         const playerRect = playerArea.getBoundingClientRect();
-                        
+
                         // Calculate new position relative to player area
                         const x = touch.clientX - playerRect.left - touchOffset.x;
                         const y = touch.clientY - playerRect.top - touchOffset.y;
-                        
+
                         // Constrain within player area bounds
                         const constrainedX = Math.max(0, Math.min(x, playerRect.width - disk.offsetWidth));
                         const constrainedY = Math.max(0, Math.min(y, playerRect.height - disk.offsetHeight));
-                        
+
                         // Update disk position
                         disk.style.left = `${(constrainedX / playerRect.width) * 100}%`;
                         disk.style.top = `${(constrainedY / playerRect.height) * 100}%`;
                         disk.style.right = 'auto';
                         disk.style.bottom = 'auto';
-                        
+
                         // Check collision with speaker for visual feedback
                         const speakerRect = speakerImage.getBoundingClientRect();
                         const diskRect = disk.getBoundingClientRect();
-                        
+
                         const isOverSpeaker = (
                             diskRect.left < speakerRect.right &&
                             diskRect.right > speakerRect.left &&
                             diskRect.top < speakerRect.bottom &&
                             diskRect.bottom > speakerRect.top
                         );
-                        
+
                         if (isOverSpeaker) {
                             dropZone.classList.add('drag-over');
                             speakerImage.style.filter = 'brightness(1.1) drop-shadow(0 0 15px rgba(0, 154, 148, 0.6))';
@@ -1818,28 +1855,28 @@
                 disk.addEventListener('touchend', (e) => {
                     if (isTouchDragging && touchDragElement === disk) {
                         e.preventDefault();
-                        
+
                         // Check if dropped on speaker
                         const speakerRect = speakerImage.getBoundingClientRect();
                         const diskRect = disk.getBoundingClientRect();
-                        
+
                         const isOverSpeaker = (
                             diskRect.left < speakerRect.right &&
                             diskRect.right > speakerRect.left &&
                             diskRect.top < speakerRect.bottom &&
                             diskRect.bottom > speakerRect.top
                         );
-                        
+
                         if (isOverSpeaker) {
                             playTrack(disk.dataset.track, disk.dataset.audio);
-                            
+
                             // Visual feedback for successful drop
                             speakerImage.style.filter = 'brightness(1.2) drop-shadow(0 0 20px rgba(0, 154, 148, 0.8))';
                             setTimeout(() => {
                                 speakerImage.style.filter = '';
                             }, 1000);
                         }
-                        
+
                         // Clean up
                         dropZone.classList.remove('drag-over');
                         speakerImage.style.filter = '';
@@ -1860,35 +1897,35 @@
                 e.preventDefault();
                 const diskIndex = e.dataTransfer.getData('diskElement');
                 const disk = mixtapeDisks[diskIndex];
-                
+
                 if (disk) {
                     // Get the drop coordinates relative to the player area
                     const rect = playerArea.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
-                    
+
                     // Update disk position
                     disk.style.left = `${(x / rect.width) * 100}%`;
                     disk.style.top = `${(y / rect.height) * 100}%`;
                     disk.style.right = 'auto';
                     disk.style.bottom = 'auto';
-                    
+
                     // Check if dropped on speaker (collision detection)
                     const speakerRect = speakerImage.getBoundingClientRect();
                     const diskRect = disk.getBoundingClientRect();
-                    
+
                     const isOverSpeaker = (
                         diskRect.left < speakerRect.right &&
                         diskRect.right > speakerRect.left &&
                         diskRect.top < speakerRect.bottom &&
                         diskRect.bottom > speakerRect.top
                     );
-                    
+
                     if (isOverSpeaker) {
                         const track = e.dataTransfer.getData('text/plain');
                         const audioSrc = e.dataTransfer.getData('audio');
                         playTrack(track, audioSrc);
-                        
+
                         // Visual feedback for successful drop
                         speakerImage.style.filter = 'brightness(1.2) drop-shadow(0 0 20px rgba(0, 154, 148, 0.8))';
                         setTimeout(() => {
@@ -1911,10 +1948,10 @@
             dropZone.addEventListener('drop', (e) => {
                 e.preventDefault();
                 dropZone.classList.remove('drag-over');
-                
+
                 const track = e.dataTransfer.getData('text/plain');
                 const audioSrc = e.dataTransfer.getData('audio');
-                
+
                 playTrack(track, audioSrc);
             });
 
@@ -1955,27 +1992,27 @@
                 // Set up new audio
                 audioPlayer.src = audioSrc;
                 audioPlayer.load();
-                
+
                 // Update UI
                 currentTrack.textContent = track;
                 nowPlaying.style.display = 'block';
                 playPauseBtn.textContent = '⏸️';
-                
+
                 // Add visual effect to speaker
                 speakerImage.style.animation = 'pulse 2s infinite';
                 speakerImage.style.transform = 'scale(1.05)';
-                
+
                 // Play audio
                 audioPlayer.play().catch(console.error);
                 currentAudio = audioPlayer;
-                
+
                 // Add success animation
                 dropZone.style.background = 'rgba(0, 154, 148, 0.2)';
                 setTimeout(() => {
                     dropZone.style.background = '';
                     speakerImage.style.transform = '';
                 }, 1000);
-                
+
                 // Create floating success message
                 const successMsg = document.createElement('div');
                 successMsg.textContent = `🎵 Now Playing: ${track}`;
@@ -1992,7 +2029,7 @@
                     z-index: 1000;
                     animation: slideDown 3s ease forwards;
                 `;
-                
+
                 playerArea.appendChild(successMsg);
                 setTimeout(() => {
                     if (successMsg.parentNode) {
@@ -2007,7 +2044,7 @@
                 const remainingSeconds = Math.floor(seconds % 60);
                 return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
             }
-            
+
             // Add CSS animation for success message
             const style = document.createElement('style');
             style.textContent = `
@@ -2027,11 +2064,11 @@
                 }
             `;
             document.head.appendChild(style);
-            
+
             // Add metadata loading for all audio elements (consolidated here)
             const audioElements = document.querySelectorAll('audio');
             audioElements.forEach(audio => {
-                audio.addEventListener('loadedmetadata', function() {
+                audio.addEventListener('loadedmetadata', function () {
                     const timeDisplay = audio.closest('.song-player')?.querySelector('.time-display');
                     if (timeDisplay && audio.duration) {
                         timeDisplay.textContent = formatTime(audio.duration);
@@ -2039,7 +2076,7 @@
                 });
 
                 // Handle audio loading errors
-                audio.addEventListener('error', function() {
+                audio.addEventListener('error', function () {
                     console.log('Audio file not found:', audio.src);
                     const timeDisplay = audio.closest('.song-player')?.querySelector('.time-display');
                     if (timeDisplay) {
@@ -2085,7 +2122,7 @@
             }
 
             // Update progress bar and time
-            audio.addEventListener('timeupdate', function() {
+            audio.addEventListener('timeupdate', function () {
                 if (audio.duration) {
                     const progress = (audio.currentTime / audio.duration) * 100;
                     progressBar.style.width = progress + '%';
@@ -2094,7 +2131,7 @@
             });
 
             // Handle audio end
-            audio.addEventListener('ended', function() {
+            audio.addEventListener('ended', function () {
                 button.textContent = '▶️';
                 songPlayer.classList.remove('playing');
                 progressBar.style.width = '0%';
@@ -2106,7 +2143,7 @@
         function seek(event, progressContainer) {
             const songPlayer = progressContainer.closest('.song-player');
             const audio = songPlayer.querySelector('audio');
-            
+
             if (audio.duration) {
                 const rect = progressContainer.getBoundingClientRect();
                 const clickX = event.clientX - rect.left;

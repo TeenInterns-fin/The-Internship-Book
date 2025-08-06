@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meet the Team | Teen Interns Book</title>
+    <title>Parent Circle | The Internship Book</title>
     <link rel="icon" type="image/png" href="logos/favicon.png">
     <link rel="stylesheet" href="styles-advanced.css">
     <link rel="stylesheet" href="styles.css">
@@ -12,13 +13,14 @@
     <link rel="stylesheet" href="mobile-fixes.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Caveat:wght@400;600&display=swap"
+        rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
+
     <style>
-            /* Theme Toggle Button Styles */
-       /* CSS Variables for Theme System */
+        /* CSS Variables for Theme System */
         :root {
             --primary-color: #009A94;
             --secondary-color: #00C4B8;
@@ -62,7 +64,6 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             transition: background-color var(--transition-normal), color var(--transition-normal);
-            padding: 5rem;
         }
 
         /* Force header background and text colors */
@@ -86,570 +87,622 @@
         .mobile-link {
             color: var(--text-color) !important;
         }
-            .theme-toggle {
-                background: none;
-                border: 2px solid var(--primary-color);
-                border-radius: 50px;
-                padding: 8px 12px;
-                cursor: pointer;
-                font-size: 1.2rem;
-                transition: all var(--transition-fast);
-                position: relative;
-                overflow: hidden;
-                margin-left: 15px;
-                display: flex;
-                align-items: center;
-                gap: 5px;
+
+        /* Theme Toggle Button Styles */
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--primary-color);
+            border-radius: 50px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+            margin-left: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle .light-icon,
+        .theme-toggle .dark-icon {
+            transition: opacity var(--transition-fast), transform var(--transition-fast);
+        }
+
+        /* Show/hide icons based on theme */
+        [data-theme="light"] .theme-toggle .light-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        [data-theme="light"] .theme-toggle .dark-icon {
+            opacity: 0;
+            transform: scale(0.8);
+            position: absolute;
+        }
+
+        [data-theme="dark"] .theme-toggle .dark-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        [data-theme="dark"] .theme-toggle .light-icon {
+            opacity: 0;
+            transform: scale(0.8);
+            position: absolute;
+        }
+
+        /* Mobile theme toggle */
+        .mobile-theme-toggle {
+            background: none;
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .mobile-theme-toggle:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .toggle-text {
+            font-size: 0.9rem;
+        }
+
+        /* Page-specific styles */
+        .parents-page {
+            padding: 120px 0 60px;
+            min-height: 100vh;
+        }
+
+        .content-section {
+            padding: 4rem 0;
+            background: var(--bg-color);
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .parent-content {
+            color: var(--text-color);
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .parent-content h2 {
+            color: var(--text-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .parent-content p {
+            margin-bottom: 1.2rem;
+        }
+
+        .illustration-placeholder {
+            background: var(--bg-secondary);
+            border: 2px dashed var(--primary-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Quotes Section */
+        .quotes-section {
+            background: var(--bg-secondary);
+            padding: 4rem 0;
+            margin-top: 2rem;
+        }
+
+        .quotes-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .quotes-title {
+            text-align: center;
+            color: var(--text-color);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .quotes-carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .arrow {
+            background-color: var(--primary-color);
+            border: none;
+            font-size: 1.8rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            color: white;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .arrow:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .quotes-content {
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        .quote-item {
+            display: none;
+            padding: 2rem;
+            border-radius: 1rem;
+            background: var(--card-bg);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .quote-item.active {
+            display: block;
+        }
+
+        .quote-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            font-style: italic;
+            position: relative;
+        }
+
+        .quote-text::before {
+            content: '"';
+            font-size: 3rem;
+            position: absolute;
+            left: -20px;
+            top: -10px;
+            color: var(--primary-color);
+            opacity: 0.3;
+        }
+
+        .quote-text::after {
+            content: '"';
+            font-size: 3rem;
+            position: absolute;
+            right: -20px;
+            bottom: -30px;
+            color: var(--primary-color);
+            opacity: 0.3;
+        }
+
+        /* Resources Section */
+        .resources-section {
+            padding: 4rem 0;
+            background: var(--bg-color);
+        }
+
+        .resources-title {
+            text-align: center;
+            color: var(--text-color);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .resources-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .resource-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .resource-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+        }
+
+        .resource-item h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-item p {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .theme-toggle:hover {
-                background: var(--primary-color);
-                transform: scale(1.05);
+            .quotes-carousel {
+                flex-direction: column;
+                gap: 2rem;
             }
 
-            .theme-toggle .light-icon,
-            .theme-toggle .dark-icon {
-                transition: opacity var(--transition-fast), transform var(--transition-fast);
+            .arrow {
+                order: 2;
             }
 
-            /* Show/hide icons based on theme */
-            [data-theme="light"] .theme-toggle .light-icon {
-                opacity: 1;
-                transform: scale(1);
+            .quotes-content {
+                order: 1;
             }
 
-            [data-theme="light"] .theme-toggle .dark-icon {
-                opacity: 0;
-                transform: scale(0.8);
-                position: absolute;
+            .resources-container {
+                grid-template-columns: 1fr;
             }
-
-            [data-theme="dark"] .theme-toggle .dark-icon {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            [data-theme="dark"] .theme-toggle .light-icon {
-                opacity: 0;
-                transform: scale(0.8);
-                position: absolute;
-            }
-
-            /* Mobile theme toggle */
-            .mobile-theme-toggle {
-                background: none;
-                border: 2px solid var(--primary-color);
-                border-radius: 8px;
-                padding: 10px 15px;
-                cursor: pointer;
-                font-size: 1rem;
-                transition: all var(--transition-fast);
-                color: var(--text-color);
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                margin-top: 10px;
-            }
-
-            .mobile-theme-toggle:hover {
-                background: var(--primary-color);
-                color: white;
-            }
-
-            .toggle-text {
-                font-size: 0.9rem;
-            }
-            .title{
-              padding-top: 150px;
-              text-align: center;
-            }
-      
-
-           .content {
-              display: grid;
-              grid-template-columns: 2fr 1fr; /* 2/3 for text, 1/3 for image */
-              align-items: center;
-              gap: 2rem; 
-              padding: 2rem;
-           }
-           .letter{
-              display: grid;
-              grid-template-columns: 1fr 2fr;                     
-              align-items: center;
-              gap: 2rem; 
-              padding: 2rem;
-
-           }
-           .illustration img{
-             width:30vw;
-             height: auto;
-           }
-      
-      .quotes {
-      padding: 3rem 2rem;
-      text-align: center;
-      background-color: var(--bg-secondary);
-    }
-
-    .quotes h2 {
-      margin-bottom: 2rem;
-    }
-
-    .quotes-carousel {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      position: fixed;
-      width: 900px;
-      margin: 0 auto;
-    }
-
-    .arrow {
-      background-color: var(--primary-color);
-      border: none;
-      font-size: 1.8rem;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      cursor: pointer;
-      color: var(--text-color);
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .arrow:hover {
-      background-color: var(--primary-color);
-      color: var(--text-color);
-    }
-
-    .quotes-container {
-      flex: 1;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-    }
-
-    .quote-item {
-      display: none;
-      align-items: center;
-      gap: 1.5rem;
-      max-width: 600px;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      background: var(--bg-alt);
-    }
-
-    .quote-item.active {
-      display: flex;
-    }
-
-    .profile-img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-
-    .quote-text {
-      position: relative;
-      text-align: left;
-      border-left: 4px solid var(--primary-color);
-      padding-left: 1rem;
-    }
-
-    .quote-text p {
-      margin: 0.3rem 0;
-    }
-
-    .author {
-      margin-top: 0.5rem;
-      font-weight: bold;
-      color: var(--text-color);
-    }
-
-    .resource-container{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-      padding: 1rem;
-    }
-
-    .resource-item{
-      padding: 0.5rem;
-    }
-
-    .resource-item button{
-      height: 200px;
-      width: 300px;
-      margin: 1rem;
-    }
-    .resources{
-      text-align: center;
-    }
-        
-
-            @keyframes pulse {
-
-                0%,
-                100% {
-                    transform: scale(1);
-                }
-
-                50% {
-                    transform: scale(1.05);
-                }
-              }
-            /* Loading state */
-            .loading-spinner {
-                display: inline-block;
-                width: 40px;
-                height: 40px;
-                border: 4px solid #f3f3f3;
-                border-top: 4px solid #009A94;
-                border-radius: 50%;
-                animation: spin 1s linear infinite;
-            }
-
-            @keyframes spin {
-                0% {
-                    transform: rotate(0deg);
-                }
-
-                100% {
-                    transform: rotate(360deg);
-                }
-            }
+        }
     </style>
-  </head>
-  <body>
-      <header class="site-header" id="site-header">
-          <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
-              <nav class="nav-container">
-                  <div class="logo">
-                      <a href="index.html" class="logo-link">
-                          <span class="logo-text">The Internship Book</span>
-                      </a>
-                  </div>
-                  <div class="nav-links">
-                      <a href="index.html" class="nav-link">Home</a>
-                      <a href="team.html" class="nav-link">Team</a>
-                      
-                      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                          <span class="light-icon">🌙</span>
-                          <span class="dark-icon">☀️</span>
-                      </button>
-                  </div>
-                  <button class="mobile-menu-toggle">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                  </button>
-              </nav>
-          </div>
-      </header>
-  
-      
-      <div class="mobile-menu">
-          <div class="mobile-menu-links">
-              <a href="team.html" class="mobile-link">Team</a>
-              
-              <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle theme">
-                  <span class="light-icon">🌙</span>
-                  <span class="dark-icon">☀️</span>
-                  <span class="toggle-text">Dark Mode</span>
-              </button>
-          </div>
-      </div>
+</head>
 
+<body>
+    <header class="site-header" id="site-header">
+        <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
+            <nav class="nav-container">
+                <div class="logo">
+                    <a href="index.html" class="logo-link">
+                        <span class="logo-text">The Internship Book</span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="team.html" class="nav-link">Team</a>
 
-    <section class="content">
-        <div class="intro-text">
-          <div class="title">
-            <h2>Parent Circle</h2>
-          </div>
-          <p><b>Dear Parents,</b>
-            <p><i>Your teen is not just growing up,  they’re growing into who they’re meant to be.</i></p>
-            <p>The Internship Book is a small but mighty attempt to help them <i>start somewhere</i> - to explore, try, fail, learn, and begin understanding the world of work early. 
-              We are sure as working professionals and having gone through this journey yourself you know that - Internships aren’t just about resumes or certificates. 
-              They’re about <b>building character</b>, <b>discovering direction</b>, and <b>gaining real-world confidence</b>, long before college or careers.
-              </p>
-            <p>
-            As a parent, you play a powerful role. Not by choosing for them, but by <b>cheering them on</b> as they try new things, take risks, and figure out what fits. 
-            Some days, they'll come home beaming. Other days, they'll come home frustrated. Both are wins, because they’re learning.
-            </p>
-            <p><b>This section is for you! </b></p>
-            <p>
-            Parenting a GenZ and Gen Alpha was not something any of us came prepared with. We are navigating this together and here to support you in ways we can 🙂
-            </p>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <span class="light-icon">🌙</span>
+                        <span class="dark-icon">☀️</span>
+                    </button>
+                </div>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
         </div>
-  
-        <div class="illustration">
-           <img src="images/parents2.png" alt="Illustration of parents">
+    </header>
+
+    <div class="mobile-menu">
+        <div class="mobile-menu-links">
+            <a href="team.html" class="mobile-link">Team</a>
+
+            <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle theme">
+                <span class="light-icon">🌙</span>
+                <span class="dark-icon">☀️</span>
+                <span class="toggle-text">Dark Mode</span>
+            </button>
         </div>
-    </section>
-
-    <section class="letter">
-      <div class="illustration">
-        <img src="images/parents3.png" alt="Illustration of confused parents">
-        <img src="images/parents.png" alt="Illustration of supportive parents">
-      </div>
-      <div class="parent-text">
-        <h2><b> To Every Parent of a Gen Z or Gen Alpha Teen…</b></h2>
-        
-        <p>We see you.</p>
-       <p>You’re parenting in a world that’s changing faster than anyone imagined. Your child is growing up with AI, anxiety, activism, and access to everything - all at once. 
-        They’re bolder, more sensitive, more expressive, and more aware. And yes - they question everything.</p>
-<p>
-It’s not easy.
-But it’s not hopeless either.
-Because behind every “stubborn” teen is a <b>searching soul</b> - craving truth, belonging, and purpose.
-</p>
-<p><
-They may not listen the first time.
- They may roll their eyes, argue back, or retreat into their screen.
- But <b>they’re watching</b>.
- They’re learning how to handle life by how you handle them.
- </p>
-
-<p>So don’t underestimate what your love, patience, and presence can do:</p>
-<p>    Every time you <b>pause instead of react</b> - you’re building trust.</p>
-
-<p>    Every time you <b>listen instead of lecture</b> - you’re planting courage.</p>
-
-<p>    Every time you <b>apologize, admit, or grow alongside them</b> - you’re teaching emotional maturity.</p>
-
-<p><b>
-You’re not raising mini-versions of yourself.
-You’re raising <i>originals</i>, who will navigate a world you’ve never known.
-</b></p>
-
-<p>
-They don’t need perfect parents.
-They need <b>anchored ones</b>.
-Ones who stay steady even when storms rise. Ones who guide, not control.
-Ones who hold the boundary <i>and</i> the hug.
-</p>
-
-<p>
-So breathe.
-You’re doing better than you think.
-Keep showing up. Keep learning. Keep loving.
-</p>
-<p>
-Your teen may not say it, but they’ll remember it - deeply, and for life.
-</p>
-
-      </div>
-    </section>
-
-  <section class="quotes">
-     <h2> Hear from the parents!</h2>
-
-     <div class="quotes-carousel">
-      <button class="arrow left">&#8592;</button>
-      
-      <div class="quotes-container">
-        <div class="quote-item active">
-          <div class="quote-text">
-            <p>"Internships gave my daughter real-world exposure, something textbooks can’t teach. It built her confidence and helped her understand what she enjoys.”</p>
-           
-          </div>
-        </div>
-
-        <div class="quote-item">
-          
-          <div class="quote-text">
-            <p>“My child matured a lot during the internship. Understanding work culture and responsibilities early on was of great value."</p>
-            
-          </div>
-        </div>
-
-        <div class="quote-item">
-
-          
-          <div class="quote-text">
-            <p>“The experience shaped my sons future goals. It helped him realize her strengths and gave him clarity about what he wants to pursue.”           
-         </p>
-          </div>
-        </div>
-      </div>
-
-       <div class="quote-item">
-
-          
-          <div class="quote-text">
-            <p>“Interning helped my teen bridge the gap between academics and actual work. He came back more focused and career aware.” </p>
-           
-          </div>
-        </div>
-      </div>
-
-       <div class="quote-item">
-
-          
-          <div class="quote-text">
-            <p>“It was an eye-opening experience for my daughter. She learned to communicate professionally, manage time better, and take ownership of her work.” </p>
-           
-          </div>
-        </div>
-      </div>
-
-       <div class="quote-item">
-
-          
-          <div class="quote-text">
-            <p> "It was rewarding to see my daughter step out of her comfort zone and grow.” </p>
-           
-          </div>
-        </div>
-      </div>
-      
-      <button class="arrow right">&#8594;</button>
     </div>
-           
-  </section>
 
-  <section class="Resources">
-    <h2>Resources</h2>
-    <div class="resources-container">
-      <div class="resource-item">
-        <buttton> The Internship Roadmap Assessment – A tool to understand where your teen stands and what kind of internship is right for them.
-      </div>
-      <div class="resource-item">
-        <buttton> Mindful Moments for Raising Teens: This isn’t a rulebook. It’s a rest stop. A reminder that you don’t have to have it all together to be a powerful parent.
-Download here
-      </div>
-  
-    </div>
-  </section>
+    <main class="parents-page">
+        <section class="content-section">
+            <div class="content-container">
+                <h1
+                    style="text-align: center; color: var(--text-color); font-size: 3rem; margin-bottom: 3rem; font-weight: 800;">
+                    Parent Circle
+                </h1>
 
-  
-
-
-
-
-    <footer class="site-footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-brand">
-                        <a href="#" class="footer-logo">
-                            <span class="footer-logo-img large logo-text">The Internship Book</span>
-                        </a>
-                        <p class="footer-tagline">Empowering the next generation through internships</p>
-                    </div>
-
-                    <div class="footer-links">
-                        <div class="footer-group">
-                            <h4>Navigate</h4>
-                            <ul>
-                                <li><a href="#about">About</a></li>
-                                <li><a href="team.html">Team</a></li>
-                            </ul>
-                        </div>
-
-
-                        <div class="footer-group">
-                            <h4>Contact</h4>
-                            <ul>
-                                <li><a href="#">Email ID:</a></li>
-                                <li><a href="#">impact@teeninternsthebook.com</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="footer-newsletter">
-                        <h4>Stay Updated</h4>
-                        <p>Get the latest news and updates on the book launch</p>
-                        <form class="newsletter-form">
-                            <input type="email" placeholder="Your email" required class="newsletter-input">
-                            <button type="submit" class="newsletter-submit">Subscribe</button>
-                        </form>
-                        <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--subtitle-color);">
-                            Or <a
-                                href="mailto:impact@teeninternsthebook.com?subject=Book Launch Updates%20Subscription&body=Hey!%20I%20want%20to%20stay%20updated%20with%20news%20related%20to%20the%20Teen%20Interns%20Book.%20Please%20add%20me%20to%20your%20mailing%20list%20for%20book%20launch%20updates,%20behind-the-scenes%20content,%20and%20exclusive%20announcements.%0A%0AThanks!"
-                                style="color: var(--primary-color); text-decoration: underline;">
-                                send us an email directly
-                            </a> to subscribe
+                <div class="content-grid">
+                    <div class="parent-content">
+                        <p><b>Dear Parents,</b></p>
+                        <p><i>Your teen is not just growing up, they're growing into who they're meant to be.</i></p>
+                        <p>The Internship Book is a small but mighty attempt to help them <i>start somewhere</i> - to
+                            explore, try, fail, learn, and begin understanding the world of work early.
+                            We are sure as working professionals and having gone through this journey yourself you know
+                            that - Internships aren't just about resumes or certificates.
+                            They're about <b>building character</b>, <b>discovering direction</b>, and <b>gaining
+                                real-world confidence</b>, long before college or careers.
                         </p>
-                        <div class="social-links">
-                            <a href="https://www.instagram.com/teeninterns/" class="social-link"
-                                title="Behind-the-scenes photos and visual content"><img src="images/insta.png"
-                                    style="height: 25px;"></a>
-                            <a href="https://open.spotify.com/show/7xBDGJEqNy4kJqeg5Ip2Sz?si=2a0c01a64e694361"
-                                class="social-link" title="Podcast episodes and audio content"><img
-                                    src="images/spotify.png" style="height: 25px;"></a>
-                            <a href="#" class="social-link" title="Mobile content and social media">📱</a>
-                            <a href="#" class="social-link" title="Video content and documentaries">📺</a>
-                        </div>
-                        <p class="bts-explanation">Behind-the-scenes content: Photos, Podcasts, Social Media, Videos</p>
+                        <p>
+                            As a parent, you play a powerful role. Not by choosing for them, but by <b>cheering them
+                                on</b> as they try new things, take risks, and figure out what fits.
+                            Some days, they'll come home beaming. Other days, they'll come home frustrated. Both are
+                            wins, because they're learning.
+                        </p>
+                        <p><b>This section is for you!</b></p>
+                        <p>
+                            Parenting a GenZ and Gen Alpha was not something any of us came prepared with. We are
+                            navigating this together and here to support you in ways we can 🙂
+                        </p>
+                    </div>
+
+                    <div class="illustration-placeholder">
+                        <img src="images/parents2.png" alt="Illustration of parents"
+                            style="max-width: 100%; height: auto; border-radius: 12px;">
                     </div>
                 </div>
 
-                <div class="footer-bottom">
-                    <p class="copyright">&copy; 2025 Teen Interns. Made with ❤️ by teens, for teens.</p>
-                    <p class="credit">This project was created entirely by teenage interns.</p>
+                <div class="content-grid" style="margin-top: 4rem;">
+                    <div class="illustration-placeholder">
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <img src="images/parents3.png" alt="Illustration of confused parents"
+                                style="max-width: 100%; height: auto; border-radius: 12px;">
+                            <img src="images/parents.png" alt="Illustration of supportive parents"
+                                style="max-width: 100%; height: auto; border-radius: 12px;">
+                        </div>
+                    </div>
+                    <div class="parent-content">
+                        <h2><b>To Every Parent of a Gen Z or Gen Alpha Teen…</b></h2>
+
+                        <p>We see you.</p>
+                        <p>You're parenting in a world that's changing faster than anyone imagined. Your child is
+                            growing up with AI, anxiety, activism, and access to everything - all at once.
+                            They're bolder, more sensitive, more expressive, and more aware. And yes - they question
+                            everything.</p>
+                        <p>
+                            It's not easy.
+                            But it's not hopeless either.
+                            Because behind every "stubborn" teen is a <b>searching soul</b> - craving truth, belonging,
+                            and purpose.
+                        </p>
+                        <p>
+                            They may not listen the first time.
+                            They may roll their eyes, argue back, or retreat into their screen.
+                            But <b>they're watching</b>.
+                            They're learning how to handle life by how you handle them.
+                        </p>
+
+                        <p>So don't underestimate what your love, patience, and presence can do:</p>
+                        <p> Every time you <b>pause instead of react</b> - you're building trust.</p>
+                        <p> Every time you <b>listen instead of lecture</b> - you're planting courage.</p>
+                        <p> Every time you <b>apologize, admit, or grow alongside them</b> - you're teaching emotional
+                            maturity.</p>
+
+                        <p><b>
+                                You're not raising mini-versions of yourself.
+                                You're raising <i>originals</i>, who will navigate a world you've never known.
+                            </b></p>
+
+                        <p>
+                            They don't need perfect parents.
+                            They need <b>anchored ones</b>.
+                            Ones who stay steady even when storms rise. Ones who guide, not control.
+                            Ones who hold the boundary <i>and</i> the hug.
+                        </p>
+
+                        <p>
+                            So breathe.
+                            You're doing better than you think.
+                            Keep showing up. Keep learning. Keep loving.
+                        </p>
+                        <p>
+                            Your teen may not say it, but they'll remember it - deeply, and for life.
+                        </p>
+                    </div>
                 </div>
             </div>
-        </footer>
-       <script src="theme-toggle.js"></script>
-      <script>
-         const quotes = document.querySelectorAll(".quote-item");
-        const leftBtn = document.querySelector(".arrow.left");
-        const rightBtn = document.querySelector(".arrow.right");
-        let current = 0;
-    
-        function showQuote(index) {
-          quotes.forEach(q => q.classList.remove("active"));
-          quotes[index].classList.add("active");
-        }
-    
-        leftBtn.addEventListener("click", () => {
-          current = (current - 1 + quotes.length) % quotes.length;
-          showQuote(current);
-        });
-    
-        rightBtn.addEventListener("click", () => {
-          current = (current + 1) % quotes.length;
-          showQuote(current);
-        });
-    
-        showQuote(current);
+        </section>
 
-      // Make social media icons functional
-        document.addEventListener('DOMContentLoaded', function() {
-            const socialLinks = document.querySelectorAll('.social-link[data-platform]');
-            
-            socialLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const platform = this.getAttribute('data-platform');
-                    
-                    switch(platform) {
-                        case 'instagram':
-                            window.open('https://instagram.com/teeninterns', '_blank');
-                            break;
-                        case 'spotify':
-                            window.open('https://open.spotify.com/show/teeninterns', '_blank');
-                            break;
-                        case 'linkedin':
-                            window.open('https://linkedin.com/company/teeninterns', '_blank');
-                            break;
-                        case 'youtube':
-                            window.open('https://youtube.com/@teeninterns', '_blank');
-                            break;
-                        default:
-                            console.log('Social platform not configured yet');
-                    }
-                });
-            });
+        <!-- Quotes Section -->
+        <section class="quotes-section">
+            <div class="quotes-container">
+                <h2 class="quotes-title">Hear from the Parents!</h2>
+
+                <div class="quotes-carousel">
+                    <button class="arrow left" id="prevQuote">&#8592;</button>
+
+                    <div class="quotes-content">
+                        <div class="quote-item active">
+                            <div class="quote-text">
+                                <p>Internships gave my daughter real-world exposure, something textbooks can't teach. It
+                                    built her confidence and helped her understand what she enjoys.</p>
+                            </div>
+                        </div>
+
+                        <div class="quote-item">
+                            <div class="quote-text">
+                                <p>My child matured a lot during the internship. Understanding work culture and
+                                    responsibilities early on was of great value.</p>
+                            </div>
+                        </div>
+
+                        <div class="quote-item">
+                            <div class="quote-text">
+                                <p>The experience shaped my son's future goals. It helped him realize his strengths and
+                                    gave him clarity about what he wants to pursue.</p>
+                            </div>
+                        </div>
+
+                        <div class="quote-item">
+                            <div class="quote-text">
+                                <p>Interning helped my teen bridge the gap between academics and actual work. He came
+                                    back more focused and career aware.</p>
+                            </div>
+                        </div>
+
+                        <div class="quote-item">
+                            <div class="quote-text">
+                                <p>It was an eye-opening experience for my daughter. She learned to communicate
+                                    professionally, manage time better, and take ownership of her work.</p>
+                            </div>
+                        </div>
+
+                        <div class="quote-item">
+                            <div class="quote-text">
+                                <p>It was rewarding to see my daughter step out of her comfort zone and grow.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="arrow right" id="nextQuote">&#8594;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="resources-section">
+            <div class="content-container">
+                <h2 class="resources-title">Resources</h2>
+                <div class="resources-container">
+                    <div class="resource-item" onclick="window.open('#', '_blank')">
+                        <h3>The Internship Roadmap Assessment</h3>
+                        <p>A tool to understand where your teen stands and what kind of internship is right for them.
+                        </p>
+                    </div>
+                    <div class="resource-item" onclick="window.open('#', '_blank')">
+                        <h3>Mindful Moments for Raising Teens</h3>
+                        <p>This isn't a rulebook. It's a rest stop. A reminder that you don't have to have it all
+                            together to be a powerful parent.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <span class="footer-logo-img large logo-text">The Internship Book</span>
+                    </a>
+                    <p class="footer-tagline">Empowering the next generation through internships</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-group">
+                        <h4>Navigate</h4>
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="team.html">Team</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-group">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="#">Email ID:</a></li>
+                            <li><a href="#">impact@teeninternsthebook.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get the latest news and updates on the book launch</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" required class="newsletter-input">
+                        <button type="submit" class="newsletter-submit">Subscribe</button>
+                    </form>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--subtitle-color);">
+                        Or <a
+                            href="mailto:impact@teeninternsthebook.com?subject=Book Launch Updates%20Subscription&body=Hey!%20I%20want%20to%20stay%20updated%20with%20news%20related%20to%20the%20Teen%20Interns%20Book.%20Please%20add%20me%20to%20your%20mailing%20list%20for%20book%20launch%20updates,%20behind-the-scenes%20content,%20and%20exclusive%20announcements.%0A%0AThanks!"
+                            style="color: var(--primary-color); text-decoration: underline;">
+                            send us an email directly
+                        </a> to subscribe
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/teeninterns/" class="social-link"
+                            title="Behind-the-scenes photos and visual content"><img src="images/insta.png"
+                                style="height: 25px;"></a>
+                        <a href="https://open.spotify.com/show/7xBDGJEqNy4kJqeg5Ip2Sz?si=2a0c01a64e694361"
+                            class="social-link" title="Podcast episodes and audio content"><img src="images/spotify.png"
+                                style="height: 25px;"></a>
+                        <a href="#" class="social-link" title="Mobile content and social media">📱</a>
+                        <a href="#" class="social-link" title="Video content and documentaries">📺</a>
+                    </div>
+                    <p class="bts-explanation">Behind-the-scenes content: Photos, Podcasts, Social Media, Videos</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2025 Teen Interns. Made with ❤️ by teens, for teens.</p>
+                <p class="credit">This project was created entirely by teenage interns.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="theme-toggle.js"></script>
+    <script>
+        // Quotes carousel functionality
+        const quotes = document.querySelectorAll(".quote-item");
+        const prevBtn = document.getElementById("prevQuote");
+        const nextBtn = document.getElementById("nextQuote");
+        let currentQuote = 0;
+
+        function showQuote(index) {
+            quotes.forEach(q => q.classList.remove("active"));
+            quotes[index].classList.add("active");
+        }
+
+        prevBtn.addEventListener("click", () => {
+            currentQuote = (currentQuote - 1 + quotes.length) % quotes.length;
+            showQuote(currentQuote);
         });
-        
-      </script>
-      
-  </body>
+
+        nextBtn.addEventListener("click", () => {
+            currentQuote = (currentQuote + 1) % quotes.length;
+            showQuote(currentQuote);
+        });
+
+        // Auto-rotate quotes every 5 seconds
+        setInterval(() => {
+            currentQuote = (currentQuote + 1) % quotes.length;
+            showQuote(currentQuote);
+        }, 5000);
+
+        // Initialize
+        showQuote(currentQuote);
+    </script>
+</body>
+
 </html>

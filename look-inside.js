@@ -11,7 +11,16 @@ class LookInsideViewer {
             'images/insight/4.jpg',
             'images/insight/5.jpg',
             'images/insight/6.jpg',
-            'images/insight/7.jpg'
+            'images/insight/7.jpg', 
+            'images/insight/8.jpg',
+            'images/insight/9.jpg',
+            'images/insight/10.jpg',
+            'images/insight/11.jpg',
+            'images/insight/12.jpg',    
+            'images/insight/13.jpg',
+            'images/insight/14.jpg',
+            'images/insight/15.jpg',
+            'images/insight/16.jpg'
         ];
         this.pageLabels = [
             'Cover',
@@ -21,7 +30,16 @@ class LookInsideViewer {
             'Page 4',
             'Page 5',
             'Page 6',
-            'Page 7'
+            'Page 7',
+            'Page 8',
+            'Page 9',
+            'Page 10',
+            'Page 11',
+            'Page 12',
+            'Page 13',
+            'Page 14',
+            'Page 15',
+            'Page 16'
         ];
         
         this.init();

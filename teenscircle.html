@@ -19,74 +19,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 
     <style>
-        /* Page-specific styles */
-        .teens-page {
-            padding: 120px 0 60px;
-            min-height: 100vh;
-        }
-
-        .content-section {
-            padding: 4rem 0;
-            background: var(--bg-color);
-        }
-
-        .content-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 4rem;
-        }
-
-        .content-placeholder {
-            background: var(--bg-secondary);
-            border: 2px dashed var(--border-color);
-            border-radius: 12px;
-            padding: 4rem 2rem;
-            text-align: center;
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-
-        .illustration-placeholder {
-            background: var(--bg-secondary);
-            border: 2px dashed var(--primary-color);
-            border-radius: 12px;
-            padding: 4rem 2rem;
-            text-align: center;
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-color);
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .content-placeholder,
-            .illustration-placeholder {
-                min-height: 200px;
-                padding: 2rem 1rem;
-            }
-        }
-    </style>
-    <style>
         /* CSS Variables for Theme System */
         :root {
             --primary-color: #009A94;
@@ -133,7 +65,6 @@
             transition: background-color var(--transition-normal), color var(--transition-normal);
         }
 
-        /* Force header background and text colors */
         .site-header {
             background-color: var(--bg-color) !important;
             transition: background-color var(--transition-normal);
@@ -182,7 +113,6 @@
             transition: opacity var(--transition-fast), transform var(--transition-fast);
         }
 
-        /* Show/hide icons based on theme */
         [data-theme="light"] .theme-toggle .light-icon {
             opacity: 1;
             transform: scale(1);
@@ -205,7 +135,6 @@
             position: absolute;
         }
 
-        /* Mobile theme toggle */
         .mobile-theme-toggle {
             background: none;
             border: 2px solid var(--primary-color);
@@ -229,6 +158,305 @@
         .toggle-text {
             font-size: 0.9rem;
         }
+
+        /* Page-specific styles */
+        .teens-page {
+            padding: 120px 0 60px;
+            min-height: 100vh;
+        }
+
+        .content-section {
+            padding: 4rem 0;
+            background: var(--bg-color);
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .content-placeholder {
+            background: var(--bg-secondary);
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .illustration-placeholder {
+            background: var(--bg-secondary);
+            border: 2px dashed var(--primary-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Teen Tabs Section */
+        .teen-tabs-section {
+            background: var(--bg-secondary);
+            padding: 4rem 0 2rem;
+            margin-top: 2rem;
+        }
+
+        .teen-tabs-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .teen-tabs-title {
+            text-align: center;
+            color: var(--text-color);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .teen-tabs-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .teen-tabs-scroll {
+            display: flex;
+            gap: 2rem;
+            padding: 1rem 0 2rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .teen-tabs-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .teen-tab {
+            flex-shrink: 0;
+            width: 200px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 3px solid transparent;
+        }
+
+        .teen-tab:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .teen-tab.active {
+            border-color: var(--primary-color);
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .teen-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .teen-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .teen-tab.active .teen-photo {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .teen-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .teen-tab.active .teen-name {
+            color: white;
+        }
+
+        .teen-title {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            opacity: 0.8;
+        }
+
+        .teen-tab.active .teen-title {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Teen Content Section */
+        .teen-content-section {
+            background: var(--bg-color);
+            padding: 0 0 4rem;
+            min-height: 400px;
+            transition: all 0.5s ease;
+        }
+
+        .teen-content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .teen-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .teen-content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .teen-content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .content-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .content-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .content-item h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-item-type {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .content-placeholder-item {
+            background: var(--bg-secondary);
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Navigation arrows for horizontal scroll */
+        .tabs-nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .tabs-nav-arrow:hover {
+            background: var(--accent-color);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .tabs-nav-arrow.left {
+            left: 10px;
+        }
+
+        .tabs-nav-arrow.right {
+            right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .content-placeholder,
+            .illustration-placeholder {
+                min-height: 200px;
+                padding: 2rem 1rem;
+            }
+
+            .teen-tab {
+                width: 150px;
+                padding: 1rem;
+            }
+
+            .teen-photo {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .teen-content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -240,7 +468,6 @@
         <div class="bg-shape shape3"></div>
     </div>
 
-    
     <header class="site-header" id="site-header">
         <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
             <nav class="nav-container">
@@ -252,7 +479,7 @@
                 <div class="nav-links">
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="team.html" class="nav-link">Team</a>
-                    
+
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                         <span class="light-icon">🌙</span>
                         <span class="dark-icon">☀️</span>
@@ -267,12 +494,11 @@
         </div>
     </header>
 
-    
     <div class="mobile-menu">
         <div class="mobile-menu-links">
             <a href="index.html" class="mobile-link">Home</a>
             <a href="team.html" class="mobile-link">Team</a>
-            
+
             <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle theme">
                 <span class="light-icon">🌙</span>
                 <span class="dark-icon">☀️</span>
@@ -281,9 +507,7 @@
         </div>
     </div>
 
-    
     <main class="teens-page">
-        
         <section class="content-section">
             <div class="content-container">
                 <h1
@@ -292,17 +516,195 @@
                 </h1>
 
                 <div class="content-grid">
-                <div class="content-placeholder">
+                    <div class="illustration-placeholder">
+                        Illustration placeholder
+                    </div>
+
+                    <div class="content-placeholder">
+                        Content will be added later...
+                    </div>
                 </div>
-                
-                <div class="illustration-placeholder">
+
+                <div class="content-grid">
+                    <div class="content-placeholder">
+                        Content will be added later...
+                    </div>
+
+                    <div class="illustration-placeholder">
+                        Illustration placeholder
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Teen Tabs Section -->
+        <section class="teen-tabs-section">
+            <div class="teen-tabs-container">
+                <h2 class="teen-tabs-title">Meet Our Teen Contributors</h2>
+
+                <div class="teen-tabs-wrapper">
+                    <button class="tabs-nav-arrow left" id="scrollLeft">&#8592;</button>
+
+                    <div class="teen-tabs-scroll" id="teenTabsScroll">
+                        <div class="teen-tab active" data-teen="teen1">
+                            <div class="teen-photo">
+                                <img src="images/members/samant_patil.jpg" alt="Samant Patil"
+                                    onerror="this.parentNode.innerHTML='SP'">
+                            </div>
+                            <div class="teen-name">Samant Patil</div>
+                            <div class="teen-title">Tech Developer</div>
+                        </div>
+
+                        <div class="teen-tab" data-teen="teen2">
+                            <div class="teen-photo">
+                                <img src="images/members/shrika-chitturi.jpg" alt="Shrika Chitturi"
+                                    onerror="this.parentNode.innerHTML='SC'">
+                            </div>
+                            <div class="teen-name">Shrika Chitturi</div>
+                            <div class="teen-title">Creative Director</div>
+                        </div>
+
+                        <div class="teen-tab" data-teen="teen3">
+                            <div class="teen-photo">
+                                <img src="images/members/achal_kaur.jpg" alt="Achal Kaur"
+                                    onerror="this.parentNode.innerHTML='AK'">
+                            </div>
+                            <div class="teen-name">Achal Kaur</div>
+                            <div class="teen-title">Content Creator</div>
+                        </div>
+
+                        <div class="teen-tab" data-teen="teen4">
+                            <div class="teen-photo">
+                                <img src="images/members/adithi_bhamidapati.jpg" alt="Adithi Bhamidapati"
+                                    onerror="this.parentNode.innerHTML='AB'">
+                            </div>
+                            <div class="teen-name">Adithi Bhamidapati</div>
+                            <div class="teen-title">Marketing Lead</div>
+                        </div>
+
+                        <div class="teen-tab" data-teen="teen5">
+                            <div class="teen-photo">
+                                <img src="images/members/aditi_krishnan.jpg" alt="Aditi Krishnan"
+                                    onerror="this.parentNode.innerHTML='AK'">
+                            </div>
+                            <div class="teen-name">Aditi Krishnan</div>
+                            <div class="teen-title">Research Analyst</div>
+                        </div>
+
+                        <div class="teen-tab" data-teen="teen6">
+                            <div class="teen-photo">MM</div>
+                            <div class="teen-name">More Members</div>
+                            <div class="teen-title">Coming Soon</div>
+                        </div>
+                    </div>
+
+                    <button class="tabs-nav-arrow right" id="scrollRight">&#8594;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teen Content Section -->
+        <section class="teen-content-section">
+            <div class="teen-content-container">
+                <div class="teen-content active" id="teen1-content">
+                    <div class="teen-content-grid">
+                        <div class="content-item">
+                            <div class="content-item-type">VIDEO</div>
+                            <h3>Behind the Scenes</h3>
+                            <div class="content-placeholder-item">Video content will be added later...</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="content-item-type">PODCAST</div>
+                            <h3>Tech Talk</h3>
+                            <div class="content-placeholder-item">Podcast content will be added later...</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="content-item-type">IMAGES</div>
+                            <h3>Gallery</h3>
+                            <div class="content-placeholder-item">Image gallery will be added later...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teen-content" id="teen2-content">
+                    <div class="teen-content-grid">
+                        <div class="content-item">
+                            <div class="content-item-type">AUDIO</div>
+                            <h3>Creative Process</h3>
+                            <div class="content-placeholder-item">Audio content will be added later...</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="content-item-type">VIDEO</div>
+                            <h3>Design Journey</h3>
+                            <div class="content-placeholder-item">Video content will be added later...</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="content-item-type">IMAGES</div>
+                            <h3>Artwork</h3>
+                            <div class="content-placeholder-item">Artwork gallery will be added later...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teen-content" id="teen3-content">
+                    <div class="teen-content-grid">
+                        <div class="content-item">
+                            <div class="content-item-type">PODCAST</div>
+                            <h3>Writing Workshop</h3>
+                            <div class="content-placeholder-item">Podcast content will be added later...</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="content-item-type">IMAGES</div>
+                            <h3>Content Gallery</h3>
+                            <div class="content-placeholder-item">Image gallery will be added later...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teen-content" id="teen4-content">
+                    <div class="teen-content-grid">
+                        <div class="content-item">
+                            <div class="content-item-type">VIDEO</div>
+                            <h3>Marketing Strategy</h3>
+                            <div class="content-placeholder-item">Video content will be added later...</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="content-item-type">AUDIO</div>
+                            <h3>Campaign Stories</h3>
+                            <div class="content-placeholder-item">Audio content will be added later...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teen-content" id="teen5-content">
+                    <div class="teen-content-grid">
+                        <div class="content-item">
+                            <div class="content-item-type">PODCAST</div>
+                            <h3>Research Insights</h3>
+                            <div class="content-placeholder-item">Podcast content will be added later...</div>
+                        </div>
+                        <div class="content-item">
+                            <div class="content-item-type">IMAGES</div>
+                            <h3>Data Visualization</h3>
+                            <div class="content-placeholder-item">Data visuals will be added later...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teen-content" id="teen6-content">
+                    <div class="teen-content-grid">
+                        <div class="content-item">
+                            <div class="content-item-type">COMING SOON</div>
+                            <h3>More Contributors</h3>
+                            <div class="content-placeholder-item">More teen contributors and their content will be added
+                                soon...</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
@@ -359,6 +761,64 @@
     <script src="theme-toggle.js"></script>
     <script src="look-inside.js"></script>
     <script src="floating-stickers.js"></script>
+
+    <script>
+        // Teen tabs functionality
+        const teenTabs = document.querySelectorAll('.teen-tab');
+        const teenContents = document.querySelectorAll('.teen-content');
+        const tabsScroll = document.getElementById('teenTabsScroll');
+        const scrollLeftBtn = document.getElementById('scrollLeft');
+        const scrollRightBtn = document.getElementById('scrollRight');
+
+        // Tab switching functionality
+        teenTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                teenTabs.forEach(t => t.classList.remove('active'));
+                teenContents.forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                // Show corresponding content
+                const teenId = tab.getAttribute('data-teen');
+                const content = document.getElementById(teenId + '-content');
+                if (content) {
+                    setTimeout(() => {
+                        content.classList.add('active');
+                    }, 100);
+                }
+            });
+        });
+
+        // Horizontal scrolling functionality
+        scrollLeftBtn.addEventListener('click', () => {
+            tabsScroll.scrollBy({
+                left: -250,
+                behavior: 'smooth'
+            });
+        });
+
+        scrollRightBtn.addEventListener('click', () => {
+            tabsScroll.scrollBy({
+                left: 250,
+                behavior: 'smooth'
+            });
+        });
+
+        // Show/hide scroll arrows based on scroll position
+        function updateScrollArrows() {
+            const scrollLeft = tabsScroll.scrollLeft;
+            const maxScroll = tabsScroll.scrollWidth - tabsScroll.clientWidth;
+
+            scrollLeftBtn.style.opacity = scrollLeft > 0 ? '1' : '0.5';
+            scrollRightBtn.style.opacity = scrollLeft < maxScroll ? '1' : '0.5';
+        }
+
+        tabsScroll.addEventListener('scroll', updateScrollArrows);
+        window.addEventListener('load', updateScrollArrows);
+        window.addEventListener('resize', updateScrollArrows);
+    </script>
 
 </body>
 

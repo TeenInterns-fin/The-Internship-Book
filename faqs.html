@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meet the Team | Teen Interns Book</title>
@@ -46,332 +47,332 @@
                 --transition-slow: 0.5s ease;
             }
         }
-            /* Dark Theme Colors */
-            [data-theme="dark"] {
-                --bg-color: rgb(26, 26, 26);
-                --bg-secondary: rgb(26, 26, 26);
-                --bg-alt-color: #2A2A2A;
-                --text-color: #FFFFFF;
-                --text-secondary: #E0E0E0;
-                --subtitle-color: #B0B0B0;
-                --border-color: #333333;
-                --card-bg: rgb(26, 26, 26);
-                --sidebar-bg: rgba(26, 26, 26, 0.95);
-                --sidebar-text: #FFFFFF;
-            }
 
-            /* Apply theme colors to body and main elements */
-            body {
-                background-color: var(--bg-color);
-                color: var(--text-color);
-                transition: background-color var(--transition-normal), color var(--transition-normal);
-            }
+        /* Dark Theme Colors */
+        [data-theme="dark"] {
+            --bg-color: rgb(26, 26, 26);
+            --bg-secondary: rgb(26, 26, 26);
+            --bg-alt-color: #2A2A2A;
+            --text-color: #FFFFFF;
+            --text-secondary: #E0E0E0;
+            --subtitle-color: #B0B0B0;
+            --border-color: #333333;
+            --card-bg: rgb(26, 26, 26);
 
-            /* Global text color overrides */
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6 {
-                color: var(--text-color) !important;
-            }
+            --sidebar-text: #FFFFFF;
+        }
 
-            p {
-                color: var(--text-color) !important;
+        /* Apply theme colors to body and main elements */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color var(--transition-normal), color var(--transition-normal);
+        }
+
+        /* Global text color overrides */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: var(--text-color) !important;
+        }
+
+        p {
+            color: var(--text-color) !important;
+        }
+
+        .section-title {
+            color: var(--text-color) !important;
+        }
+
+        .section-subtitle {
+            color: var(--subtitle-color) !important;
+        }
+
+        .hero-title {
+            color: var(--text-color) !important;
+        }
+
+        .hero-subtitle {
+            color: var(--text-color) !important;
+        }
+
+        .hero-description {
+            color: var(--text-secondary) !important;
+        }
+
+        .lead-text {
+            color: var(--text-color) !important;
+        }
+
+        .impact-description {
+            color: var(--text-color) !important;
+        }
+
+        /* Background sections */
+        section {
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            color: var(--text-color);
+        }
+
+        /* Header styling - Theme Adaptive */
+        .site-header {
+            background-color: var(--bg-color) !important;
+            transition: background-color var(--transition-normal);
+        }
+
+        /* Navigation styling */
+        .nav-container {
+            background-color: transparent;
+        }
+
+        .nav-link {
+            color: var(--text-color) !important;
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            background-color: var(--bg-color) !important;
+        }
+
+        .mobile-link {
+            color: var(--text-color) !important;
+        }
+
+        /* Additional text overrides */
+        .question-text h3,
+        .question-text p,
+        .question-text li {
+            color: var(--text-color) !important;
+        }
+
+        .quotes-container blockquote,
+        .quotes-container cite {
+            color: var(--text-color) !important;
+        }
+
+        .feature-card h4,
+        .feature-card p {
+            color: var(--text-color) !important;
+        }
+
+        .award-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            animation: animate-pop 0.15s ease-in-out;
+        }
+
+        .award-item h4 {
+            color: var(--text-color) !important;
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .footer-tagline,
+        .footer-group h4,
+        .footer-group ul li a,
+        .newsletter-form input,
+        .copyright,
+        .credit {
+            color: var(--text-color) !important;
+        }
+
+        /* Override any remaining white text */
+        [style*="color: white"],
+        [style*="color: #FFFFFF"],
+        [style*="color: #ffffff"] {
+            color: var(--text-color) !important;
+        }
+
+        /* Force theme colors on all text elements */
+        * {
+            transition: color var(--transition-normal), background-color var(--transition-normal), border-color var(--transition-normal);
+        }
+
+        /* Make sure all text inherits theme colors */
+        .hero *,
+        .preview *,
+        .about *,
+        .what-why-how *,
+        .teams *,
+        .impact *,
+        .features-section *,
+        .quotes *,
+        .friends-section *,
+        .site-footer * {
+            color: inherit;
+        }
+
+        /* Specific overrides for elements that commonly have hardcoded colors */
+        .hero-title,
+        .hero-subtitle,
+        .hero-description,
+        .section-title,
+        .section-subtitle,
+        .lead-text,
+        .about-content p {
+            color: var(--text-color) !important;
+        }
+
+        /* Hero section text overrides */
+        .hero .title-line,
+        .hero .title-highlight {
+            color: var(--text-color) !important;
+        }
+
+        /* Tab buttons and content */
+        .tab-btn,
+        .tab-content h3,
+        .tab-content p {
+            color: var(--text-color) !important;
+        }
+
+        /* Question navigation and content */
+        .question-nav-btn .nav-title,
+        .question-text h3,
+        .question-text p,
+        .question-features li {
+            color: var(--text-color) !important;
+        }
+
+        /* Impact section */
+        .impact h3,
+        .impact-description,
+        .impact-label {
+            color: var(--text-color) !important;
+        }
+
+        /* Footer elements */
+        .site-footer,
+        .site-footer * {
+            color: var(--text-color) !important;
+        }
+
+        .footer-brand,
+        .footer-tagline,
+        .footer-group h4,
+        .footer-group ul li,
+        .footer-group ul li a,
+        .copyright,
+        .credit {
+            color: var(--text-color) !important;
+        }
+
+        /* Newsletter form */
+        .newsletter-form input {
+            color: var(--text-color) !important;
+            background: var(--bg-color) !important;
+            border: 1px solid var(--border-color) !important;
+        }
+
+        /* Email input placeholder */
+        .newsletter-form input::placeholder {
+            color: var(--subtitle-color) !important;
+        }
+
+        /* Force override any external CSS with hardcoded white text */
+        .hero-title .title-line,
+        .hero-title .title-highlight,
+        .title-line,
+        .title-highlight {
+            color: var(--text-color) !important;
+        }
+
+        /* Target specific text elements that remain white */
+        [data-theme="light"] .hero-title,
+        [data-theme="light"] .hero-subtitle,
+        [data-theme="light"] .section-title,
+        [data-theme="light"] .section-subtitle,
+        [data-theme="light"] .question-text h3,
+        [data-theme="light"] .question-text p,
+        [data-theme="light"] .impact h3,
+        [data-theme="light"] .footer-tagline,
+        [data-theme="light"] .footer-group h4,
+        [data-theme="light"] .footer-group a,
+        [data-theme="light"] .copyright,
+        [data-theme="light"] .credit {
+            color: #000000 !important;
+        }
+
+        /* Ultra aggressive pure black text override for light mode - REMOVED */
+        /* The following overrides were preventing theme switching */
+
+        /* Working light mode text overrides from teams.html */
+        [data-theme="light"] h1,
+        [data-theme="light"] h2,
+        [data-theme="light"] h3,
+        [data-theme="light"] h4,
+        [data-theme="light"] h5,
+        [data-theme="light"] h6,
+        [data-theme="light"] p,
+        [data-theme="light"] span,
+        [data-theme="light"] div,
+        [data-theme="light"] li,
+        [data-theme="light"] a {
+            color: #000000 !important;
+        }
+
+        /* Force specific elements to black in light mode */
+        [data-theme="light"] .hero-title,
+        [data-theme="light"] .hero-subtitle,
+        [data-theme="light"] .hero-description,
+        [data-theme="light"] .section-title,
+        [data-theme="light"] .section-subtitle,
+        [data-theme="light"] .lead-text,
+        [data-theme="light"] .impact-description,
+        [data-theme="light"] .question-text h3,
+        [data-theme="light"] .question-text p,
+        [data-theme="light"] .tab-content h3,
+        [data-theme="light"] .tab-content p,
+        [data-theme="light"] .content-feature,
+        [data-theme="light"] .media-feature,
+        [data-theme="light"] .footer-tagline,
+        [data-theme="light"] .footer-group h4,
+        [data-theme="light"] .footer-group a,
+        [data-theme="light"] .copyright,
+        [data-theme="light"] .credit {
+            color: #000000 !important;
+        }
+
+        /* Keep teal colors for specific branded elements */
+        [data-theme="light"] .logo-text,
+        [data-theme="light"] .impact-logo,
+        [data-theme="light"] .content-text strong,
+        [data-theme="light"] .media-content strong,
+        [data-theme="light"] .impact-number,
+        [data-theme="light"] .content-icon,
+        [data-theme="light"] .media-icon {
+            color: #009A94 !important;
+        }
+
+        /* FIXED Left Sidebar Navigation - Theme Adaptive */
+        .left-sidebar {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background: var(backdrop-filter: blur(15px);
+                    padding: 15px;
+                    border-radius: 0 15px 15px 0;
+                    border: 1px solid var(--border-color);
+                    transition: all var(--transition-normal);
+                    max-width: 250px;
+                    min-width: 50px;
             }
 
             .section-title {
-                color: var(--text-color) !important;
+                padding-top: 150px
             }
-
-            .section-subtitle {
-                color: var(--subtitle-color) !important;
-            }
-
-            .hero-title {
-                color: var(--text-color) !important;
-            }
-
-            .hero-subtitle {
-                color: var(--text-color) !important;
-            }
-
-            .hero-description {
-                color: var(--text-secondary) !important;
-            }
-
-            .lead-text {
-                color: var(--text-color) !important;
-            }
-
-            .impact-description {
-                color: var(--text-color) !important;
-            }
-
-            /* Background sections */
-            section {
-                background-color: var(--bg-color);
-            }
-
-            .container {
-                color: var(--text-color);
-            }
-
-            /* Header styling - Theme Adaptive */
-            .site-header {
-                background-color: var(--bg-color) !important;
-                transition: background-color var(--transition-normal);
-            }
-
-            /* Navigation styling */
-            .nav-container {
-                background-color: transparent;
-            }
-
-            .nav-link {
-                color: var(--text-color) !important;
-            }
-
-            /* Mobile menu */
-            .mobile-menu {
-                background-color: var(--bg-color) !important;
-            }
-
-            .mobile-link {
-                color: var(--text-color) !important;
-            }
-
-            /* Additional text overrides */
-            .question-text h3,
-            .question-text p,
-            .question-text li {
-                color: var(--text-color) !important;
-            }
-
-            .quotes-container blockquote,
-            .quotes-container cite {
-                color: var(--text-color) !important;
-            }
-
-            .feature-card h4,
-            .feature-card p {
-                color: var(--text-color) !important;
-            }
-
-            .award-item {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 10px;
-                animation: animate-pop 0.15s ease-in-out;
-            }
-
-            .award-item h4 {
-                color: var(--text-color) !important;
-                margin: 0;
-                font-size: 18px;
-                font-weight: 600;
-            }
-
-            .footer-tagline,
-            .footer-group h4,
-            .footer-group ul li a,
-            .newsletter-form input,
-            .copyright,
-            .credit {
-                color: var(--text-color) !important;
-            }
-
-            /* Override any remaining white text */
-            [style*="color: white"],
-            [style*="color: #FFFFFF"],
-            [style*="color: #ffffff"] {
-                color: var(--text-color) !important;
-            }
-
-            /* Force theme colors on all text elements */
-            * {
-                transition: color var(--transition-normal), background-color var(--transition-normal), border-color var(--transition-normal);
-            }
-
-            /* Make sure all text inherits theme colors */
-            .hero *,
-            .preview *,
-            .about *,
-            .what-why-how *,
-            .teams *,
-            .impact *,
-            .features-section *,
-            .quotes *,
-            .friends-section *,
-            .site-footer * {
-                color: inherit;
-            }
-
-            /* Specific overrides for elements that commonly have hardcoded colors */
-            .hero-title,
-            .hero-subtitle,
-            .hero-description,
-            .section-title,
-            .section-subtitle,
-            .lead-text,
-            .about-content p {
-                color: var(--text-color) !important;
-            }
-
-            /* Hero section text overrides */
-            .hero .title-line,
-            .hero .title-highlight {
-                color: var(--text-color) !important;
-            }
-
-            /* Tab buttons and content */
-            .tab-btn,
-            .tab-content h3,
-            .tab-content p {
-                color: var(--text-color) !important;
-            }
-
-            /* Question navigation and content */
-            .question-nav-btn .nav-title,
-            .question-text h3,
-            .question-text p,
-            .question-features li {
-                color: var(--text-color) !important;
-            }
-
-            /* Impact section */
-            .impact h3,
-            .impact-description,
-            .impact-label {
-                color: var(--text-color) !important;
-            }
-
-            /* Footer elements */
-            .site-footer,
-            .site-footer * {
-                color: var(--text-color) !important;
-            }
-
-            .footer-brand,
-            .footer-tagline,
-            .footer-group h4,
-            .footer-group ul li,
-            .footer-group ul li a,
-            .copyright,
-            .credit {
-                color: var(--text-color) !important;
-            }
-
-            /* Newsletter form */
-            .newsletter-form input {
-                color: var(--text-color) !important;
-                background: var(--bg-color) !important;
-                border: 1px solid var(--border-color) !important;
-            }
-
-            /* Email input placeholder */
-            .newsletter-form input::placeholder {
-                color: var(--subtitle-color) !important;
-            }
-
-            /* Force override any external CSS with hardcoded white text */
-            .hero-title .title-line,
-            .hero-title .title-highlight,
-            .title-line,
-            .title-highlight {
-                color: var(--text-color) !important;
-            }
-
-            /* Target specific text elements that remain white */
-            [data-theme="light"] .hero-title,
-            [data-theme="light"] .hero-subtitle,
-            [data-theme="light"] .section-title,
-            [data-theme="light"] .section-subtitle,
-            [data-theme="light"] .question-text h3,
-            [data-theme="light"] .question-text p,
-            [data-theme="light"] .impact h3,
-            [data-theme="light"] .footer-tagline,
-            [data-theme="light"] .footer-group h4,
-            [data-theme="light"] .footer-group a,
-            [data-theme="light"] .copyright,
-            [data-theme="light"] .credit {
-                color: #000000 !important;
-            }
-
-            /* Ultra aggressive pure black text override for light mode - REMOVED */
-            /* The following overrides were preventing theme switching */
-
-            /* Working light mode text overrides from teams.html */
-            [data-theme="light"] h1,
-            [data-theme="light"] h2,
-            [data-theme="light"] h3,
-            [data-theme="light"] h4,
-            [data-theme="light"] h5,
-            [data-theme="light"] h6,
-            [data-theme="light"] p,
-            [data-theme="light"] span,
-            [data-theme="light"] div,
-            [data-theme="light"] li,
-            [data-theme="light"] a {
-                color: #000000 !important;
-            }
-
-            /* Force specific elements to black in light mode */
-            [data-theme="light"] .hero-title,
-            [data-theme="light"] .hero-subtitle,
-            [data-theme="light"] .hero-description,
-            [data-theme="light"] .section-title,
-            [data-theme="light"] .section-subtitle,
-            [data-theme="light"] .lead-text,
-            [data-theme="light"] .impact-description,
-            [data-theme="light"] .question-text h3,
-            [data-theme="light"] .question-text p,
-            [data-theme="light"] .tab-content h3,
-            [data-theme="light"] .tab-content p,
-            [data-theme="light"] .content-feature,
-            [data-theme="light"] .media-feature,
-            [data-theme="light"] .footer-tagline,
-            [data-theme="light"] .footer-group h4,
-            [data-theme="light"] .footer-group a,
-            [data-theme="light"] .copyright,
-            [data-theme="light"] .credit {
-                color: #000000 !important;
-            }
-
-            /* Keep teal colors for specific branded elements */
-            [data-theme="light"] .logo-text,
-            [data-theme="light"] .impact-logo,
-            [data-theme="light"] .content-text strong,
-            [data-theme="light"] .media-content strong,
-            [data-theme="light"] .impact-number,
-            [data-theme="light"] .content-icon,
-            [data-theme="light"] .media-icon {
-                color: #009A94 !important;
-            }
-
-            /* FIXED Left Sidebar Navigation - Theme Adaptive */
-            .left-sidebar {
-                position: fixed;
-                left: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 1000;
-                background: var(--sidebar-bg);
-                backdrop-filter: blur(15px);
-                padding: 15px;
-                border-radius: 0 15px 15px 0;
-                border: 1px solid var(--border-color);
-                transition: all var(--transition-normal);
-                max-width: 250px;
-                min-width: 50px;
-            }
-
-          .section-title{
-            padding-top: 150px
-          }
 
 
             /* Enhanced toggle button - Theme Adaptive */
@@ -392,7 +393,7 @@
                 position: relative;
             }
 
-            
+
 
             .logo-text {
                 color: #009A94 !important;
@@ -493,7 +494,7 @@
                 font-size: 0.9rem;
             }
 
-           
+
 
 
             @keyframes pulse {
@@ -507,6 +508,7 @@
                     transform: scale(1.05);
                 }
             }
+
             /* Loading state */
             .loading-spinner {
                 display: inline-block;
@@ -527,13 +529,10 @@
                     transform: rotate(360deg);
                 }
             }
-
-        
-
     </style>
-    </head>
+</head>
 
-  <body>
+<body>
     <header class="site-header" id="site-header">
         <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
             <nav class="nav-container">
@@ -545,7 +544,7 @@
                 <div class="nav-links">
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="team.html" class="nav-link">Team</a>
-                    
+
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                         <span class="light-icon">🌙</span>
                         <span class="dark-icon">☀️</span>
@@ -560,11 +559,11 @@
         </div>
     </header>
 
-    
+
     <div class="mobile-menu">
         <div class="mobile-menu-links">
             <a href="team.html" class="mobile-link">Team</a>
-            
+
             <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle theme">
                 <span class="light-icon">🌙</span>
                 <span class="dark-icon">☀️</span>
@@ -575,211 +574,242 @@
 
     <section class="faqs" id="faqs">
         <div class="section-header animate-fade-up">
-                <h2 class="section-title">Frequently Asked Questions about teen internships</h2>
+            <h2 class="section-title">Frequently Asked Questions about teen internships</h2>
         </div>
-    
+
         <div class="faq-item">
             <button class="faq-question">How can students find companies that hire teen interns?</button>
             <div class="faq-answer">
-            <p>Students can explore internships through job sites like LinkedIn, their school bulletin or by guidance counsellor.</p>
-            </div>
-        </div>
-       
-        <div class="faq-item">
-            <button class="faq-question">What can I do to stand out as a teen intern, even if I don’t have prior experience?</button>
-            <div class="faq-answer">
-            <p>An intern can stand out by simply showing curiosity, taking initiative, being punctual, having good communications skills, showing professionalism and eagerness to do things.</p>
+                <p>Students can explore internships through job sites like LinkedIn, their school bulletin or by
+                    guidance counsellor.</p>
             </div>
         </div>
 
         <div class="faq-item">
-            <button class="faq-question">What kind of tasks are interns assigned to? Does it depend on the internship?</button>
+            <button class="faq-question">What can I do to stand out as a teen intern, even if I don’t have prior
+                experience?</button>
             <div class="faq-answer">
-            <p>Yes, the work depends upon the internship. Usually the tasks are simple, straightforward and easy to  understand, the goal is to learn by doing and through mistakes.</p>
+                <p>An intern can stand out by simply showing curiosity, taking initiative, being punctual, having good
+                    communications skills, showing professionalism and eagerness to do things.</p>
             </div>
         </div>
 
         <div class="faq-item">
-            <button class="faq-question">How can doing an internship help me in school, college admissions, or choosing a career?</button>
+            <button class="faq-question">What kind of tasks are interns assigned to? Does it depend on the
+                internship?</button>
             <div class="faq-answer">
-            <p>Internships can help you gain knowledge of the industry in which you are interning. They can help you figure out what you do or don't want to pursue in the future; they also help you to get real-world exposure. It will help strengthen your college application or resume.</p>
+                <p>Yes, the work depends upon the internship. Usually the tasks are simple, straightforward and easy to
+                    understand, the goal is to learn by doing and through mistakes.</p>
             </div>
         </div>
 
-         <div class="faq-item">
+        <div class="faq-item">
+            <button class="faq-question">How can doing an internship help me in school, college admissions, or choosing
+                a career?</button>
+            <div class="faq-answer">
+                <p>Internships can help you gain knowledge of the industry in which you are interning. They can help you
+                    figure out what you do or don't want to pursue in the future; they also help you to get real-world
+                    exposure. It will help strengthen your college application or resume.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
             <button class="faq-question">Can I apply for an internship if I’ve never worked before?</button>
             <div class="faq-answer">
-            <p>Absolutely yes, internships are meant for growth and development so prior experiences are not required.</p>
+                <p>Absolutely yes, internships are meant for growth and development so prior experiences are not
+                    required.</p>
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question">How is an internship different from a part-time job or volunteering?</button>
             <div class="faq-answer">
-            <p>Internships focus on real-world experience and growth, part-time jobs focus on  the pay, while volunteering concentrates on giving back to the community.</p>
+                <p>Internships focus on real-world experience and growth, part-time jobs focus on the pay, while
+                    volunteering concentrates on giving back to the community.</p>
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question">How do I use the skills I learned in an internship in the real world?</button>
             <div class="faq-answer">
-            <p>Skills learnt in internships like time management and communication (as they are transferrable skills) in real world scenarios and build on it.  Test them out in small ways, like conversations and interviews, and build on what you learn.</p>
+                <p>Skills learnt in internships like time management and communication (as they are transferrable
+                    skills) in real world scenarios and build on it. Test them out in small ways, like conversations and
+                    interviews, and build on what you learn.</p>
             </div>
         </div>
 
         <div class="faq-item">
-            <button class="faq-question">Do internships help build my profile for college or future opportunities?</button>
+            <button class="faq-question">Do internships help build my profile for college or future
+                opportunities?</button>
             <div class="faq-answer">
-            <p>Internships show that you can take initiative, work in high-pressure situations and deliver satisfactory work. They also lead to open doors in networking and future opportunities.</p>
-            </div>
-        </div>
-
-         <div class="faq-item">
-            <button class="faq-question">What kinds of real-world skills do teens typically gain from internships?</button>
-            <div class="faq-answer">
-            <p>Teen interns develop skills like time management, teamwork, professionalism and punctuality as well as soft skills which are useful in the real world.</p>
+                <p>Internships show that you can take initiative, work in high-pressure situations and deliver
+                    satisfactory work. They also lead to open doors in networking and future opportunities.</p>
             </div>
         </div>
 
         <div class="faq-item">
-            <button class="faq-question">How can I politely set boundaries on my time or responsibilities as a teen intern?</button>
+            <button class="faq-question">What kinds of real-world skills do teens typically gain from
+                internships?</button>
             <div class="faq-answer">
-            <p>Be honest and respectful. Let your supervisor know about your availability or if you are feeling overwhelmed, most companies will appreciate the communication.</p>
+                <p>Teen interns develop skills like time management, teamwork, professionalism and punctuality as well
+                    as soft skills which are useful in the real world.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">How can I politely set boundaries on my time or responsibilities as a teen
+                intern?</button>
+            <div class="faq-answer">
+                <p>Be honest and respectful. Let your supervisor know about your availability or if you are feeling
+                    overwhelmed, most companies will appreciate the communication.</p>
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question">How can a teen intern start building a professional peer network?</button>
             <div class="faq-answer">
-            <p>After the internships, interns can stay in touch with their industry mentors and peers, which they can use to network and explore future opportunities.</p>
+                <p>After the internships, interns can stay in touch with their industry mentors and peers, which they
+                    can use to network and explore future opportunities.</p>
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question">How do I prepare for an internship interview?</button>
             <div class="faq-answer">
-            <p>Research the role and the company you are working for, and be ready to talk about your interests and what you want to learn from your role.  Practising common questions like “why do you want this role” also helps build confidence.</p>
+                <p>Research the role and the company you are working for, and be ready to talk about your interests and
+                    what you want to learn from your role. Practising common questions like “why do you want this role”
+                    also helps build confidence.</p>
             </div>
         </div>
 
         <div class="faq-item">
-            <button class="faq-question">What should I do if I realize I’m not enjoying my internship halfway through?</button>
+            <button class="faq-question">What should I do if I realize I’m not enjoying my internship halfway
+                through?</button>
             <div class="faq-answer">
-            <p>Find out why you don't enjoy the internship, is it because of the role or the workload? Then you can talk to your mentor or supervisor about making changes. </p>
+                <p>Find out why you don't enjoy the internship, is it because of the role or the workload? Then you can
+                    talk to your mentor or supervisor about making changes. </p>
             </div>
         </div>
 
         <div class="faq-item">
-            <button class="faq-question">What if I make a mistake during my internship—will it affect my future opportunities?</button>
+            <button class="faq-question">What if I make a mistake during my internship—will it affect my future
+                opportunities?</button>
             <div class="faq-answer">
-            <p>AInternships are the best place to make mistakes; they are the best way to learn. Employers and supervisors help you understand why the mistakes are made. </p>
+                <p>AInternships are the best place to make mistakes; they are the best way to learn. Employers and
+                    supervisors help you understand why the mistakes are made. </p>
             </div>
         </div>
 
         <div class="faq-item">
-            <button class="faq-question">How do I ask thoughtful questions as a teen intern without sounding inexperienced?</button>
+            <button class="faq-question">How do I ask thoughtful questions as a teen intern without sounding
+                inexperienced?</button>
             <div class="faq-answer">
-            <p>It is alright to ask when you don't know or understand something, ask with confidence and curiosity. Say what you know and ask for clarification to show that you have tried to understand.</p>
+                <p>It is alright to ask when you don't know or understand something, ask with confidence and curiosity.
+                    Say what you know and ask for clarification to show that you have tried to understand.</p>
             </div>
         </div>
 
 
         <div class="faq-item">
-            <button class="faq-question">What steps should I take once my internship ends to make the most of the experience?</button>
+            <button class="faq-question">What steps should I take once my internship ends to make the most of the
+                experience?</button>
             <div class="faq-answer">
-            <p>The first step after you have finished your internship is to thank your internship mentors and peers and stay in contact with them. Also, keep in mind the skills learnt in your internship and apply them.  Exploring more internships which are of your interest would also be beneficial, since you can gain more experience - one internship isn’t enough!</p>
+                <p>The first step after you have finished your internship is to thank your internship mentors and peers
+                    and stay in contact with them. Also, keep in mind the skills learnt in your internship and apply
+                    them. Exploring more internships which are of your interest would also be beneficial, since you can
+                    gain more experience - one internship isn’t enough!</p>
             </div>
         </div>
     </section>
 
-     <footer class="site-footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-brand">
-                        <a href="#" class="footer-logo">
-                            <span class="footer-logo-img large logo-text">The Internship Book</span>
-                        </a>
-                        <p class="footer-tagline">Empowering the next generation through internships</p>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <span class="footer-logo-img large logo-text">The Internship Book</span>
+                    </a>
+                    <p class="footer-tagline">Empowering the next generation through internships</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-group">
+                        <h4>Navigate</h4>
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="team.html">Team</a></li>
+                        </ul>
                     </div>
 
-                    <div class="footer-links">
-                        <div class="footer-group">
-                            <h4>Navigate</h4>
-                            <ul>
-                                <li><a href="#about">About</a></li>
-                                <li><a href="team.html">Team</a></li>
-                            </ul>
-                        </div>
 
-
-                        <div class="footer-group">
-                            <h4>Contact</h4>
-                            <ul>
-                                <li><a href="#">Email ID:</a></li>
-                                <li><a href="#">impact@teeninternsthebook.com</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="footer-newsletter">
-                        <h4>Stay Updated</h4>
-                        <p>Get the latest news and updates on the book launch</p>
-                        <form class="newsletter-form">
-                            <input type="email" placeholder="Your email" required class="newsletter-input">
-                            <button type="submit" class="newsletter-submit">Subscribe</button>
-                        </form>
-                        <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--subtitle-color);">
-                            Or <a
-                                href="mailto:impact@teeninternsthebook.com?subject=Book Launch Updates%20Subscription&body=Hey!%20I%20want%20to%20stay%20updated%20with%20news%20related%20to%20the%20Teen%20Interns%20Book.%20Please%20add%20me%20to%20your%20mailing%20list%20for%20book%20launch%20updates,%20behind-the-scenes%20content,%20and%20exclusive%20announcements.%0A%0AThanks!"
-                                style="color: var(--primary-color); text-decoration: underline;">
-                                send us an email directly
-                            </a> to subscribe
-                        </p>
-                        <div class="social-links">
-                            <a href="https://www.instagram.com/teeninterns/" class="social-link"
-                                title="Behind-the-scenes photos and visual content"><img src="images/insta.png"
-                                    style="height: 25px;"></a>
-                            <a href="https://open.spotify.com/show/7xBDGJEqNy4kJqeg5Ip2Sz?si=2a0c01a64e694361"
-                                class="social-link" title="Podcast episodes and audio content"><img
-                                    src="images/spotify.png" style="height: 25px;"></a>
-                            <a href="#" class="social-link" title="Mobile content and social media">📱</a>
-                            <a href="#" class="social-link" title="Video content and documentaries">📺</a>
-                        </div>
-                        <p class="bts-explanation">Behind-the-scenes content: Photos, Podcasts, Social Media, Videos</p>
+                    <div class="footer-group">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="#">Email ID:</a></li>
+                            <li><a href="#">impact@teeninternsthebook.com</a></li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="footer-bottom">
-                    <p class="copyright">&copy; 2025 Teen Interns. Made with ❤️ by teens, for teens.</p>
-                    <p class="credit">This project was created entirely by teenage interns.</p>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get the latest news and updates on the book launch</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" required class="newsletter-input">
+                        <button type="submit" class="newsletter-submit">Subscribe</button>
+                    </form>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--subtitle-color);">
+                        Or <a
+                            href="mailto:impact@teeninternsthebook.com?subject=Book Launch Updates%20Subscription&body=Hey!%20I%20want%20to%20stay%20updated%20with%20news%20related%20to%20the%20Teen%20Interns%20Book.%20Please%20add%20me%20to%20your%20mailing%20list%20for%20book%20launch%20updates,%20behind-the-scenes%20content,%20and%20exclusive%20announcements.%0A%0AThanks!"
+                            style="color: var(--primary-color); text-decoration: underline;">
+                            send us an email directly
+                        </a> to subscribe
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/teeninterns/" class="social-link"
+                            title="Behind-the-scenes photos and visual content"><img src="images/insta.png"
+                                style="height: 25px;"></a>
+                        <a href="https://open.spotify.com/show/7xBDGJEqNy4kJqeg5Ip2Sz?si=2a0c01a64e694361"
+                            class="social-link" title="Podcast episodes and audio content"><img src="images/spotify.png"
+                                style="height: 25px;"></a>
+                        <a href="#" class="social-link" title="Mobile content and social media">📱</a>
+                        <a href="#" class="social-link" title="Video content and documentaries">📺</a>
+                    </div>
+                    <p class="bts-explanation">Behind-the-scenes content: Photos, Podcasts, Social Media, Videos</p>
                 </div>
             </div>
-        </footer>
-     <script src="theme-toggle.js"></script>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2025 Teen Interns. Made with ❤️ by teens, for teens.</p>
+                <p class="credit">This project was created entirely by teenage interns.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="theme-toggle.js"></script>
     <script>
-       //faq js
+        //faq js
         document.addEventListener("DOMContentLoaded", function () {
-        const faqQuestions = document.querySelectorAll(".faq-question");
+            const faqQuestions = document.querySelectorAll(".faq-question");
 
-        faqQuestions.forEach((btn) => {
-            btn.addEventListener("click", () => {
-            const answer = btn.nextElementSibling;
-            const isOpen = answer.classList.contains("open");
+            faqQuestions.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    const answer = btn.nextElementSibling;
+                    const isOpen = answer.classList.contains("open");
 
-            // Close all answers
-            document.querySelectorAll(".faq-answer").forEach(a => a.classList.remove("open"));
-            document.querySelectorAll(".faq-question").forEach(q => q.classList.remove("active"));
+                    // Close all answers
+                    document.querySelectorAll(".faq-answer").forEach(a => a.classList.remove("open"));
+                    document.querySelectorAll(".faq-question").forEach(q => q.classList.remove("active"));
 
-            // Open the clicked one if not already open
-            if (!isOpen) {
-                answer.classList.add("open");
-                btn.classList.add("active");
-            }
+                    // Open the clicked one if not already open
+                    if (!isOpen) {
+                        answer.classList.add("open");
+                        btn.classList.add("active");
+                    }
+                });
             });
-        });
         });
     </script>
 
-  </body>
+</body>
 
 </html>
