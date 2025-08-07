@@ -792,32 +792,43 @@
         });
 
         // Horizontal scrolling functionality
+        // Horizontal scrolling functionality
         scrollLeftBtn.addEventListener('click', () => {
-            tabsScroll.scrollBy({
-                left: -250,
+            contributorsScroll.scrollBy({
+                left: -300,
                 behavior: 'smooth'
             });
         });
 
         scrollRightBtn.addEventListener('click', () => {
-            tabsScroll.scrollBy({
-                left: 250,
+            contributorsScroll.scrollBy({
+                left: 300,
                 behavior: 'smooth'
             });
         });
 
         // Show/hide scroll arrows based on scroll position
         function updateScrollArrows() {
-            const scrollLeft = tabsScroll.scrollLeft;
-            const maxScroll = tabsScroll.scrollWidth - tabsScroll.clientWidth;
+            const scrollLeft = contributorsScroll.scrollLeft;
+            const maxScroll = contributorsScroll.scrollWidth - contributorsScroll.clientWidth;
 
             scrollLeftBtn.style.opacity = scrollLeft > 0 ? '1' : '0.5';
             scrollRightBtn.style.opacity = scrollLeft < maxScroll ? '1' : '0.5';
         }
 
-        tabsScroll.addEventListener('scroll', updateScrollArrows);
+        contributorsScroll.addEventListener('scroll', updateScrollArrows);
         window.addEventListener('load', updateScrollArrows);
         window.addEventListener('resize', updateScrollArrows);
+
+        // Close details when clicking outside
+        document.addEventListener('click', (e) => {
+            if (detailsSection.classList.contains('expanded') && 
+                !detailsSection.contains(e.target) && 
+                !e.target.closest('.teen-tile')) {
+                detailsSection.classList.remove('expanded');
+                teenTiles.forEach(t => t.classList.remove('expanded'));
+            }
+        });
     </script>
 
 </body>
