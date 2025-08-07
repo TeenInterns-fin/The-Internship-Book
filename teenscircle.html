@@ -480,8 +480,8 @@
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="team.html" class="nav-link">Team</a>
                     <a href="impact.html" class="mobile-link">Impact</a>
-            <a href="reviews.html" class="mobile-link">Reviews/a>
-            <a href="preorder.html" class="mobile-link">Order now!</a>
+                    <a href="reviews.html" class="mobile-link">Reviews</a>
+                    <a href="preorder.html" class="mobile-link">Order now!</a>
 
 
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -503,7 +503,7 @@
             <a href="index.html" class="mobile-link">Home</a>
             <a href="team.html" class="mobile-link">Team</a>
             <a href="impact.html" class="mobile-link">Impact</a>
-            <a href="reviews.html" class="mobile-link">Reviews/a>
+            <a href="reviews.html" class="mobile-link">Reviews</a>
             <a href="preorder.html" class="mobile-link">Order now!</a>
 
 
@@ -824,7 +824,7 @@
                         </ul>
                     </div>
 
-        
+
                 </div>
 
                 <div class="footer-newsletter">
@@ -916,8 +916,8 @@
 
         // Close details when clicking outside
         document.addEventListener('click', (e) => {
-            if (detailsSection.classList.contains('expanded') && 
-                !detailsSection.contains(e.target) && 
+            if (detailsSection.classList.contains('expanded') &&
+                !detailsSection.contains(e.target) &&
                 !e.target.closest('.teen-tile')) {
                 detailsSection.classList.remove('expanded');
                 teenTiles.forEach(t => t.classList.remove('expanded'));

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>School Circle | The Internship Book</title>
@@ -12,84 +13,86 @@
     <link rel="stylesheet" href="mobile-fixes.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Caveat:wght@400;600&display=swap"
+        rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
+
     <style>
         .theme-toggle {
-                background: none;
-                border: 2px solid var(--primary-color);
-                border-radius: 50px;
-                padding: 8px 12px;
-                cursor: pointer;
-                font-size: 1.2rem;
-                transition: all var(--transition-fast);
-                position: relative;
-                overflow: hidden;
-                margin-left: 15px;
-                display: flex;
-                align-items: center;
-                gap: 5px;
-            }
+            background: none;
+            border: 2px solid var(--primary-color);
+            border-radius: 50px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+            margin-left: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
 
-            .theme-toggle:hover {
-                background: var(--primary-color);
-                transform: scale(1.05);
-            }
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            transform: scale(1.05);
+        }
 
-            .theme-toggle .light-icon,
-            .theme-toggle .dark-icon {
-                transition: opacity var(--transition-fast), transform var(--transition-fast);
-            }
+        .theme-toggle .light-icon,
+        .theme-toggle .dark-icon {
+            transition: opacity var(--transition-fast), transform var(--transition-fast);
+        }
 
-            /* Show/hide icons based on theme */
-            [data-theme="light"] .theme-toggle .light-icon {
-                opacity: 1;
-                transform: scale(1);
-            }
+        /* Show/hide icons based on theme */
+        [data-theme="light"] .theme-toggle .light-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
 
-            [data-theme="light"] .theme-toggle .dark-icon {
-                opacity: 0;
-                transform: scale(0.8);
-                position: absolute;
-            }
+        [data-theme="light"] .theme-toggle .dark-icon {
+            opacity: 0;
+            transform: scale(0.8);
+            position: absolute;
+        }
 
-            [data-theme="dark"] .theme-toggle .dark-icon {
-                opacity: 1;
-                transform: scale(1);
-            }
+        [data-theme="dark"] .theme-toggle .dark-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
 
-            [data-theme="dark"] .theme-toggle .light-icon {
-                opacity: 0;
-                transform: scale(0.8);
-                position: absolute;
-            }
+        [data-theme="dark"] .theme-toggle .light-icon {
+            opacity: 0;
+            transform: scale(0.8);
+            position: absolute;
+        }
 
-            /* Mobile theme toggle */
-            .mobile-theme-toggle {
-                background: none;
-                border: 2px solid var(--primary-color);
-                border-radius: 8px;
-                padding: 10px 15px;
-                cursor: pointer;
-                font-size: 1rem;
-                transition: all var(--transition-fast);
-                color: var(--text-color);
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                margin-top: 10px;
-            }
+        /* Mobile theme toggle */
+        .mobile-theme-toggle {
+            background: none;
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
 
-            .mobile-theme-toggle:hover {
-                background: var(--primary-color);
-                color: white;
-            }
+        .mobile-theme-toggle:hover {
+            background: var(--primary-color);
+            color: white;
+        }
 
-            .toggle-text {
-                font-size: 0.9rem;
-            }
+        .toggle-text {
+            font-size: 0.9rem;
+        }
 
         /* Page-specific minimal styles */
         .school-page {
@@ -417,58 +420,60 @@
             }
         }
     </style>
-  </head>
-  <body>
-      <header class="site-header" id="site-header">
-          <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
-              <nav class="nav-container">
-                  <div class="logo">
-                      <a href="index.html" class="logo-link">
-                          <span class="logo-text">The Internship Book</span>
-                      </a>
-                  </div>
-                  <div class="nav-links">
-                      <a href="index.html" class="nav-link">Home</a>
-                      <a href="team.html" class="nav-link">Team</a>
-                      <a href="impact.html" class="nav-link">Impact</a>
-                    <a href="reviews.html" class="nav-link">Reviews/a>
+</head>
+
+<body>
+    <header class="site-header" id="site-header">
+        <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
+            <nav class="nav-container">
+                <div class="logo">
+                    <a href="index.html" class="logo-link">
+                        <span class="logo-text">The Internship Book</span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="team.html" class="nav-link">Team</a>
+                    <a href="impact.html" class="nav-link">Impact</a>
+                    <a href="reviews.html" class="nav-link">Reviews</a>
                     <a href="preorder.html" class="nav-link">Order now!</a>
 
-                      
-                      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                          <span class="light-icon">🌙</span>
-                          <span class="dark-icon">☀️</span>
-                      </button>
-                  </div>
-                  <button class="mobile-menu-toggle">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                  </button>
-              </nav>
-          </div>
-      </header>
-  
-      <div class="mobile-menu">
-          <div class="mobile-menu-links">
-              <a href="team.html" class="mobile-link">Team</a>
-              <a href="impact.html" class="mobile-link">Impact</a>
-            <a href="reviews.html" class="mobile-link">Reviews/a>
+
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <span class="light-icon">🌙</span>
+                        <span class="dark-icon">☀️</span>
+                    </button>
+                </div>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="mobile-menu">
+        <div class="mobile-menu-links">
+            <a href="team.html" class="mobile-link">Team</a>
+            <a href="impact.html" class="mobile-link">Impact</a>
+            <a href="reviews.html" class="mobile-link">Reviews</a>
             <a href="preorder.html" class="mobile-link">Order now!</a>
 
-              
-              <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle theme">
-                  <span class="light-icon">🌙</span>
-                  <span class="dark-icon">☀️</span>
-                  <span class="toggle-text">Dark Mode</span>
-              </button>
-          </div>
-      </div>
+
+            <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle theme">
+                <span class="light-icon">🌙</span>
+                <span class="dark-icon">☀️</span>
+                <span class="toggle-text">Dark Mode</span>
+            </button>
+        </div>
+    </div>
 
     <main class="school-page">
         <section class="content-section">
             <div class="content-container">
-                <h1 style="text-align: center; color: var(--text-color); font-size: 3rem; margin-bottom: 3rem; font-weight: 800;">
+                <h1
+                    style="text-align: center; color: var(--text-color); font-size: 3rem; margin-bottom: 3rem; font-weight: 800;">
                     School Circle
                 </h1>
 
@@ -476,33 +481,48 @@
                     <div class="illustration-placeholder">
                         School Illustration Placeholder
                     </div>
-                    
+
                     <div class="school-content">
                         <p>Dear School Leaders and Counselors,</p>
                         <p>Thank you.</p>
-                        <p>For being the silent architects behind every young life that walks through your corridors. For caring not just about grades, but about growth. Not just about discipline, but about direction.</p>
-                        
-                        <p>The Internship Book is more than a project — it's a movement. To help teens build career clarity, character, and courage before the world demands it of them. And your role in this movement is foundational.</p>
+                        <p>For being the silent architects behind every young life that walks through your corridors.
+                            For caring not just about grades, but about growth. Not just about discipline, but about
+                            direction.</p>
+
+                        <p>The Internship Book is more than a project — it's a movement. To help teens build career
+                            clarity, character, and courage before the world demands it of them. And your role in this
+                            movement is foundational.</p>
 
                         <div class="highlight-box">
-                            <p>As educators, you've seen the shift. Today's teens are not just digital natives — they're deeply intuitive, restless for purpose, overwhelmed by choice, and hungry for relevance. They're not just asking "what do I want to become?" They're asking "why does it matter?"</p>
+                            <p>As educators, you've seen the shift. Today's teens are not just digital natives — they're
+                                deeply intuitive, restless for purpose, overwhelmed by choice, and hungry for relevance.
+                                They're not just asking "what do I want to become?" They're asking "why does it matter?"
+                            </p>
                         </div>
 
-                        <p>Internships, when done right, are not a checkbox. They are a mirror and a map. They allow students to see their strengths in action, fail safely, ask questions, shadow professionals, and discover who they are — outside the classroom.</p>
-                        
+                        <p>Internships, when done right, are not a checkbox. They are a mirror and a map. They allow
+                            students to see their strengths in action, fail safely, ask questions, shadow professionals,
+                            and discover who they are — outside the classroom.</p>
+
                         <p>This section is for you!</p>
-                        <p>This book belongs in your toolkit. Not just to encourage internships, but to reimagine how we introduce teens to the world of work — in a way that's age-appropriate, bite-sized, experiential, and real.</p>
+                        <p>This book belongs in your toolkit. Not just to encourage internships, but to reimagine how we
+                            introduce teens to the world of work — in a way that's age-appropriate, bite-sized,
+                            experiential, and real.</p>
                     </div>
                 </div>
 
                 <div class="quote-callout">
-                    In your hands, this book becomes more than a resource. It becomes a bridge. Between what's taught and what's lived. Between who they are and who they're becoming.
+                    In your hands, this book becomes more than a resource. It becomes a bridge. Between what's taught
+                    and what's lived. Between who they are and who they're becoming.
                 </div>
 
                 <div class="content-grid" style="margin-top: 4rem; grid-template-columns: 2fr 1fr">
                     <div class="school-content">
-                        <p>You've always shaped futures. But now, you have a chance to help shape calling — not just careers.</p>
-                        <p>Let's walk with our teens. Not just to prepare them for exams, but to prepare them for life. Let's show them that school is not just the end of childhood — but the beginning of meaningful impact.</p>
+                        <p>You've always shaped futures. But now, you have a chance to help shape calling — not just
+                            careers.</p>
+                        <p>Let's walk with our teens. Not just to prepare them for exams, but to prepare them for life.
+                            Let's show them that school is not just the end of childhood — but the beginning of
+                            meaningful impact.</p>
                         <p>Thank you for partnering with us.</p>
                         <p>Together, we're not just educating students. We're equipping leaders.</p>
                     </div>
@@ -518,42 +538,47 @@
         <section class="quotes-section">
             <div class="quotes-container">
                 <h2 class="quotes-title">Hear from the Schools!</h2>
-                
+
                 <div class="quotes-carousel">
                     <button class="arrow left" id="prevQuote">&#8592;</button>
-                    
+
                     <div class="quotes-content">
                         <div class="quote-item active">
                             <div class="quote-text">
-                                <p>Our internship program has transformed how students view their academic journey. They return with purpose and direction that textbooks alone cannot provide.</p>
+                                <p>Our internship program has transformed how students view their academic journey. They
+                                    return with purpose and direction that textbooks alone cannot provide.</p>
                             </div>
                         </div>
 
                         <div class="quote-item">
                             <div class="quote-text">
-                                <p>The real-world exposure through internships has helped our students develop professional skills and emotional maturity far beyond their years.</p>
+                                <p>The real-world exposure through internships has helped our students develop
+                                    professional skills and emotional maturity far beyond their years.</p>
                             </div>
                         </div>
 
                         <div class="quote-item">
                             <div class="quote-text">
-                                <p>We've seen remarkable growth in student confidence and career clarity since implementing structured internship programs in our curriculum.</p>
+                                <p>We've seen remarkable growth in student confidence and career clarity since
+                                    implementing structured internship programs in our curriculum.</p>
                             </div>
                         </div>
 
                         <div class="quote-item">
                             <div class="quote-text">
-                                <p>Internships have become a bridge between academic learning and practical application, making education more meaningful for our students.</p>
+                                <p>Internships have become a bridge between academic learning and practical application,
+                                    making education more meaningful for our students.</p>
                             </div>
                         </div>
 
                         <div class="quote-item">
                             <div class="quote-text">
-                                <p>The partnership with industry through internships has enriched our educational offerings and prepared students for the future workforce.</p>
+                                <p>The partnership with industry through internships has enriched our educational
+                                    offerings and prepared students for the future workforce.</p>
                             </div>
                         </div>
                     </div>
-                    
+
                     <button class="arrow right" id="nextQuote">&#8594;</button>
                 </div>
             </div>
@@ -733,7 +758,7 @@
                         </ul>
                     </div>
 
-        
+
                 </div>
 
                 <div class="footer-newsletter">
@@ -755,9 +780,9 @@
                             title="Behind-the-scenes photos and visual content"><img src="images/insta.png"
                                 style="height: 25px;"></a>
                         <a href="https://open.spotify.com/show/7xBDGJEqNy4kJqeg5Ip2Sz?si=2a0c01a64e694361"
-                            class="social-link" title="Podcast episodes and audio content"><img
-                                src="images/spotify.png" style="height: 25px;"></a>
-                       
+                            class="social-link" title="Podcast episodes and audio content"><img src="images/spotify.png"
+                                style="height: 25px;"></a>
+
                     </div>
                     <p class="bts-explanation">Behind-the-scenes content: Photos, Podcasts, Social Media, Videos</p>
                 </div>
@@ -802,5 +827,6 @@
         // Initialize
         showQuote(currentQuote);
     </script>
-  </body>
+</body>
+
 </html>

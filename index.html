@@ -547,19 +547,19 @@
             }
 
             /*Responsive what why how*/
-            @media (max-width: 768px){
-                .question-image{
+            @media (max-width: 768px) {
+                .question-image {
                     height: 150px;
                     width: auto;
                 }
 
-                .question-visual{
+                .question-visual {
                     display: flex;
                     justify-content: center;
                 }
 
-                .question-navigation{
-                    display:flex;
+                .question-navigation {
+                    display: flex;
                     flex-direction: row;
                     justify-content: center;
                     align-items: center;
@@ -568,14 +568,14 @@
                 .question-nav-btn {
                     width: 100px;
                     height: 50px;
-                    line-height: 1;  
+                    line-height: 1;
                     padding: 1rem;
-                    display:flex;
+                    display: flex;
                     align-items: center;
                 }
 
             }
-            
+
             /* Smooth state transitions */
             .left-sidebar,
             .sidebar-nav,
@@ -1739,31 +1739,34 @@
             }
 
             /*responsive teams*/
-            @media (max-width: 768px){
-            .teams-row teams-bottom,
-            .teams-row teams-top{
-                display:flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
+            @media (max-width: 768px) {
+
+                .teams-row teams-bottom,
+                .teams-row teams-top {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .award-item {
+                    width: 150px;
+                    height: 120px;
+                    padding: 0.5rem;
+                }
+
+                .team-icon {
+                    height: 35px;
+                    width: auto;
+                }
+
+                .teams-columns {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: flex-start;
+                }
             }
-        
-            .award-item {
-                width: 150px;
-                height: 120px;
-                padding: 0.5rem;
-            }
-            .team-icon{
-                height: 35px;
-                width:auto;
-            }
-            .teams-columns{
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: flex-start;
-            }
-        }
 
             /* Responsive adjustments for multimedia features */
             @media (max-width: 768px) {
@@ -1942,25 +1945,28 @@
 
             /* Responsive friends layout for mobile */
             @media (max-width: 768px) {
-                .friends-grid.friends-top , .friends-grid.friends-bottom {
-                   display: flex;
-                   flex-direction: column;
-                   justify-content: center;
-                   align-items: center;
-                   flex: 1;
-                   width: 50%
+
+                .friends-grid.friends-top,
+                .friends-grid.friends-bottom {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    flex: 1;
+                    width: 50%
                 }
-                .friend-grid{
-                    display:flex;
+
+                .friend-grid {
+                    display: flex;
                     flex-direction: row;
                     justify-content: center;
                     align-items: flex-start;
-                    width:100vw;
-                    flex-wrap: nowrap; 
-                    gap:2rem;
+                    width: 100vw;
+                    flex-wrap: nowrap;
+                    gap: 2rem;
                 }
 
-                .friend-logo{
+                .friend-logo {
                     padding: 0rem;
                     height: 100px;
                     width: 100px;
@@ -1973,6 +1979,7 @@
             }
 
             @media (max-width: 480px) {
+
                 .friends-grid.friends-top,
                 .friends-grid.friends-bottom {
                     grid-template-columns: repeat(2, 1fr);
@@ -2198,7 +2205,7 @@
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="team.html" class="nav-link">Team</a>
                     <a href="impact.html" class="nav-link">Impact</a>
-                    <a href="reviews.html" class="nav-link">Reviews/a>
+                    <a href="reviews.html" class="nav-link">Reviews</a>
                     <a href="preorder.html" class="nav-link">Order now!</a>
                     <!-- Theme Toggle Button -->
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -2220,7 +2227,7 @@
         <div class="mobile-menu-links">
             <a href="team.html" class="mobile-link">Team</a>
             <a href="impact.html" class="mobile-link">Impact</a>
-            <a href="reviews.html" class="mobile-link">Reviews/a>
+            <a href="reviews.html" class="mobile-link">Reviews</a>
             <a href="preorder.html" class="mobile-link">Order now!</a>
             <!-- Mobile Theme Toggle -->
             <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle theme">
@@ -2253,12 +2260,12 @@
                 <div class="book-cover">
                     <img src="images/trials/trial4.png" alt="book-cover">
                 </div>
-            
-            <!-- Arrow -->
-            <div class="quote-arrow">
-                <img src="images/arrow.png" alt="Arrow" class="arrow-img">
+
+                <!-- Arrow -->
+                <div class="quote-arrow">
+                    <img src="images/arrow.png" alt="Arrow" class="arrow-img">
+                </div>
             </div>
-        </div>
         </div>
     </section>
 
@@ -2321,16 +2328,23 @@
                                     <span class="content-icon"><img src="logos\announcement.png"
                                             class="emoji-icon"></span>
                                     <div class="media-content">
-                                        <strong style="color: var(--primary-color) !important;">No Adult BS:</strong> Just straight talk from people who remember what
-                                        it's like to be completely lost about <span style="color: var(--primary-color) !important;">internships</span>.
+                                        <strong style="color: var(--primary-color) !important;">No Adult BS:</strong>
+                                        Just straight talk from people who remember what
+                                        it's like to be completely lost about <span
+                                            style="color: var(--primary-color) !important;">internships</span>.
                                     </div>
                                 </div>
 
                                 <div class="content-feature">
                                     <span class="content-icon"><img src="logos/book.png" class="emoji-icon"></span>
                                     <div class="media-content">
-                                        <strong style="color: var(--primary-color) !important;">Actually Useful:</strong> Every tip, <span style="color: var(--primary-color) !important;">template</span>, and <span style="color: var(--primary-color) !important;">strategy</span> has been
-                                        tested by real <span style="color: var(--primary-color) !important;">teens</span> in real situations.
+                                        <strong style="color: var(--primary-color) !important;">Actually
+                                            Useful:</strong> Every tip, <span
+                                            style="color: var(--primary-color) !important;">template</span>, and <span
+                                            style="color: var(--primary-color) !important;">strategy</span> has been
+                                        tested by real <span
+                                            style="color: var(--primary-color) !important;">teens</span> in real
+                                        situations.
                                     </div>
                                 </div>
                             </div>
@@ -2346,18 +2360,30 @@
                                 <div class="media-feature">
                                     <span class="media-icon"><img src="logos\videography.png" class="emoji-icon"></span>
                                     <div class="media-content">
-                                        <strong style="color: var(--primary-color) !important;">Video Content:</strong> Watch raw, unfiltered moments from our <span style="color: var(--primary-color) !important;">teen
-                                        contributors</span> as they share their biggest <span style="color: var(--primary-color) !important;">internship wins</span>, epic fails, and
-                                        everything in between.The whole book is <span style="color: var(--primary-color) !important;">visual</span> and filled with <span style="color: var(--primary-color) !important;">illustrations</span>.
+                                        <strong style="color: var(--primary-color) !important;">Video Content:</strong>
+                                        Watch raw, unfiltered moments from our <span
+                                            style="color: var(--primary-color) !important;">teen
+                                            contributors</span> as they share their biggest <span
+                                            style="color: var(--primary-color) !important;">internship wins</span>, epic
+                                        fails, and
+                                        everything in between.The whole book is <span
+                                            style="color: var(--primary-color) !important;">visual</span> and filled
+                                        with <span style="color: var(--primary-color) !important;">illustrations</span>.
                                     </div>
                                 </div>
 
                                 <div class="media-feature">
-                                    <span class="media-icon"><img src="logos\podcaster.png" class="emoji-icon"></span> 
+                                    <span class="media-icon"><img src="logos\podcaster.png" class="emoji-icon"></span>
                                     <div class="media-content">
-                                        <strong style="color: var(--primary-color) !important;">Mixtape, Podcasts and Vlogs:</strong> Listen & watch honest
-                                        conversations about <span style="color: var(--primary-color) !important;">imposter syndrome</span>, <span style="color: var(--primary-color) !important;">networking anxiety</span>, and how to bounce
-                                        back when things don't go as planned. It is a complete <span style="color: var(--primary-color) !important;">visual</span> and <span style="color: var(--primary-color) !important;">auditory</span>
+                                        <strong style="color: var(--primary-color) !important;">Mixtape, Podcasts and
+                                            Vlogs:</strong> Listen & watch honest
+                                        conversations about <span
+                                            style="color: var(--primary-color) !important;">imposter syndrome</span>,
+                                        <span style="color: var(--primary-color) !important;">networking anxiety</span>,
+                                        and how to bounce
+                                        back when things don't go as planned. It is a complete <span
+                                            style="color: var(--primary-color) !important;">visual</span> and <span
+                                            style="color: var(--primary-color) !important;">auditory</span>
                                         delight.
                                     </div>
                                 </div>
@@ -2375,15 +2401,22 @@
                             <div class="content-feature">
                                 <span class="content-icon"><img src="logos\sustainable.png" class="emoji-icon"></span>
                                 <div class="media-content">
-                                    <strong style="color: var(--primary-color) !important;">Own one copy:</strong> <span style="color: var(--primary-color) !important;">Recycle</span>. One copy is all you need to stay updated in
-                                    almost real time. A <span style="color: var(--primary-color) !important;">phygital</span> ( Physical and digital book ).
+                                    <strong style="color: var(--primary-color) !important;">Own one copy:</strong> <span
+                                        style="color: var(--primary-color) !important;">Recycle</span>. One copy is all
+                                    you need to stay updated in
+                                    almost real time. A <span
+                                        style="color: var(--primary-color) !important;">phygital</span> ( Physical and
+                                    digital book ).
                                 </div>
                             </div>
 
                             <div class="content-feature">
                                 <span class="content-icon"><img src="logos\star.png" class="emoji-icon"></span>
                                 <div class="media-content">
-                                    <strong style="color: var(--primary-color) !important;">Stay relevant:</strong> This is one gift that <span style="color: var(--primary-color) !important;">updates itself</span>. From <span style="color: var(--primary-color) !important;">Legacy</span> to
+                                    <strong style="color: var(--primary-color) !important;">Stay relevant:</strong> This
+                                    is one gift that <span style="color: var(--primary-color) !important;">updates
+                                        itself</span>. From <span
+                                        style="color: var(--primary-color) !important;">Legacy</span> to
                                     new age.
                                 </div>
                             </div>
@@ -2399,16 +2432,24 @@
                             <div class="content-feature">
                                 <span class="content-icon"><img src="logos\rocket.png" class="emoji-icon"></span>
                                 <div class="media-content">
-                                    <strong style="color: var(--primary-color) !important;">Accelerate:</strong> Not everyone has the same starting line to their
-                                    <span style="color: var(--primary-color) !important;">dreams</span>. <span style="color: var(--primary-color) !important;">Accelerate</span> the one behind. <span style="color: var(--primary-color) !important;">Boost</span> them by giving their dreams a push.
+                                    <strong style="color: var(--primary-color) !important;">Accelerate:</strong> Not
+                                    everyone has the same starting line to their
+                                    <span style="color: var(--primary-color) !important;">dreams</span>. <span
+                                        style="color: var(--primary-color) !important;">Accelerate</span> the one
+                                    behind. <span style="color: var(--primary-color) !important;">Boost</span> them by
+                                    giving their dreams a push.
                                 </div>
                             </div>
 
                             <div class="content-feature">
                                 <span class="content-icon"><img src="logos\finance.png" class="emoji-icon"></span>
                                 <div class="media-content">
-                                    <strong style="color: var(--primary-color) !important;">Invest to support:</strong> Every copy sold or gifted to a loved one
-                                    contributes to <span style="color: var(--primary-color) !important;">Mentorship</span> and <span style="color: var(--primary-color) !important;">internships sponsored</span> for students who can't afford
+                                    <strong style="color: var(--primary-color) !important;">Invest to support:</strong>
+                                    Every copy sold or gifted to a loved one
+                                    contributes to <span
+                                        style="color: var(--primary-color) !important;">Mentorship</span> and <span
+                                        style="color: var(--primary-color) !important;">internships sponsored</span> for
+                                    students who can't afford
                                     it.
                                 </div>
                             </div>
@@ -2479,7 +2520,8 @@
                                     <li>Industry-specific internships</li>
                                     <li>Duration and commitment levels</li>
                                 </ul>
-                                <a href="what.html" class="cta-button primary" style="margin-top: 1.5rem; display: inline-block;">Know More</a>
+                                <a href="what.html" class="cta-button primary"
+                                    style="margin-top: 1.5rem; display: inline-block;">Know More</a>
                             </div>
                         </div>
 
@@ -2497,7 +2539,8 @@
                                     <li>Skill development</li>
                                     <li>Career clarity and direction</li>
                                 </ul>
-                                <a href="why.html" class="cta-button primary" style="margin-top: 1.5rem; display: inline-block;">Know More</a>
+                                <a href="why.html" class="cta-button primary"
+                                    style="margin-top: 1.5rem; display: inline-block;">Know More</a>
                             </div>
                         </div>
 
@@ -2515,7 +2558,8 @@
                                     <li>Interview preparation</li>
                                     <li>Follow-up best practices</li>
                                 </ul>
-                                <a href="how.html" class="cta-button primary" style="margin-top: 1.5rem; display: inline-block;">Know More</a>
+                                <a href="how.html" class="cta-button primary"
+                                    style="margin-top: 1.5rem; display: inline-block;">Know More</a>
                             </div>
                         </div>
                     </div>
@@ -2530,52 +2574,52 @@
                 <h2 class="section-title">These are the teams involved!</h2>
             </div>
             <div class="teams-columns">
-            <div class="teams-row teams-top">
-                <div class="award-item animate-pop" style="--delay: 0.1s">
-                    <div class="award-icon"><img src="logos/editors.png" class="team-icon"></div>
-                    <h4>Book<br />Editors</h4>
+                <div class="teams-row teams-top">
+                    <div class="award-item animate-pop" style="--delay: 0.1s">
+                        <div class="award-icon"><img src="logos/editors.png" class="team-icon"></div>
+                        <h4>Book<br />Editors</h4>
+                    </div>
+                    <div class="award-item animate-pop" style="--delay: 0.2s">
+                        <div class="award-icon"><img src="logos/finance.png" class="team-icon"></div>
+                        <h4>Finance and<br /> Sponsorship</h4>
+                    </div>
+                    <div class="award-item animate-pop" style="--delay: 0.3s">
+                        <div class="award-icon"><img src="logos/illustrations.png" class="team-icon"></div>
+                        <h4>Illustrators</h4>
+                    </div>
+                    <div class="award-item animate-pop" style="--delay: 0.4s">
+                        <div class="award-icon"><img src="logos/announcement.png" class="team-icon"></div>
+                        <h4>Marketing and<br />Social media</h4>
+                    </div>
+                    <div class="award-item animate-pop" style="--delay: 0.5s">
+                        <div class="award-icon"><img src="logos/podcaster.png" class="team-icon"></div>
+                        <h4>Podcasters</h4>
+                    </div>
                 </div>
-                <div class="award-item animate-pop" style="--delay: 0.2s">
-                    <div class="award-icon"><img src="logos/finance.png" class="team-icon"></div>
-                    <h4>Finance and<br /> Sponsorship</h4>
-                </div>
-                <div class="award-item animate-pop" style="--delay: 0.3s">
-                    <div class="award-icon"><img src="logos/illustrations.png" class="team-icon"></div>
-                    <h4>Illustrators</h4>
-                </div>
-                <div class="award-item animate-pop" style="--delay: 0.4s">
-                    <div class="award-icon"><img src="logos/announcement.png" class="team-icon"></div>
-                    <h4>Marketing and<br />Social media</h4>
-                </div>
-                <div class="award-item animate-pop" style="--delay: 0.5s">
-                    <div class="award-icon"><img src="logos/podcaster.png" class="team-icon"></div>
-                    <h4>Podcasters</h4>
-                </div>
-            </div>
 
-            <div class="teams-row teams-bottom">
-                <div class="award-item animate-pop" style="--delay: 0.6s">
-                    <div class="award-icon"><img src="logos/music.png" class="team-icon"></div>
-                    <h4>Music<br />Team</h4>
-                </div>
-                <div class="award-item animate-pop" style="--delay: 0.7s">
-                    <div class="award-icon"><img src="logos/managers.png" class="team-icon"></div>
-                    <h4>Project<br />Managers</h4>
-                </div>
-                <div class="award-item animate-pop" style="--delay: 0.8s">
-                    <div class="award-icon"><img src="logos/videography.png" class="team-icon"></div>
-                    <h4>Videography</h4>
-                </div>
-                <div class="award-item animate-pop" style="--delay: 0.9s">
-                    <div class="award-icon"><img src="logos/webdesigner.png" class="team-icon"></div>
-                    <h4>Web<br />Designers</h4>
-                </div>
-                <div class="award-item animate-pop" style="--delay: 1.0s">
-                    <div class="award-icon"><img src="logos/writer.png" class="team-icon"></div>
-                    <h4>Writers</h4>
+                <div class="teams-row teams-bottom">
+                    <div class="award-item animate-pop" style="--delay: 0.6s">
+                        <div class="award-icon"><img src="logos/music.png" class="team-icon"></div>
+                        <h4>Music<br />Team</h4>
+                    </div>
+                    <div class="award-item animate-pop" style="--delay: 0.7s">
+                        <div class="award-icon"><img src="logos/managers.png" class="team-icon"></div>
+                        <h4>Project<br />Managers</h4>
+                    </div>
+                    <div class="award-item animate-pop" style="--delay: 0.8s">
+                        <div class="award-icon"><img src="logos/videography.png" class="team-icon"></div>
+                        <h4>Videography</h4>
+                    </div>
+                    <div class="award-item animate-pop" style="--delay: 0.9s">
+                        <div class="award-icon"><img src="logos/webdesigner.png" class="team-icon"></div>
+                        <h4>Web<br />Designers</h4>
+                    </div>
+                    <div class="award-item animate-pop" style="--delay: 1.0s">
+                        <div class="award-icon"><img src="logos/writer.png" class="team-icon"></div>
+                        <h4>Writers</h4>
+                    </div>
                 </div>
             </div>
-         </div>
         </div>
     </section>
 
@@ -2623,9 +2667,10 @@
             <div class="experts-title">
                 <img src="images/expert_speak_text.png" alt="Experts Speak" class="experts-title-img">
             </div>
-            
+
             <div class="quote-border-container">
-                <img src="images/quote_border.png" alt="Quote Border" class="quote-border-img" style="max-width: 700px; width: 100%; height: auto;">
+                <img src="images/quote_border.png" alt="Quote Border" class="quote-border-img"
+                    style="max-width: 700px; width: 100%; height: auto;">
                 <div class="quote-content-overlay">
                     <blockquote class="expert-quote">
                         Side hustles. Build your own product. Passion projects. It's
@@ -2641,7 +2686,7 @@
                     </blockquote>
                 </div>
             </div>
-            
+
             <div class="author-section">
                 <div class="author-info">
                     <div class="author-name">RONNIE SCREWVALA</div>
@@ -2651,7 +2696,7 @@
                     <img src="images/ronnie.png" alt="Ronnie Screwvala" class="ronnie-photo">
                 </div>
             </div>
-            </div>
+        </div>
     </section>
 
 
@@ -2662,39 +2707,39 @@
                 <h2 class="section-title">Here are just a few of<br />our friends</h2>
                 <p class="section-subtitle">We swear we didn't force them to</p>
             </div>
-        <div class="friend-grid">
-            <div class="friends-grid friends-top">
-                <div class="friend-logo animate-pop" style="--delay: 0.1s">
-                    <img src="images/dps.jpeg" alt="DPS School" class="friend-img">
+            <div class="friend-grid">
+                <div class="friends-grid friends-top">
+                    <div class="friend-logo animate-pop" style="--delay: 0.1s">
+                        <img src="images/dps.jpeg" alt="DPS School" class="friend-img">
+                    </div>
+                    <div class="friend-logo animate-pop" style="--delay: 0.2s">
+                        <img src="images/euro_school.png" alt="Euro School" class="friend-img">
+                    </div>
+                    <div class="friend-logo animate-pop" style="--delay: 0.3s">
+                        <img src="images/greenwood_high.jpeg" alt="Greenwood High" class="friend-img">
+                    </div>
+                    <div class="friend-logo animate-pop" style="--delay: 0.4s">
+                        <img src="images/legacy_school.jpeg" alt="Legacy School" class="friend-img">
+                    </div>
+                    <div class="friend-logo animate-pop" style="--delay: 0.5s">
+                        <img src="images/pathways_school.jpeg" alt="Pathways School" class="friend-img">
+                    </div>
                 </div>
-                <div class="friend-logo animate-pop" style="--delay: 0.2s">
-                    <img src="images/euro_school.png" alt="Euro School" class="friend-img">
-                </div>
-                <div class="friend-logo animate-pop" style="--delay: 0.3s">
-                    <img src="images/greenwood_high.jpeg" alt="Greenwood High" class="friend-img">
-                </div>
-                <div class="friend-logo animate-pop" style="--delay: 0.4s">
-                    <img src="images/legacy_school.jpeg" alt="Legacy School" class="friend-img">
-                </div>
-                <div class="friend-logo animate-pop" style="--delay: 0.5s">
-                    <img src="images/pathways_school.jpeg" alt="Pathways School" class="friend-img">
-                </div>
-            </div>
 
-            <div class="friends-grid friends-bottom">
-                <div class="friend-logo animate-pop" style="--delay: 0.6s">
-                    <img src="images/premia_academy.jpeg" alt="Premia Academy" class="friend-img">
+                <div class="friends-grid friends-bottom">
+                    <div class="friend-logo animate-pop" style="--delay: 0.6s">
+                        <img src="images/premia_academy.jpeg" alt="Premia Academy" class="friend-img">
+                    </div>
+                    <div class="friend-logo animate-pop" style="--delay: 0.7s">
+                        <img src="images/shiv_nadar.png" alt="Shiv Nadar School" class="friend-img">
+                    </div>
+                    <div class="friend-logo animate-pop" style="--delay: 0.8s">
+                        <img src="images/sloka_waldorf.png" alt="Sloka Waldorf" class="friend-img sloka-logo">
+                    </div>
+                    <div class="friend-logo animate-pop" style="--delay: 0.9s">
+                        <img src="images/chaman_bhartiya.png" alt="Chaman Bhartiya School" class="friend-img">
+                    </div>
                 </div>
-                <div class="friend-logo animate-pop" style="--delay: 0.7s">
-                    <img src="images/shiv_nadar.png" alt="Shiv Nadar School" class="friend-img">
-                </div>
-                <div class="friend-logo animate-pop" style="--delay: 0.8s">
-                    <img src="images/sloka_waldorf.png" alt="Sloka Waldorf" class="friend-img sloka-logo">
-                </div>
-                <div class="friend-logo animate-pop" style="--delay: 0.9s">
-                    <img src="images/chaman_bhartiya.png" alt="Chaman Bhartiya School" class="friend-img">
-                </div>
-            </div>
             </div>
         </div>
     </section>
@@ -2755,8 +2800,8 @@
                             class="social-link" title="Podcast episodes and audio content"><img src="images/spotify.png"
                                 style="height: 25px;"></a>
                     </div>
-                    
-                    
+
+
                     <p class="bts-explanation">Behind-the-scenes content: Photos, Podcasts, Social Media, Videos</p>
                 </div>
             </div>

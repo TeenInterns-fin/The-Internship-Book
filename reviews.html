@@ -309,7 +309,7 @@
             background: var(--bg-color, white);
         }
 
-        .type-option input[type="radio"]:checked + label {
+        .type-option input[type="radio"]:checked+label {
             background: #009A94;
             color: white;
             border-color: #009A94;
@@ -333,7 +333,7 @@
             transition: color 0.3s ease;
         }
 
-        .rating-input input[type="radio"]:checked ~ label,
+        .rating-input input[type="radio"]:checked~label,
         .rating-input label:hover {
             color: #FFD700;
         }
@@ -446,7 +446,7 @@
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="team.html" class="nav-link">Team</a>
                     <a href="impact.html" class="nav-link">Impact</a>
-                    <a href="reviews.html" class="nav-link">Reviews/a>
+                    <a href="reviews.html" class="nav-link">Reviews</a>
                     <a href="preorder.html" class="nav-link">Order now!</a>
 
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -469,7 +469,7 @@
             <a href="index.html" class="mobile-link">Home</a>
             <a href="team.html" class="mobile-link">Team</a>
             <a href="impact.html" class="mobile-link">Impact</a>
-            <a href="reviews.html" class="mobile-link">Reviews/a>
+            <a href="reviews.html" class="mobile-link">Reviews</a>
             <a href="preorder.html" class="mobile-link">Order now!</a>
 
             <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle theme">
@@ -591,7 +591,7 @@
 
                 <div class="form-group">
                     <label for="message">Your Review *</label>
-                    <textarea id="message" name="message" class="form-control" rows="5" 
+                    <textarea id="message" name="message" class="form-control" rows="5"
                         placeholder="Share your experience with The Internship Book..." required></textarea>
                 </div>
 
@@ -648,13 +648,13 @@
     <script src="theme-toggle.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Rating filter functionality
             const filterBtns = document.querySelectorAll('.filter-btn');
             const reviewCards = document.querySelectorAll('.review-card');
 
             filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     filterBtns.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
 
@@ -671,11 +671,11 @@
 
             // Review form submission
             const reviewForm = document.getElementById('reviewForm');
-            reviewForm.addEventListener('submit', function(e) {
+            reviewForm.addEventListener('submit', function (e) {
                 e.preventDefault();
                 const formData = new FormData(reviewForm);
                 const reviewData = Object.fromEntries(formData);
-                
+
                 if (!reviewData.reviewerType || !reviewData.name || !reviewData.email || !reviewData.rating || !reviewData.message) {
                     alert('Please fill in all required fields.');
                     return;
@@ -687,4 +687,5 @@
         });
     </script>
 </body>
+
 </html>
