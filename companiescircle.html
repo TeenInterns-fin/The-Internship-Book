@@ -6,160 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Companies Circle | The Internship Book</title>
     <link rel="icon" type="image/png" href="logos/favicon.png">
+    <link rel="stylesheet" href="styles-advanced.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="preorder-styles.css">
+    <link rel="stylesheet" href="styles-header-hero-fixed.css">
+    <link rel="stylesheet" href="loading-transition.css">
     <link rel="stylesheet" href="mobile-fixes.css">
-    <link rel="stylesheet" href="floating-stickers.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 
     <style>
-        /* CSS Variables for Theme System */
-        :root {
-            --primary-color: #009A94;
-            --secondary-color: #00C4B8;
-            --accent-color: #00E6D6;
-            --highlight-color: #FF6B6B;
-
-            /* Light Theme Colors */
-            --bg-color: #FFFFFF;
-            --bg-secondary: #F8F9FA;
-            --bg-alt-color: #F1F3F4;
-            --text-color: #000000;
-            --text-secondary: #000000;
-            --subtitle-color: #000000;
-            --border-color: #E0E0E0;
-            --card-bg: #FFFFFF;
-            --sidebar-bg: rgba(255, 255, 255, 0.95);
-            --sidebar-text: #000000;
-
-            /* Transition variables */
-            --transition-fast: 0.2s ease;
-            --transition-normal: 0.3s ease;
-            --transition-slow: 0.5s ease;
-        }
-
-        /* Dark Theme Colors */
-        [data-theme="dark"] {
-            --bg-color: rgb(26, 26, 26);
-            --bg-secondary: rgb(26, 26, 26);
-            --bg-alt-color: #2A2A2A;
-            --text-color: #FFFFFF;
-            --text-secondary: #E0E0E0;
-            --subtitle-color: #B0B0B0;
-            --border-color: #333333;
-            --card-bg: rgb(26, 26, 26);
-            --sidebar-bg: rgba(26, 26, 26, 0.95);
-            --sidebar-text: #FFFFFF;
-        }
-
-        /* Apply theme colors to body and main elements */
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color var(--transition-normal), color var(--transition-normal);
-        }
-
-        .site-header {
-            background-color: var(--bg-color) !important;
-            transition: background-color var(--transition-normal);
-        }
-
-        .nav-container {
-            background-color: transparent !important;
-        }
-
-        .nav-link {
-            color: var(--text-color) !important;
-        }
-
-        .mobile-menu {
-            background-color: var(--bg-color) !important;
-        }
-
-        .mobile-link {
-            color: var(--text-color) !important;
-        }
-
-        /* Theme Toggle Button Styles */
-        .theme-toggle {
-            background: none;
-            border: 2px solid var(--primary-color);
-            border-radius: 50px;
-            padding: 8px 12px;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: all var(--transition-fast);
-            position: relative;
-            overflow: hidden;
-            margin-left: 15px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .theme-toggle:hover {
-            background: var(--primary-color);
-            transform: scale(1.05);
-        }
-
-        .theme-toggle .light-icon,
-        .theme-toggle .dark-icon {
-            transition: opacity var(--transition-fast), transform var(--transition-fast);
-        }
-
-        [data-theme="light"] .theme-toggle .light-icon {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        [data-theme="light"] .theme-toggle .dark-icon {
-            opacity: 0;
-            transform: scale(0.8);
-            position: absolute;
-        }
-
-        [data-theme="dark"] .theme-toggle .dark-icon {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        [data-theme="dark"] .theme-toggle .light-icon {
-            opacity: 0;
-            transform: scale(0.8);
-            position: absolute;
-        }
-
-        .mobile-theme-toggle {
-            background: none;
-            border: 2px solid var(--primary-color);
-            border-radius: 8px;
-            padding: 10px 15px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all var(--transition-fast);
-            color: var(--text-color);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .mobile-theme-toggle:hover {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .toggle-text {
-            font-size: 0.9rem;
-        }
-
-        /* Page-specific styles */
+        /* Page-specific minimal styles */
         .companies-page {
             padding: 120px 0 60px;
             min-height: 100vh;
@@ -184,18 +45,54 @@
             margin-bottom: 4rem;
         }
 
-        .content-placeholder {
-            background: var(--bg-secondary);
-            border: 2px dashed var(--border-color);
-            border-radius: 12px;
-            padding: 4rem 2rem;
-            text-align: center;
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
+        .company-content {
+            color: var(--text-color);
+            line-height: 1.7;
             font-size: 1.1rem;
+        }
+
+        .company-content h2 {
+            color: var(--text-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .company-content h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .company-content h3::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.6rem;
+            line-height: 1.2;
+        }
+
+        .company-content p {
+            margin-bottom: 1.2rem;
+        }
+
+        .company-content ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .company-content li {
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .company-content strong {
+            color: var(--primary-color);
         }
 
         .illustration-placeholder {
@@ -212,6 +109,15 @@
             font-size: 1.1rem;
             font-weight: 600;
         }
+
+        .company-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+
 
         /* Quotes Section */
         .quotes-section {
@@ -286,11 +192,38 @@
         }
 
         .quote-text {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             line-height: 1.6;
             color: var(--text-color);
             font-style: italic;
             position: relative;
+        }
+
+        .quote-text::before {
+            content: '"';
+            font-size: 3rem;
+            position: absolute;
+            left: -20px;
+            top: -10px;
+            color: var(--primary-color);
+            opacity: 0.3;
+        }
+
+        .quote-text::after {
+            content: '"';
+            font-size: 3rem;
+            position: absolute;
+            right: -20px;
+            bottom: -30px;
+            color: var(--primary-color);
+            opacity: 0.3;
+        }
+
+        .quote-role {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 600;
         }
 
         /* Resources Section */
@@ -348,12 +281,6 @@
                 gap: 2rem;
             }
 
-            .content-placeholder,
-            .illustration-placeholder {
-                min-height: 200px;
-                padding: 2rem 1rem;
-            }
-
             .quotes-carousel {
                 flex-direction: column;
                 gap: 2rem;
@@ -362,18 +289,13 @@
             .resources-container {
                 grid-template-columns: 1fr;
             }
+
+
         }
     </style>
 </head>
 
-<body class="loading" data-theme="dark" id="body">
-
-    <div class="background-elements">
-        <div class="bg-shape shape1"></div>
-        <div class="bg-shape shape2"></div>
-        <div class="bg-shape shape3"></div>
-    </div>
-
+<body>
     <header class="site-header" id="site-header">
         <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
             <nav class="nav-container">
@@ -388,7 +310,6 @@
                     <a href="impact.html" class="nav-link">Impact</a>
                     <a href="reviews.html" class="nav-link">Reviews</a>
                     <a href="preorder.html" class="nav-link">Order now!</a>
-
 
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                         <span class="light-icon">🌙</span>
@@ -412,7 +333,6 @@
             <a href="reviews.html" class="mobile-link">Reviews</a>
             <a href="preorder.html" class="mobile-link">Order now!</a>
 
-
             <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle theme">
                 <span class="light-icon">🌙</span>
                 <span class="dark-icon">☀️</span>
@@ -424,53 +344,72 @@
     <main class="companies-page">
         <section class="content-section">
             <div class="content-container">
-                <h1
-                    style="text-align: center; color: var(--text-color); font-size: 3rem; margin-bottom: 3rem; font-weight: 800;">
+                <h1 style="text-align: center; color: var(--text-color); font-size: 3rem; margin-bottom: 3rem; font-weight: 800;">
                     Companies Circle
                 </h1>
-                <h2><strong>Letter from Zinterns to Companies</strong></h2>
-                <button></button>
+
                 <div class="content-grid">
-                    <div class="illustration">
-                       <img scr="images/companies.png">
+                    <div class="illustration-placeholder">
+                        <img src="images/companies.png" alt="Companies illustration" class="company-image">
                     </div>
 
-                    <div class="text">
-                       <p>Dear Company CEO,</p>
+                    <div class="company-content">
+                        <h2><strong>Letter from Zinterns to Companies</strong></h2>
+                        
+                        <p><strong>Dear Company CEO,</strong></p>
 
-<p>We understand the hesitation. Teen interns are often underestimated—seen as inexperienced, distracted, or only suited for basic tasks like data entry or sorting emails.</p>
+                        <p>We understand the hesitation. Teen interns are often underestimated—seen as inexperienced, distracted, or only suited for basic tasks like data entry or sorting emails.</p>
 
-<p>But the reality is different.</p>
+                        <p><strong>But the reality is different.</strong></p>
 
-<p>When given meaningful work, teens have delivered product feedback, redesign proposals, and marketing strategies—insights that drive real impact. These aren’t just theoretical ideas. They are created, tested, and refined by the very demographic many companies aim to reach.</p>
+                        <p>When given meaningful work, teens have delivered product feedback, redesign proposals, and marketing strategies—insights that drive real impact. These aren't just theoretical ideas. They are created, tested, and refined by the very demographic many companies aim to reach.</p>
 
-<p>Teen interns are not just a checkbox or PR move. We are contributors. We bring:</p>
+                        <p>Teen interns are not just a checkbox or PR move. We are contributors. We bring:</p>
 
-<p>Fresh eyes and unique perspectives</p>
-<p>Native digital fluency</p>
-<p>Fearless, curious minds</p>
-<p>Direct, unfiltered honesty</p>
+                        <ul>
+                            <li><strong>Fresh eyes and unique perspectives</strong></li>
+                            <li><strong>Native digital fluency</strong></li>
+                            <li><strong>Fearless, curious minds</strong></li>
+                            <li><strong>Direct, unfiltered honesty</strong></li>
+                        </ul>
 
-<p>When we’re empowered, we bring value. Not someday—today.</p>
+                        <p>When we're empowered, we bring value. Not someday—today.</p>
 
-<p>All we ask is a chance. Treat us like real team members, and we’ll meet you with energy, ideas, and execution that might just surprise you.</p>
+                        <p>All we ask is a chance. Treat us like real team members, and we'll meet you with energy, ideas, and execution that might just surprise you.</p>
 
-<p>Sincerely,<br></p>
-<p>The Teen Interns Who Are Ready to Contribute</p>
+                        <p><strong>Sincerely,<br>
+                        The Teen Interns Who Are Ready to Contribute</strong></p>
                     </div>
                 </div>
 
-                <div class="content-grid">
-                    <div class="content-placeholder">
-                        Content will be added later...
+                <div class="content-grid" style="margin-top: 4rem; grid-template-columns: 2fr 1fr">
+                    <div class="company-content">
+                        <h2><strong>Why Partner with Teen Interns?</strong></h2>
+                        
+                        <h3>Access Your Target Audience</h3>
+                        <p>Teen interns are your future customers. They understand their generation's preferences, behaviors, and pain points better than any market research could reveal.</p>
+
+                        <h3>Fresh Innovation</h3>
+                        <p>Unbound by "how things have always been done," teens bring innovative solutions and creative approaches to long-standing challenges.</p>
+
+                        <h3>Digital Native Insight</h3>
+                        <p>They're not just users of technology—they're creators, early adopters, and trend-setters who can help your company stay ahead of the digital curve.</p>
+
+                        <h3>Authentic Brand Advocacy</h3>
+                        <p>A positive internship experience creates genuine brand ambassadors who will champion your company authentically within their networks.</p>
+
+                        <h3>Future Talent Pipeline</h3>
+                        <p>Early engagement builds relationships with potential future employees who already understand your company culture and values.</p>
                     </div>
 
-                    <div class="illustration">
-                        <img scr="images/commpanies-help">
+                    <div class="illustration-placeholder">
+                        <img src="images/companies-help.png" alt="Companies helping teens illustration" class="company-image">
                     </div>
                 </div>
             </div>
         </section>
+
+
 
         <!-- Quotes Section -->
         <section class="quotes-section">
@@ -483,59 +422,55 @@
                     <div class="quotes-content">
                         <div class="quote-item active">
                             <div class="quote-text">
-                                <p>We’ve had the joy of mentoring bright, young minds who brought fresh energy to complex problems, from marketing and merchandise design to community strategy. Their contributions weren’t just impressive for their age, they were impressive, period. I truly believe that when we give teenagers meaningful work, they rise to the occasion and often surprise us with just how ready they already are.</p>
+                                <p>We've had the joy of mentoring bright, young minds who brought fresh energy to complex problems, from marketing and merchandise design to community strategy. Their contributions weren't just impressive for their age, they were impressive, period. I truly believe that when we give teenagers meaningful work, they rise to the occasion and often surprise us with just how ready they already are.</p>
                             </div>
                             <div class="quote-role">
-                             <p>-KAREN D’MELLO ,Head of Community & Pathways AnitaB.org India</p>
+                                <p><strong>Karen D'Mello</strong><br>Head of Community & Pathways, AnitaB.org India</p>
                             </div>
                         </div>
 
                         <div class="quote-item">
                             <div class="quote-text">
-                                <p>Teens working with corporates given both parties a realistic estimate of each other. More corporates should give opportunities to school children instead of blaming parents/educational systems for not churning out corporate ready citizens. The teen interns who have interned with me have contributed in various ways - ideas, campaign startegy, video editing, storytelling, design and more. .</p>
+                                <p>Teens working with corporates gives both parties a realistic estimate of each other. More corporates should give opportunities to school children instead of blaming parents/educational systems for not churning out corporate ready citizens. The teen interns who have interned with me have contributed in various ways - ideas, campaign strategy, video editing, storytelling, design and more.</p>
                             </div>
                             <div class="quote-role">
-                                <p>- DEEPAK JUSTIN ( DJ ),CORPRATE MENTOR, 5 time TEDx speaker, Filmmaker & more</p>
+                                <p><strong>Deepak Justin (DJ)</strong><br>Corporate Mentor, 5-time TEDx Speaker, Filmmaker</p>
                             </div>
                         </div>
 
                         <div class="quote-item">
                             <div class="quote-text">
-                                <p>I had the privilege of mentoring a group of brilliant teenagers, and it was truly inspiring to witness their growth over time. Their curiosity, insight, and willingness to engage deeply with legal concepts brought a fresh perspective to our work. This mentorship was not only about guiding them — their contributions also challenged and enriched the way we perceive and approach legal work. I am confident that with continued support, these young minds will go on to make meaningful and lasting contributions to the field of law.</p>
+                                <p>I had the privilege of mentoring a group of brilliant teenagers, and it was truly inspiring to witness their growth over time. Their curiosity, insight, and willingness to engage deeply with legal concepts brought a fresh perspective to our work. This mentorship was not only about guiding them — their contributions also challenged and enriched the way we perceive and approach legal work.</p>
                             </div>
                             <div class="quote-role">
-                                <p>-RUTH ALICE THOMAS, LAWYER, FOUNDER OF SRT LAW ASSOCIATES,NGO CONSULTANT</p>
+                                <p><strong>Ruth Alice Thomas</strong><br>Lawyer, Founder of SRT Law Associates, NGO Consultant</p>
                             </div>
                         </div>
 
                         <div class="quote-item">
                             <div class="quote-text">
-                                <p>I personally felt the profound and heartfelt impact I made as a mentor to Artificial Intelligence 'teengineers' under the internship program.  I'm pleased with the cool AI projects they developed, along with the acumen and skill they demonstrated in computer vision training and execution. An AI-ridden world is a better place 
-with our 'teengineers', and 
-I am very happy about that.</p>
+                                <p>I personally felt the profound and heartfelt impact I made as a mentor to Artificial Intelligence 'teengineers' under the internship program. I'm pleased with the cool AI projects they developed, along with the acumen and skill they demonstrated in computer vision training and execution. An AI-ridden world is a better place with our 'teengineers', and I am very happy about that.</p>
                             </div>
                             <div class="quote-role">
-                                <p>-r. VIVEK MANOHARAN (Ph.D), Co-founder & Chief Strategy Officer, Bipolar Factory</p>
+                                <p><strong>Dr. Vivek Manoharan (Ph.D)</strong><br>Co-founder & Chief Strategy Officer, Bipolar Factory</p>
                             </div>
                         </div>
 
                         <div class="quote-item">
                             <div class="quote-text">
-                                <p>The Space Tech interns from high school were curious, smart and eager to contribute and share their ideas. They were technically strong too. Working on the TRAFSAT ( traffic satellite idea ) was a wonderful experience for me as an Industry professional. Mentoring young minds was a meaningful experience.  </p>
+                                <p>The Space Tech interns from high school were curious, smart and eager to contribute and share their ideas. They were technically strong too. Working on the TRAFSAT (traffic satellite idea) was a wonderful experience for me as an Industry professional. Mentoring young minds was a meaningful experience.</p>
                             </div>
                             <div class="quote-role">
-                                <p>- Dr. ALOK Shrivastava, DIRECTOR - ANANTH TECHNOLOGIES PVT. LTD., former associate director & outstanding scientist, ISRO</p>
+                                <p><strong>Dr. Alok Shrivastava</strong><br>Director - Ananth Technologies Pvt. Ltd., Former Associate Director & Outstanding Scientist, ISRO</p>
                             </div>
                         </div>
 
-                         <div class="quote-item">
+                        <div class="quote-item">
                             <div class="quote-text">
-                                <p>Teenagers bring fresh eyes and fearless questions. Companies that create room for teen interns aren’t just giving back but are learning faster. 
-Internships in high school help teens discover what excites them and what doesn’t. In a world full of noise, doing real work early builds confidence, self-awareness, and resilience.
-</p>
+                                <p>Teenagers bring fresh eyes and fearless questions. Companies that create room for teen interns aren't just giving back but are learning faster. Internships in high school help teens discover what excites them and what doesn't. In a world full of noise, doing real work early builds confidence, self-awareness, and resilience.</p>
                             </div>
                             <div class="quote-role">
-                                <p>- DILIP KUMAR, INVESTOR AT RAINMATTER by zerodha, ENTREPRENEUR, Endurance athlete</p>
+                                <p><strong>Dilip Kumar</strong><br>Investor at Rainmatter by Zerodha, Entrepreneur, Endurance Athlete</p>
                             </div>
                         </div>
                     </div>
@@ -548,15 +483,19 @@ Internships in high school help teens discover what excites them and what doesn�
         <!-- Resources Section -->
         <section class="resources-section">
             <div class="content-container">
-                <h2 class="resources-title">Resources</h2>
+                <h2 class="resources-title">Resources for Companies</h2>
                 <div class="resources-container">
-                    <div class="resource-item" onclick="window.open('#', '_blank')">
-                        <h3>Resource 1</h3>
-                        <p>Resource description will be added later...</p>
+                    <div class="resource-item" onclick="window.open('mailto:partnerships@teeninternsthebook.com?subject=Partnership Guidelines Request&body=Hi! We would like to receive the partnership guidelines for working with teen interns.', '_blank')">
+                        <h3>Partnership Guidelines</h3>
+                        <p>A comprehensive guide on how to structure meaningful internship programs for teenagers, including best practices and legal considerations.</p>
+                    </div>
+                    <div class="resource-item" onclick="window.open('mailto:partnerships@teeninternsthebook.com?subject=Mentorship Toolkit Request&body=Hi! We would like to receive the mentorship toolkit for guiding teen interns.', '_blank')">
+                        <h3>Mentorship Toolkit</h3>
+                        <p>Tools and frameworks for mentors working with teen interns, including communication strategies and project management approaches.</p>
                     </div>
                     <div class="resource-item" onclick="window.open('#', '_blank')">
-                        <h3>Resource 2</h3>
-                        <p>Resource description will be added later...</p>
+                        <h3>Success Stories</h3>
+                        <p>Case studies from companies that have successfully implemented teen internship programs and the measurable impact they've achieved.</p>
                     </div>
                 </div>
             </div>
@@ -581,12 +520,22 @@ Internships in high school help teens discover what excites them and what doesn�
                             <li><a href="team.html">Team</a></li>
                         </ul>
                     </div>
-
                 </div>
 
                 <div class="footer-newsletter">
                     <h4>Stay Updated</h4>
                     <p>Get the latest news and updates on the book launch</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" required class="newsletter-input">
+                        <button type="submit" class="newsletter-submit">Subscribe</button>
+                    </form>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--subtitle-color);">
+                        Or <a
+                            href="mailto:impact@teeninternsthebook.com?subject=Book Launch Updates%20Subscription&body=Hey!%20I%20want%20to%20stay%20updated%20with%20news%20related%20to%20the%20Teen%20Interns%20Book.%20Please%20add%20me%20to%20your%20mailing%20list%20for%20book%20launch%20updates,%20behind-the-scenes%20content,%20and%20exclusive%20announcements.%0A%0AThanks!"
+                            style="color: var(--primary-color); text-decoration: underline;">
+                            send us an email directly
+                        </a> to subscribe
+                    </p>
                     <div class="social-links">
                         <a href="https://www.instagram.com/teeninterns/" class="social-link"
                             title="Behind-the-scenes photos and visual content"><img src="images/insta.png"
@@ -606,14 +555,7 @@ Internships in high school help teens discover what excites them and what doesn�
         </div>
     </footer>
 
-
-    <script src="script.js"></script>
-    <script src="page-transition.js"></script>
-    <script src="preorder-system.js"></script>
     <script src="theme-toggle.js"></script>
-    <script src="look-inside.js"></script>
-    <script src="floating-stickers.js"></script>
-
     <script>
         // Quotes carousel functionality
         const quotes = document.querySelectorAll(".quote-item");
@@ -635,6 +577,12 @@ Internships in high school help teens discover what excites them and what doesn�
             currentQuote = (currentQuote + 1) % quotes.length;
             showQuote(currentQuote);
         });
+
+        // Auto-rotate quotes every 5 seconds
+        setInterval(() => {
+            currentQuote = (currentQuote + 1) % quotes.length;
+            showQuote(currentQuote);
+        }, 5000);
 
         // Initialize
         showQuote(currentQuote);
