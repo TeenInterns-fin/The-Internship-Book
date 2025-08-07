@@ -513,7 +513,7 @@ function showSuccessMessage(orderData) {
 
 function updateCountdown() {
     try {
-        const launchDate = new Date('2025-08-09T16:00:00').getTime();
+        const launchDate = new Date('2025-08-09T08:30:00').getTime();
         const now = new Date().getTime();
         const distance = launchDate - now;
         
