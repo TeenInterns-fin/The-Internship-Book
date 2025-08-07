@@ -17,6 +17,80 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
     <style>
+        .theme-toggle {
+                background: none;
+                border: 2px solid var(--primary-color);
+                border-radius: 50px;
+                padding: 8px 12px;
+                cursor: pointer;
+                font-size: 1.2rem;
+                transition: all var(--transition-fast);
+                position: relative;
+                overflow: hidden;
+                margin-left: 15px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .theme-toggle:hover {
+                background: var(--primary-color);
+                transform: scale(1.05);
+            }
+
+            .theme-toggle .light-icon,
+            .theme-toggle .dark-icon {
+                transition: opacity var(--transition-fast), transform var(--transition-fast);
+            }
+
+            /* Show/hide icons based on theme */
+            [data-theme="light"] .theme-toggle .light-icon {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            [data-theme="light"] .theme-toggle .dark-icon {
+                opacity: 0;
+                transform: scale(0.8);
+                position: absolute;
+            }
+
+            [data-theme="dark"] .theme-toggle .dark-icon {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            [data-theme="dark"] .theme-toggle .light-icon {
+                opacity: 0;
+                transform: scale(0.8);
+                position: absolute;
+            }
+
+            /* Mobile theme toggle */
+            .mobile-theme-toggle {
+                background: none;
+                border: 2px solid var(--primary-color);
+                border-radius: 8px;
+                padding: 10px 15px;
+                cursor: pointer;
+                font-size: 1rem;
+                transition: all var(--transition-fast);
+                color: var(--text-color);
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-top: 10px;
+            }
+
+            .mobile-theme-toggle:hover {
+                background: var(--primary-color);
+                color: white;
+            }
+
+            .toggle-text {
+                font-size: 0.9rem;
+            }
+
         /* Page-specific minimal styles */
         .school-page {
             padding: 120px 0 60px;
@@ -356,6 +430,10 @@
                   <div class="nav-links">
                       <a href="index.html" class="nav-link">Home</a>
                       <a href="team.html" class="nav-link">Team</a>
+                      <a href="impact.html" class="nav-link">Impact</a>
+                    <a href="reviews.html" class="nav-link">Reviews/a>
+                    <a href="preorder.html" class="nav-link">Order now!</a>
+
                       
                       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                           <span class="light-icon">🌙</span>
@@ -374,6 +452,10 @@
       <div class="mobile-menu">
           <div class="mobile-menu-links">
               <a href="team.html" class="mobile-link">Team</a>
+              <a href="impact.html" class="mobile-link">Impact</a>
+            <a href="reviews.html" class="mobile-link">Reviews/a>
+            <a href="preorder.html" class="mobile-link">Order now!</a>
+
               
               <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle theme">
                   <span class="light-icon">🌙</span>
@@ -651,13 +733,7 @@
                         </ul>
                     </div>
 
-                    <div class="footer-group">
-                        <h4>Contact</h4>
-                        <ul>
-                            <li><a href="#">Email ID:</a></li>
-                            <li><a href="#">impact@teeninternsthebook.com</a></li>
-                        </ul>
-                    </div>
+        
                 </div>
 
                 <div class="footer-newsletter">
@@ -681,8 +757,7 @@
                         <a href="https://open.spotify.com/show/7xBDGJEqNy4kJqeg5Ip2Sz?si=2a0c01a64e694361"
                             class="social-link" title="Podcast episodes and audio content"><img
                                 src="images/spotify.png" style="height: 25px;"></a>
-                        <a href="#" class="social-link" title="Mobile content and social media">📱</a>
-                        <a href="#" class="social-link" title="Video content and documentaries">📺</a>
+                       
                     </div>
                     <p class="bts-explanation">Behind-the-scenes content: Photos, Podcasts, Social Media, Videos</p>
                 </div>
