@@ -369,6 +369,12 @@
   cursor: pointer;
   color: var(--secondary-color);
 }
+.form-popup {
+  pointer-events: auto;
+}
+.form-popup {
+  transition: opacity 0.3s ease;
+}
         /* Action Buttons */
         .action-buttons {
             display: flex;
@@ -616,18 +622,21 @@
     <script src="theme-toggle.js"></script>
     <script>
         //impact
-        document.getElementById('open-form').addEventListener('click', function() {
+        document.getElementById('open-form').addEventListener('click', function () {
   document.getElementById('formPopup').style.display = 'block';
 });
 
-document.getElementById('closeFormBtn').addEventListener('click', function() {
+document.getElementById('closeFormBtn').addEventListener('click', function () {
   document.getElementById('formPopup').style.display = 'none';
 });
 
-window.addEventListener('click', function(e) {
+window.addEventListener('click', function (e) {
   if (e.target === document.getElementById('formPopup')) {
     document.getElementById('formPopup').style.display = 'none';
   }
+});
+
+
         // Make social media icons functional
         document.addEventListener('DOMContentLoaded', function () {
             const socialLinks = document.querySelectorAll('.social-link[data-platform]');
