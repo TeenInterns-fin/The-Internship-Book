@@ -1044,15 +1044,14 @@
             }
         }
 
-        /* Main container for the horizontal scrolling section */
+        /* Main container for the horizontal scrolling section - FIXED */
         .team-profiles {
             height: 100vh;
             width: 100vw;
             overflow: hidden;
             position: relative;
             background: var(--bg-color);
-            margin-bottom: 100px;
-            /* Fixed large margin that was causing scroll issues */
+            margin-bottom: 0; /* Removed large margin that was causing scroll issues */
         }
 
         .profiles-wrapper {
@@ -1063,8 +1062,7 @@
         .profiles-container {
             display: flex;
             height: 100vh;
-            width: calc(100vw * 25);
-            /* Explicitly set width for 25 profiles */
+            width: calc(100vw * 4); /* 4 profiles exactly */
             align-items: center;
             transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             will-change: transform;
@@ -1192,6 +1190,29 @@
             justify-content: center;
         }
 
+        /* FIXED: Video styling to ensure visibility */
+        .profile-info video {
+            width: 100% !important;
+            max-width: 700px !important;
+            height: auto !important;
+            border-radius: 10px !important;
+            cursor: pointer !important;
+            display: block !important;
+            background-color: #000 !important; /* Fallback background */
+        }
+
+        /* FIXED: Prevent manual scrolling interference */
+        body.horizontal-scroll-active {
+            overflow: hidden;
+        }
+
+        .team-profiles.active {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+
         .profile-quote {
             font-size: 2.5rem;
             font-family: var(--font-accent);
@@ -1264,6 +1285,134 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin-top: 5px;
+        }
+
+        /* Slideshow navigation controls */
+        .slideshow-controls {
+            position: fixed;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 200;
+            pointer-events: none;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .slideshow-controls.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .slide-nav {
+            background: rgba(0, 154, 148, 0.9);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            pointer-events: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .slide-nav:hover {
+            background: var(--primary-color);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide-nav:active {
+            transform: scale(0.95);
+        }
+
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            .slideshow-controls {
+                padding: 0 20px;
+            }
+
+            .slide-nav {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .profile-counter {
+                top: 20px;
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        /* Profile counter */
+        .profile-counter {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .profile-counter.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        [data-theme="dark"] .profile-counter {
+            background: rgba(26, 26, 26, 0.9);
+            color: #FFFFFF;
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .scroll-indicator.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        [data-theme="dark"] .scroll-indicator {
+            background: rgba(26, 26, 26, 0.9);
+            color: #FFFFFF;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
 
         /* Progress indicator - conditionally hidden */
@@ -1671,7 +1820,7 @@
 
                 <div class="content-grid">
                     <div class="illustration-placeholder">
-                        <img src="images/study.png"class="company-image">
+                        <img src="images/study.png" class="company-image" alt="Study illustration">
                     </div>
 
                     <div style="font-size: 1.1rem; line-height: 1.8; color: var(--text-color);">
@@ -1697,7 +1846,7 @@
                     <div class="profile-card" id="teen1">
                         <div class="profile-content">
                             <div class="profile-image-section">
-                                <div class="profile-image"><img src="images/arunima_intro.png"></div>
+                                <div class="profile-image"><img src="images/arunima_intro.png" alt="Arunima Pandey"></div>
                                 <h2 class="profile-name">Space-Tech Internship</h2>
                                 <p class="profile-role">Arunima Pandey</p>
                             </div>
@@ -1719,7 +1868,7 @@
                     <div class="profile-card" id="teen2">
                         <div class="profile-content">
                             <div class="profile-image-section">
-                                <div class="profile-image"><img src="images/lasya_intro.png"></div>
+                                <div class="profile-image"><img src="images/lasya_intro.png" alt="Lasya M Varma"></div>
                                 <h2 class="profile-name">Space-Tech Internship</h2>
                                 <p class="profile-role">Lasya M Varma</p>
                             </div>
@@ -1741,7 +1890,7 @@
                     <div class="profile-card" id="teen3">
                         <div class="profile-content">
                             <div class="profile-image-section">
-                                <div class="profile-image"><img src="images/mythreyi_intro.png"></div>
+                                <div class="profile-image"><img src="images/mythreyi_intro.png" alt="Mythreyi M"></div>
                                 <h2 class="profile-name">Sustainability and Enigneer Internship</h2>
                                 <p class="profile-role">Mythreyi M</p>
                             </div>
@@ -1761,7 +1910,7 @@
                     <div class="profile-card" id="teen4">
                         <div class="profile-content">
                             <div class="profile-image-section">
-                                <div class="profile-image"><img src="images/viaan_intro.png"></div>
+                                <div class="profile-image"><img src="images/viaan_intro.png" alt="Viaan Tayare"></div>
                                 <h2 class="profile-name">Finance and Accounting Internship</h2>
                                 <p class="profile-role">Viaan Tayare</p>
                             </div>
@@ -1782,7 +1931,24 @@
                 </div>
             </div>
 
+            <!-- Navigation Controls -->
+            <div class="slideshow-controls" id="slideshowControls">
+                <button class="slide-nav" id="prevSlide" aria-label="Previous profile">‹</button>
+                <button class="slide-nav" id="nextSlide" aria-label="Next profile">›</button>
+            </div>
 
+            <!-- Progress Dots -->
+            <div class="profiles-progress" id="profilesProgress"></div>
+
+            <!-- Profile Counter -->
+            <div class="profile-counter" id="profileCounter">
+                <span id="currentProfile">1</span> / <span id="totalProfiles">4</span>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator" id="scrollIndicator">
+                Use ← → keys or sidebar to navigate
+            </div>
         </section>
     </main>
     
@@ -1812,10 +1978,10 @@
                     <div class="social-links">
                         <a href="https://www.instagram.com/teeninterns/" class="social-link"
                             title="Behind-the-scenes photos and visual content"><img src="images/insta.png"
-                                style="height: 25px;"></a>
+                                style="height: 25px;" alt="Instagram"></a>
                         <a href="https://open.spotify.com/show/7xBDGJEqNy4kJqeg5Ip2Sz?si=2a0c01a64e694361"
                             class="social-link" title="Podcast episodes and audio content"><img src="images/spotify.png"
-                                style="height: 25px;"></a>
+                                style="height: 25px;" alt="Spotify"></a>
                     </div>
                     <p class="bts-explanation">Behind-the-scenes content: Photos, Podcasts, Social Media, Videos</p>
                 </div>
@@ -1947,6 +2113,19 @@
                         dot.classList.toggle('active', index === currentIndex);
                     });
 
+                    // Update profile counter
+                    updateProfileCounter();
+
+                    // Update button states
+                    if (prevButton) {
+                        prevButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
+                        prevButton.disabled = currentIndex === 0;
+                    }
+                    if (nextButton) {
+                        nextButton.style.opacity = currentIndex === profileCards.length - 1 ? '0.5' : '1';
+                        nextButton.disabled = currentIndex === profileCards.length - 1;
+                    }
+
                     // Ensure current profile is visible
                     profileCards.forEach((card, index) => {
                         if (index === currentIndex) {
@@ -2016,22 +2195,7 @@
                     }
                 }
 
-                // Update the main updateProfile function to include counter
-                const originalUpdateProfile = updateProfile;
-                updateProfile = function () {
-                    originalUpdateProfile();
-                    updateProfileCounter();
-
-                    // Update button states
-                    if (prevButton) {
-                        prevButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
-                        prevButton.disabled = currentIndex === 0;
-                    }
-                    if (nextButton) {
-                        nextButton.style.opacity = currentIndex === profileCards.length - 1 ? '0.5' : '1';
-                        nextButton.disabled = currentIndex === profileCards.length - 1;
-                    }
-                };
+                // Initialize counter
 
                 // Initialize profile counter and ensure first profile is visible
                 updateProfileCounter();
@@ -2114,6 +2278,25 @@
 
                 // Initial check
                 handleNavigationVisibility();
+
+                // FIXED: Add scroll lock when in horizontal scroll section
+                function handleScrollLock() {
+                    const teamProfilesSection = document.querySelector('.team-profiles');
+                    const rect = teamProfilesSection.getBoundingClientRect();
+                    const isInView = rect.top <= 0 && rect.bottom >= window.innerHeight;
+                    
+                    if (isInView) {
+                        document.body.classList.add('horizontal-scroll-active');
+                        teamProfilesSection.classList.add('active');
+                    } else {
+                        document.body.classList.remove('horizontal-scroll-active');
+                        teamProfilesSection.classList.remove('active');
+                    }
+                }
+
+                // Listen for scroll events to manage scroll lock
+                window.addEventListener('scroll', handleScrollLock);
+                handleScrollLock(); // Initial check
 
                 // Touch/swipe support for mobile with improved sensitivity
                 let startX = 0;
