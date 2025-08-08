@@ -1190,15 +1190,35 @@
             justify-content: center;
         }
 
-        /* FIXED: Video styling to ensure visibility */
+        /* FIXED: Enhanced video styling to ensure visibility and loading */
         .profile-info video {
             width: 100% !important;
             max-width: 700px !important;
             height: auto !important;
+            min-height: 300px !important;
             border-radius: 10px !important;
             cursor: pointer !important;
             display: block !important;
             background-color: #000 !important; /* Fallback background */
+            object-fit: cover !important;
+            box-sizing: border-box !important;
+        }
+
+        /* Video loading fallback */
+        .profile-info video:not([src]) {
+            background: linear-gradient(45deg, #333, #555) !important;
+            position: relative;
+        }
+
+        .profile-info video:not([src])::after {
+            content: 'Loading video...';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
         }
 
         /* FIXED: Prevent manual scrolling interference */
@@ -1851,16 +1871,18 @@
                                 <p class="profile-role">Arunima Pandey</p>
                             </div>
                             <div class="profile-info">
-                                <video preload="metadata" controls
+                                <video preload="metadata" controls playsinline muted
                                     style="width:100%;max-width:700px;border-radius:10px;cursor:pointer;"
-                                    onmouseenter="if(!this.dataset.started){this.currentTime=4;this.dataset.started=true;} this.play();" 
+                                    poster="images/arunima_intro.png"
+                                    onloadstart="console.log('Video load started')"
+                                    oncanplay="console.log('Video can play')"
+                                    onerror="console.log('Video error:', this.error)"
+                                    onmouseenter="if(!this.dataset.started){this.currentTime=4;this.dataset.started=true;} this.play().catch(e=>console.log('Play failed:', e));" 
                                     onmouseleave="this.pause()" 
-                                    onclick="if(!this.dataset.started){this.currentTime=4;this.dataset.started=true;} this.play();">
+                                    onclick="if(!this.dataset.started){this.currentTime=4;this.dataset.started=true;} this.play().catch(e=>console.log('Play failed:', e));">
                                     <source src="images/arunima.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
+                                    <p>Your browser does not support the video tag. <a href="images/arunima.mp4" target="_blank">Download the video</a></p>
                                 </video>
-
-
                             </div>
                         </div>
                     </div>
@@ -1873,16 +1895,18 @@
                                 <p class="profile-role">Lasya M Varma</p>
                             </div>
                             <div class="profile-info">
-                                <video preload="metadata" controls
+                                <video preload="metadata" controls playsinline muted
                                     style="width:100%;max-width:700px;border-radius:10px;cursor:pointer;"
-                                    onmouseenter="if(!this.dataset.started){this.currentTime=4;this.dataset.started=true;} this.play();" 
+                                    poster="images/lasya_intro.png"
+                                    onloadstart="console.log('Lasya video load started')"
+                                    oncanplay="console.log('Lasya video can play')"
+                                    onerror="console.log('Lasya video error:', this.error)"
+                                    onmouseenter="if(!this.dataset.started){this.currentTime=4;this.dataset.started=true;} this.play().catch(e=>console.log('Play failed:', e));" 
                                     onmouseleave="this.pause()" 
-                                    onclick="if(!this.dataset.started){this.currentTime=4;this.dataset.started=true;} this.play();">
+                                    onclick="if(!this.dataset.started){this.currentTime=4;this.dataset.started=true;} this.play().catch(e=>console.log('Play failed:', e));">
                                     <source src="images/lasya.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
+                                    <p>Your browser does not support the video tag. <a href="images/lasya.mp4" target="_blank">Download the video</a></p>
                                 </video>
-
-
                             </div>
                         </div>
                     </div>
@@ -1895,13 +1919,17 @@
                                 <p class="profile-role">Mythreyi M</p>
                             </div>
                             <div class="profile-info">
-                                <video preload="metadata" controls
+                                <video preload="metadata" controls playsinline muted
                                     style="width:100%;max-width:700px;border-radius:10px;cursor:pointer;"
-                                    onmouseenter="if(!this.dataset.started){this.currentTime=4;this.dataset.started=true;} this.play();" 
+                                    poster="images/mythreyi_intro.png"
+                                    onloadstart="console.log('Mythreyi video load started')"
+                                    oncanplay="console.log('Mythreyi video can play')"
+                                    onerror="console.log('Mythreyi video error:', this.error)"
+                                    onmouseenter="if(!this.dataset.started){this.currentTime=4;this.dataset.started=true;} this.play().catch(e=>console.log('Play failed:', e));" 
                                     onmouseleave="this.pause()" 
-                                    onclick="if(!this.dataset.started){this.currentTime=4;this.dataset.started=true;} this.play();">
+                                    onclick="if(!this.dataset.started){this.currentTime=4;this.dataset.started=true;} this.play().catch(e=>console.log('Play failed:', e));">
                                     <source src="images/mythreyi.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
+                                    <p>Your browser does not support the video tag. <a href="images/mythreyi.mp4" target="_blank">Download the video</a></p>
                                 </video>
                             </div>
                             
@@ -1915,16 +1943,18 @@
                                 <p class="profile-role">Viaan Tayare</p>
                             </div>
                             <div class="profile-info">
-                                <video preload="metadata" controls
+                                <video preload="metadata" controls playsinline muted
                                     style="width:100%;max-width:700px;border-radius:10px;cursor:pointer;"
-                                    onmouseenter="if(!this.dataset.started){this.currentTime=4;this.dataset.started=true;} this.play();" 
+                                    poster="images/viaan_intro.png"
+                                    onloadstart="console.log('Viaan video load started')"
+                                    oncanplay="console.log('Viaan video can play')"
+                                    onerror="console.log('Viaan video error:', this.error)"
+                                    onmouseenter="if(!this.dataset.started){this.currentTime=4;this.dataset.started=true;} this.play().catch(e=>console.log('Play failed:', e));" 
                                     onmouseleave="this.pause()" 
-                                    onclick="if(!this.dataset.started){this.currentTime=4;this.dataset.started=true;} this.play();">
+                                    onclick="if(!this.dataset.started){this.currentTime=4;this.dataset.started=true;} this.play().catch(e=>console.log('Play failed:', e));">
                                     <source src="images/viaan.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
+                                    <p>Your browser does not support the video tag. <a href="images/viaan.mp4" target="_blank">Download the video</a></p>
                                 </video>
-
-
                             </div>
                         </div>
                     </div>
@@ -2297,6 +2327,59 @@
                 // Listen for scroll events to manage scroll lock
                 window.addEventListener('scroll', handleScrollLock);
                 handleScrollLock(); // Initial check
+
+                // FIXED: Force video loading and visibility
+                function ensureVideoVisibility() {
+                    const videos = document.querySelectorAll('video');
+                    videos.forEach((video, index) => {
+                        // Set minimum dimensions to ensure visibility
+                        video.style.minHeight = '300px';
+                        video.style.display = 'block';
+                        video.style.width = '100%';
+                        video.style.maxWidth = '700px';
+                        
+                        // Add poster as fallback
+                        if (!video.poster) {
+                            const source = video.querySelector('source');
+                            if (source && source.src.includes('arunima')) {
+                                video.poster = 'images/arunima_intro.png';
+                            } else if (source && source.src.includes('lasya')) {
+                                video.poster = 'images/lasya_intro.png';
+                            } else if (source && source.src.includes('mythreyi')) {
+                                video.poster = 'images/mythreyi_intro.png';
+                            } else if (source && source.src.includes('viaan')) {
+                                video.poster = 'images/viaan_intro.png';
+                            }
+                        }
+                        
+                        // Force load the video
+                        video.load();
+                        
+                        // Add error handling
+                        video.addEventListener('error', (e) => {
+                            console.log(`Video ${index} error:`, e.target.error);
+                            // Show poster image as fallback
+                            video.style.backgroundImage = `url(${video.poster})`;
+                            video.style.backgroundSize = 'cover';
+                            video.style.backgroundPosition = 'center';
+                        });
+                        
+                        // Log when video can play
+                        video.addEventListener('canplay', () => {
+                            console.log(`Video ${index} is ready to play`);
+                        });
+                    });
+                }
+                
+                // Run video visibility fixes
+                ensureVideoVisibility();
+                
+                // Re-run video fixes when profiles change
+                const originalUpdateProfileFunc = updateProfile;
+                updateProfile = function() {
+                    originalUpdateProfileFunc();
+                    setTimeout(ensureVideoVisibility, 100);
+                };
 
                 // Touch/swipe support for mobile with improved sensitivity
                 let startX = 0;
