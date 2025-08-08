@@ -753,8 +753,9 @@
         }
 
         .book-cover img {
-            height: 500px;
             width: auto;
+            height: auto;
+            max-height: none;
             padding: 20px;
         }
 
@@ -781,8 +782,8 @@
             }
 
             .book-cover img {
-                height: 300px;
                 width: auto;
+                height: auto;
                 display: block;
             }
 
@@ -794,6 +795,155 @@
                 padding: 0.5rem;
             }
 
+        }
+
+        /* Impact Message Styles */
+        .impact-message {
+            margin: 30px 0;
+            width: 100%;
+        }
+
+        .impact-highlight {
+            background: var(--bg-color);
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .impact-highlight h4 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .impact-highlight p {
+            color: var(--text-color);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .dual-benefit {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            background: var(--bg-color);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: left;
+            border: 1px solid rgba(0, 154, 148, 0.3);
+        }
+
+        .benefit-text {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            line-height: 1.4;
+        }
+
+        .impact-learn-more-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(0, 154, 148, 0.3);
+        }
+
+        .impact-learn-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 154, 148, 0.4);
+            background: var(--secondary-color);
+        }
+
+        /* Dark theme adjustments for impact section */
+        [data-theme="dark"] .benefit-item {
+            background: var(--bg-color);
+            border-color: rgba(0, 154, 148, 0.4);
+        }
+
+        [data-theme="dark"] .impact-highlight {
+            background: var(--bg-color);
+        }
+
+        /* Responsive adjustments for impact section */
+        @media (max-width: 768px) {
+            .impact-message {
+                margin: 20px 0;
+            }
+            
+            .impact-highlight {
+                padding: 20px;
+            }
+            
+            .impact-highlight h4 {
+                font-size: 1.2rem;
+            }
+            
+            .benefit-item {
+                padding: 12px;
+            }
+            
+            .benefit-text {
+                font-size: 0.9rem;
+            }
+            
+            .impact-learn-more-btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .impact-highlight {
+                padding: 15px;
+            }
+            
+            .impact-highlight h4 {
+                font-size: 1.1rem;
+                margin-bottom: 12px;
+            }
+            
+            .impact-highlight p {
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+            }
+            
+            .dual-benefit {
+                gap: 12px;
+                margin: 15px 0;
+            }
+            
+            .benefit-item {
+                padding: 10px;
+            }
+            
+            .benefit-text {
+                font-size: 0.85rem;
+            }
+            
+            .impact-learn-more-btn {
+                padding: 8px 18px;
+                font-size: 0.8rem;
+                margin-top: 12px;
+            }
         }
     </style>
 </head>
@@ -858,31 +1008,6 @@
     <section class="hero" id="preorder-hero">
         <div class="hero-container">
 
-            <section class="countdown-section" id="countdown">
-                <div class="container">
-                    <div class="countdown animate-fade-up">
-                        <div class="countdown-label">Book Launches In:</div>
-                        <div class="countdown-timer">
-                            <div class="timer-unit">
-                                <span class="timer-number" data-count="0">0</span>
-                                <span class="timer-label">Days</span>
-                            </div>
-                            <div class="timer-unit">
-                                <span class="timer-number" data-count="0">0</span>
-                                <span class="timer-label">Hours</span>
-                            </div>
-                            <div class="timer-unit">
-                                <span class="timer-number" data-count="0">0</span>
-                                <span class="timer-label">Minutes</span>
-                            </div>
-                            <div class="timer-unit">
-                                <span class="timer-number" data-count="0">0</span>
-                                <span class="timer-label">Seconds</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             <div class="container-book">
                 <div class="text-container">
@@ -897,8 +1022,29 @@
                             <li>Physical book delivered across India</li>
                             <li>Includes digital resources via QR codes</li>
                             <li>Physical Copy launched on August 9th</li>
-                            <li>Delivery within India, 4–10 days after launch(August 9th)</li>
+                            <li>Delivery within India only</li>
                         </ul>
+                    </div>
+
+                    <!-- Impact Message Section -->
+                    <div class="impact-message">
+                        <div class="impact-highlight">
+                            <h4>Transform Your Future & Change Lives</h4>
+                            <p>When you purchase this book, you're not just investing in your own career growth — you're directly helping <strong>millions of underprivileged school students</strong> gain access to internship opportunities they've never had before.</p>
+                            
+                            <div class="dual-benefit">
+                                <div class="benefit-item">
+                                    <span class="benefit-text"><strong>For You:</strong> Master the art of landing internships and kickstart your career</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-text"><strong>For Them:</strong> Every purchase funds internship programs for students who can't afford them</span>
+                                </div>
+                            </div>
+                            
+                            <button class="impact-learn-more-btn" onclick="window.location.href='impact.html'">
+                                Learn More
+                            </button>
+                        </div>
                     </div>
                 </div>
 

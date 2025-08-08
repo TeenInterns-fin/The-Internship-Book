@@ -44,18 +44,39 @@
             margin-bottom: 4rem;
         }
 
-        .content-placeholder {
-            background: var(--bg-secondary);
-            border: 2px dashed var(--border-color);
-            border-radius: 12px;
-            padding: 4rem 2rem;
-            text-align: center;
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            font-size: 1.1rem;
+        .letter-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .letter-content h2 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .letter-content h3 {
+            color: var(--accent-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .letter-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .letter-content li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .letter-content p {
+            margin-bottom: 1.5rem;
         }
 
         .illustration-placeholder {
@@ -71,6 +92,12 @@
             color: var(--primary-color);
             font-size: 1.1rem;
             font-weight: 600;
+        }
+        
+        .company-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
         }
 
         .spotify-section {
@@ -1330,11 +1357,56 @@
                     What is an Internship?
                 </h1>
 
-                <div class="content-grid">
-                    <div class="content-placeholder">
+                <div class="content-grid" style="grid-template-columns: 3p 1p;">
+                    <div class="letter-content">
+                        <h2>Dear Fellow Teen Interns,</h2>
+                        
+                        <p>Let's start with the basics – what exactly is an internship? If you're wondering about this, you're definitely not alone. Most teens don't actually know what internships are, and that's completely okay!</p>
+                        
+                        <p>Teen internships (also called "Zinternships") are short work experiences where teenagers get to explore real careers, learn new skills, and see what it's like to work in the real world before they finish school. Think of it as a sneak peek into the future, helping teens figure out what they enjoy, what they're good at, and what kind of jobs might be right for them.</p>
+                        
+                        <h3>The Reality Check: What Work Really Feels Like</h3>
+                        
+                        <p>Here's the truth – internships aren't just coffee runs and copying papers (though those stereotypes still exist). Today's internships let you design, code, write, lead, and actually contribute meaningful work. You might find yourself building pitch decks, doing user research, getting real client feedback, or even explaining Instagram and Gen-Z trends to a CEO!</p>
+                        
+                        <p>But let's be real about the learning process too. Sometimes you'll work for weeks on a project only to hear it won't be implemented. Sometimes you'll spend hours planning an event that gets cancelled at the last minute. And yes, sometimes you'll receive feedback that stings more than you expected. That's when real learning happens – because real learning isn't just "aha" moments, it's "ugh" moments too.</p>
+                        
+                        <h3>Different Types of Internships</h3>
+                        
+                        <p>There's more variety than you might think:</p>
+                        
+                        <ul>
+                            <li><strong>Duration-based:</strong> Micro internships (5-10 hours) for quick exposure, or Mega internships (10-25 hours) for deeper skill building</li>
+                            <li><strong>Value-based:</strong> Impact internships focused on service and volunteering, Interest-based internships for exploring your passions, or Must-do internships for building foundational career skills</li>
+                            <li><strong>Industry-based:</strong> From general fields like Finance and Psychology to niche areas like Sports Management or SpaceTech</li>
+                        </ul>
+                        
+                        <h3>Busting the Myths</h3>
+                        
+                        <p>Let's clear up some misconceptions:</p>
+                        <ul>
+                            <li><strong>Myth:</strong> Internships are only for college students. <strong>Reality:</strong> Teen interns are already launching startups, editing podcasts, and more!</li>
+                            <li><strong>Myth:</strong> You need to know everything before you start. <strong>Reality:</strong> Internships are where you learn – curiosity matters more than credentials.</li>
+                            <li><strong>Myth:</strong> It's just coffee runs. <strong>Reality:</strong> Today's internships involve real design, coding, writing, and leadership opportunities.</li>
+                            <li><strong>Myth:</strong> You need a big company for it to count. <strong>Reality:</strong> Startups, NGOs, and small businesses offer equally valuable experiences.</li>
+                        </ul>
+                        
+                        <h3>The Bottom Line</h3>
+                        
+                        <p>Internships aren't charity – they're a launchpad. Companies don't just need interns; interns need companies to learn, grow, and explore the real world. It's about YOU growing independently in the world of work. As brutal as it sounds, no business needs you, but you need yourself to get to know yourself better.</p>
+                        
+                        <p>This isn't about building a perfect resume or checking boxes for college applications. It's about discovering what actually lights you up, finding your direction, and developing real-world skills that no textbook can teach. It's about building confidence, purpose, and possibility.</p>
+                        
+                        <p>Remember: every task teaches hustle, humility, and how the real world runs. Even the small stuff matters when you're building from the ground up.</p>
+                        
+                        <p>Ready to take that first step into the world of work? Trust us – you'll taste pressure, impact, mess-ups, and wins, but you'll never want to go back to just 'pretend' learning after this.</p>
+                        
+                        <p>Yours truly,<br>
+                        <em>Fellow Teen Interns</em></p>
                     </div>
-
+                    
                     <div class="illustration-placeholder">
+                        <img src="images/what_page.png" alt="Companies helping teens illustration" class="company-image">
                     </div>
                 </div>
             </div>
