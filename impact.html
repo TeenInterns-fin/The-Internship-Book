@@ -482,10 +482,35 @@
 
         <section class="action-buttons">
             <a href="preorder.html" class="action-btn">Join the Movement</a>
-            <a href="#sponsor" class="action-btn secondary">Sponsor Students</a>
+            <button class="action-btn secondary" id="open-form"> Sponsor Students</button>
         </section>
     </main>
+    
+    <div id="formPopup" class="form-popup">
+        <div class="form-container">
+            <span id="closeFormBtn" class="close-btn">&times;</span>
+            <h2>Submit Your Details to be sponsored!</h2>
+            <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
 
+<<<<<<< HEAD
+            <label for="school">School Name</label>
+            <input type="text" id="school" name="school" required>
+
+            <label for="email">Email ID</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+=======
+>>>>>>> 6101cd464b0d44c90fa546c551dc40dba1efcff2
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
@@ -530,6 +555,14 @@
 
     <script src="theme-toggle.js"></script>
     <script>
+        //forms
+        document.getElementById('open-form').addEventListener('click', function() {
+        document.getElementById('formPopup').style.display = 'block';
+        });
+
+        document.getElementById('closeFormBtn').addEventListener('click', function() {
+        document.getElementById('formPopup').style.display = 'none';
+        });
         // Make social media icons functional
         document.addEventListener('DOMContentLoaded', function () {
             const socialLinks = document.querySelectorAll('.social-link[data-platform]');
