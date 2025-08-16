@@ -649,44 +649,72 @@
     <script src="script.js"></script>
     <script src="theme-toggle.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Rating filter functionality
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const reviewCards = document.querySelectorAll('.review-card');
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function () {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-
-                    const rating = this.getAttribute('data-rating');
-                    reviewCards.forEach(card => {
-                        if (rating === 'all' || card.getAttribute('data-rating') === rating) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            });
-
-            // Review form submission
-            const reviewForm = document.getElementById('reviewForm');
-            reviewForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const formData = new FormData(reviewForm);
-                const reviewData = Object.fromEntries(formData);
-
-                if (!reviewData.reviewerType || !reviewData.name || !reviewData.email || !reviewData.rating || !reviewData.message) {
-                    alert('Please fill in all required fields.');
-                    return;
-                }
-
-                alert('Thank you for your review! It will be reviewed and published soon.');
-                reviewForm.reset();
-            });
+    <!-- Supabase & Backend for reviews -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module">
+      import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+      const supabaseUrl = "https://iwgepsxfykdzsdkawaxh.supabase.co";
+      const supabaseKey =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3Z2Vwc3hmeWtkenNka2F3YXhoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMwNzU3NDQsImV4cCI6MjA2ODY1MTc0NH0.NvEjBvbZr-yo_eMKwzAkacCY73QWMDdZdtUexr3SR30";
+      const supabase = createClient(supabaseUrl, supabaseKey);
+      document
+        .getElementById("reviewForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const reviewerType = document.querySelector(
+            'input[name="reviewerType"]:checked'
+          )?.value;
+          const name = document.getElementById("name")?.value;
+          const email = document.getElementById("email")?.value;
+          const rating = document.querySelector(
+            'input[name="rating"]:checked'
+          )?.value;
+          const message = document.getElementById("message")?.value;
+          if (!reviewerType || !name || !email || !rating || !message) {
+            alert("Please fill in all required fields.");
+            return;
+          }
+          const { data, error } = await supabase.from("Reviews").insert([
+            {
+              reviewer_type: reviewerType,
+              name,
+              email,
+              rating: parseInt(rating),
+              message,
+            },
+          ]);
+          if (error) {
+            console.error(error);
+            alert("Error submitting review. Please try again.");
+          } else {
+            alert("Review submitted successfully!");
+            document.getElementById("reviewForm").reset();
+          }
         });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Rating filter functionality
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const reviewCards = document.querySelectorAll(".review-card");
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            filterBtns.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+            const rating = this.getAttribute("data-rating");
+            reviewCards.forEach((card) => {
+              if (
+                rating === "all" ||
+                card.getAttribute("data-rating") === rating
+              ) {
+                card.style.display = "block";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+      });
     </script>
 </body>
 

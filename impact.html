@@ -620,6 +620,50 @@
     </footer>
 
     <script src="theme-toggle.js"></script>
+    
+    <!-- Supabase & Backend for impact sponsorship -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module">
+      import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+      const supabaseUrl = "https://iwgepsxfykdzsdkawaxh.supabase.co";
+      const supabaseKey =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3Z2Vwc3hmeWtkenNka2F3YXhoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMwNzU3NDQsImV4cCI6MjA2ODY1MTc0NH0.NvEjBvbZr-yo_eMKwzAkacCY73QWMDdZdtUexr3SR30";
+      const supabase = createClient(supabaseUrl, supabaseKey);
+      
+      // Handle form submission
+      document.querySelector('#formPopup form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name')?.value;
+        const school = document.getElementById('school')?.value;
+        const email = document.getElementById('email')?.value;
+        const phone = document.getElementById('phone')?.value;
+        
+        if (!name || !school || !email || !phone) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+        
+        const { data, error } = await supabase.from('StudentSponsorship').insert([
+          {
+            name,
+            school_name: school,
+            email,
+            phone_number: phone
+          }
+        ]);
+        
+        if (error) {
+          console.error(error);
+          alert('Error submitting application. Please try again.');
+        } else {
+          alert('Application submitted successfully! We will contact you soon.');
+          document.querySelector('#formPopup form').reset();
+          document.getElementById('formPopup').style.display = 'none';
+        }
+      });
+    </script>
+    
     <script>
         //impact
         document.getElementById('open-form').addEventListener('click', function () {
