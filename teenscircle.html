@@ -1189,7 +1189,11 @@
             flex-direction: column;
             justify-content: center;
         }
-
+        .know-more-btn{
+            background-color: var(--primary-color);
+            width: 150px;
+            height: 50px;
+        }
         /* FIXED: Enhanced video styling to ensure visibility and loading */
         .profile-info video {
             width: 100% !important;
@@ -1258,6 +1262,7 @@
             line-height: 1.7;
             color: var(--text-color);
             margin-bottom: 30px;
+            min-height: 50vh;
         }
 
         .profile-skills {
@@ -1689,6 +1694,10 @@
                 width: 100%;
             }
 
+            .know-more-btn{
+                width: 30%
+            }
+
         }
 
         @media (max-width: 480px) {
@@ -1826,9 +1835,12 @@
         <button class="sidebar-toggle" id="sidebarToggle-team">☰</button>
         <div class="sidebar-nav" id="sidebarNav-team">
             <a href="#teen1" class="sidebar-link" data-index="0">Space-Tech Intern</a>
-            <a href="#teen2" class="sidebar-link" data-index="1">Space-Tech Intern</a>
-            <a href="#teen3" class="sidebar-link" data-index="2">Sustainability and Enigneer Intern</a>
-            <a href="#teen4" class="sidebar-link" data-index="3">Finance and Accounting Intern</a>
+            <a href="#teen2" class="sidebar-link" data-index="1">Entrepreneurship Intern</a>
+            <a href="#teen3" class="sidebar-link" data-index="2">Entrepreneurship Intern</a>
+            <a href="#teen4" class="sidebar-link" data-index="3">Entrepreneurship Intern</a>
+            <a href="#teen5" class="sidebar-link" data-index="4">AI Intern</a>
+            <a href="#teen6" class="sidebar-link" data-index="5">AI Intern</a>
+            <a href="#teen7" class="sidebar-link" data-index="6">Space-Tech Intern</a>
         </div>
     </nav>
     <main class="teens-page">
@@ -1885,73 +1897,158 @@
                         </div>
                     </div>
 
-                    <div class="profile-card" id="teen2">
-                        <div class="profile-content">
-                            <div class="profile-image-section">
-                                <div class="profile-image"><img src="images/lasya_intro.png" alt="Lasya M Varma"></div>
-                                <h2 class="profile-name">Space-Tech Internship</h2>
-                                <p class="profile-role">Lasya M Varma</p>
-                            </div>
-                            <div class="profile-info">
-                                <video preload="metadata" controls playsinline
-                                    style="width:100%;max-width:700px;border-radius:10px;cursor:pointer;"
-                                    poster="images/lasya_intro.png"
-                                    onloadstart="console.log('Lasya video load started')"
-                                    oncanplay="console.log('Lasya video can play')"
-                                    onerror="console.log('Lasya video error:', this.error)"
-                                    onclick="this.play().catch(e=>console.log('Play failed:', e));">
-                                    <source src="images/lasya.mp4" type="video/mp4">
-                                    <p>Your browser does not support the video tag. <a href="images/lasya.mp4" target="_blank">Download the video</a></p>
-                                </video>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="profile-card" id="teen3">
-                        <div class="profile-content">
-                            <div class="profile-image-section">
-                                <div class="profile-image"><img src="images/mythreyi_intro.png" alt="Mythreyi M"></div>
-                                <h2 class="profile-name">Sustainability and Enigneer Internship</h2>
-                                <p class="profile-role">Mythreyi M</p>
-                            </div>
-                            <div class="profile-info">
-                                <video preload="metadata" controls playsinline
-                                    style="width:100%;max-width:700px;border-radius:10px;cursor:pointer;"
-                                    poster="images/mythreyi_intro.png"
-                                    onloadstart="console.log('Mythreyi video load started')"
-                                    oncanplay="console.log('Mythreyi video can play')"
-                                    onerror="console.log('Mythreyi video error:', this.error)"
-                                    onclick="this.play().catch(e=>console.log('Play failed:', e));">
-                                    <source src="images/mythreyi.mp4" type="video/mp4">
-                                    <p>Your browser does not support the video tag. <a href="images/mythreyi.mp4" target="_blank">Download the video</a></p>
-                                </video>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="profile-card" id="teen4">
-                        <div class="profile-content">
-                            <div class="profile-image-section">
-                                <div class="profile-image"><img src="images/viaan_intro.png" alt="Viaan Tayare"></div>
-                                <h2 class="profile-name">Finance and Accounting Internship</h2>
-                                <p class="profile-role">Viaan Tayare</p>
-                            </div>
-                            <div class="profile-info">
-                                <video preload="metadata" controls playsinline
-                                    style="width:100%;max-width:700px;border-radius:10px;cursor:pointer;"
-                                    poster="images/viaan_intro.png"
-                                    onloadstart="console.log('Viaan video load started')"
-                                    oncanplay="console.log('Viaan video can play')"
-                                    onerror="console.log('Viaan video error:', this.error)"
-                                    onclick="this.play().catch(e=>console.log('Play failed:', e));">
-                                    <source src="images/viaan.mp4" type="video/mp4">
-                                    <p>Your browser does not support the video tag. <a href="images/viaan.mp4" target="_blank">Download the video</a></p>
-                                </video>
-                            </div>
-                        </div>
-                    </div>
+                   
+    <div class="profile-card" id="teen2">
+        <div class="profile-content">
+            <div class="profile-image-section">
+                <div class="profile-image">
+                    <img src="images/intern_placeholder.png" alt="Group photo">
                 </div>
+                <h2 class="profile-name">Entrepreneurship Intern</h2>
+                <p class="profile-role">Team Project: Arav Vijayvergia, Shivam Ravi, Aanchal Malhotra, and Zahi Zaneer</p>
             </div>
+
+            <div class="profile-info">
+                <p class="profile-description">
+                
+                </p>
+                <a href="https://gamma.app/docs/Team-5-Aanchal-Malhotra-Arav-Vijayvergia-Shivam-Ravi-Zahi-Zaneer-95q2o03g2awr04f" target="_blank" class="know-more-btn">
+                    Know More
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-card" id="teen3">
+        <div class="profile-content">
+            <div class="profile-image-section">
+                <div class="profile-image">
+                    <img src="images/intern_placeholder.png" alt="Hardhik M Chatram">
+                </div>
+                <h2 class="profile-name">Entrepreneurship Intern</h2>
+                <p class="profile-role">Hardhik M Chatram</p>
+            </div>
+
+            <div class="profile-info">
+                <p class="profile-description">
+                    Homepal business idea
+                </p>
+                <a href="https://drive.google.com/file/d/10wwkdZT_us7b57O3yMdYlpDkP4Be8OUj/view?usp=share_link" target="_blank" class="know-more-btn">
+                    Know More
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-card" id="teen4">
+        <div class="profile-content">
+            <div class="profile-image-section">
+                <div class="profile-image">
+                    <img src="images/intern_placeholder.png" alt="Prachi Choradia">
+                </div>
+                <h2 class="profile-name">Entrepreneurship Intern</h2>
+                <p class="profile-role">Prachi Choradia</p>
+            </div>
+
+            <div class="profile-info">
+                <p class="profile-description">
+                   CuriousSprouts Fun Learn App
+                </p>
+                <a href="https://curiosprouts-fun-learn-app.lovable.app/" target="_blank" class="know-more-btn">
+                    Know More
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-card" id="teen5">
+        <div class="profile-content">
+            <div class="profile-image-section">
+                <div class="profile-image">
+                    <img src="images/intern_placeholder.png" alt="Rushil Sunder">
+                </div>
+                <h2 class="profile-name">AI Intern</h2>
+                <p class="profile-role">Rushil Sunder</p>
+            </div>
+
+            <div class="profile-info">
+                <p class="profile-description">
+                   AI Research & Development
+                </p>
+                <a href="https://drive.google.com/open?id=1zUHxIhSlHroILLFUaoaNvEkxPUJhsUtrkZHGRrV8YnQ" target="_blank" class="know-more-btn">
+                    Know More
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-card" id="teen6">
+        <div class="profile-content">
+            <div class="profile-image-section">
+                <div class="profile-image">
+                    <img src="images/intern_placeholder.png" alt="Anishka Agarwal">
+                </div>
+                <h2 class="profile-name">AI Intern</h2>
+                <p class="profile-role">Anishka Agarwal</p>
+            </div>
+
+            <div class="profile-info">
+                <p class="profile-description">
+                  AI Innovation project
+                </p>
+                <a href="https://drive.google.com/open?id=184D8R6Ht8BDZ9rmtUhNwmy2BwtJ2PNwG" target="_blank" class="know-more-btn">
+                    Know More
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-card" id="teen7">
+        <div class="profile-content">
+            <div class="profile-image-section">
+                <div class="profile-image">
+                    <img src="images/intern_placeholder.png" alt="Kyra Maheshwari">
+                </div>
+                <h2 class="profile-name">SpaceTech Intern </h2>
+                <p class="profile-role">Kyra Maheshwari</p>
+            </div>
+
+            <div class="profile-info">
+                <p class="profile-description">
+                    <div class="video-grid">
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube.com/embed/Ke8dF9C3aIo?si=dhkUmdsn8Oupk19l"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            style="width:100%; max-width:700px; aspect-ratio:16/9; border-radius:10px;">
+          </iframe>
+        </div>
+
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube.com/embed/v38BA2pi8iw?si=jDBRihyCaW3hlwDm"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            style="width:100%; max-width:700px; aspect-ratio:16/9; border-radius:10px;">
+          </iframe>
+        </div>
+      </div>
+                
+                </p>
+                <a href="https://example.com" target="_blank" class="know-more-btn">
+                    Know More
+                </a>
+            </div>
+        </div>
+    </div>
+
 
             <!-- Navigation Controls -->
             <div class="slideshow-controls" id="slideshowControls">
